@@ -1,0 +1,5 @@
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/esp-idf/iringer_lp_core/lp_core_main/CMakeFiles/lp_core_main.dir
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/esp-idf/iringer_lp_core/lp_core_main/CMakeFiles/ld_script.dir
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/esp-idf/iringer_lp_core/lp_core_main/CMakeFiles/build.dir
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/esp-idf/iringer_lp_core/lp_core_main/CMakeFiles/edit_cache.dir
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/esp-idf/iringer_lp_core/lp_core_main/CMakeFiles/rebuild_cache.dir

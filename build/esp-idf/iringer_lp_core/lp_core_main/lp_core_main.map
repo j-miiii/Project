@@ -1,0 +1,949 @@
+Archive member included to satisfy reference by file (symbol)
+
+C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_ashrdi3.o)
+                              CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj (__ashrdi3)
+C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o)
+                              CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj (__udivdi3)
+C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_umoddi3.o)
+                              CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj (__umoddi3)
+C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_clz.o)
+                              C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o) (__clz_tab)
+C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a(libc_a-strlen.o)
+                              CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj (strlen)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/start.S.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/start.S.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/start.S.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/vector.S.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/vector.S.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/vector.S.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/port/esp32c6/vector_table.S.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/port/esp32c6/vector_table.S.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/port/esp32c6/vector_table.S.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .text.ulp_lp_core_lp_timer_set_wakeup_time
+                0x00000000       0x58 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .text.ulp_lp_core_lp_timer_disable
+                0x00000000       0x1e CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .text.ulp_lp_core_get_wakeup_cause
+                0x00000000        0xa CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .text.ulp_lp_core_delay_cycles
+                0x00000000       0x10 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .text.unlikely.abort
+                0x00000000        0x4 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .text.ulp_lp_core_sw_intr_enable
+                0x00000000       0x1a CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .text.ulp_lp_core_sw_intr_clear
+                0x00000000       0x18 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .text.ulp_lp_core_wait_for_intr
+                0x00000000        0x6 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .text.uart_hal_txfifo_rst
+                0x00000000       0x42 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .text.uart_hal_rxfifo_rst
+                0x00000000       0x42 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .text.uart_hal_tx_break
+                0x00000000       0x54 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .text.uart_hal_write_txfifo
+                0x00000000       0x5a CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .text.uart_hal_read_rxfifo
+                0x00000000       0x58 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .debug_info    0x00000000     0x1a26 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .debug_abbrev  0x00000000      0x337 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .debug_loclists
+                0x00000000      0x19d CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .debug_aranges
+                0x00000000       0x40 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .debug_rnglists
+                0x00000000       0x9d CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .debug_line    0x00000000      0x63b CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .debug_str     0x00000000      0xe3d CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .debug_line_str
+                0x00000000      0x357 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .comment       0x00000000       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .debug_frame   0x00000000       0x80 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .riscv.attributes
+                0x00000000       0x5c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_get_sclk
+                0x00000000       0x56 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_get_baudrate
+                0x00000000       0x5e CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_set_stop_bits
+                0x00000000       0x26 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_get_stop_bits
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_set_data_bit_num
+                0x00000000       0x24 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_get_data_bit_num
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_set_parity
+                0x00000000       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_get_parity
+                0x00000000       0x18 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_set_hw_flow_ctrl
+                0x00000000       0x94 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_get_hw_flow_ctrl
+                0x00000000       0x1c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_set_sw_flow_ctrl
+                0x00000000       0xbe CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_set_at_cmd_char
+                0x00000000       0x6c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_set_tx_idle_num
+                0x00000000       0x2e CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_set_dtr
+                0x00000000       0x16 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_set_rxfifo_full_thr
+                0x00000000       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_set_txfifo_empty_thr
+                0x00000000       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_set_wakeup_thrd
+                0x00000000       0x14 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_get_wakeup_thrd
+                0x00000000        0xe CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_set_mode
+                0x00000000      0x180 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_is_hw_rts_en
+                0x00000000        0xa CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_inverse_signal
+                0x00000000       0xd0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_set_loop_back
+                0x00000000       0x28 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_init
+                0x00000000       0xd2 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_get_symb_len
+                0x00000000       0x34 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_set_rx_timeout
+                0x00000000       0x5e CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text.uart_hal_get_max_rx_timeout_thrd
+                0x00000000       0x1e CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .debug_info    0x00000000     0x5c50 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .debug_abbrev  0x00000000      0x440 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .debug_loclists
+                0x00000000      0x736 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .debug_aranges
+                0x00000000       0xe8 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .debug_rnglists
+                0x00000000      0x246 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .debug_line    0x00000000     0x1aac CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .debug_str     0x00000000     0x3689 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .debug_line_str
+                0x00000000      0x3cf CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .comment       0x00000000       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .debug_frame   0x00000000      0x218 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .riscv.attributes
+                0x00000000       0x5c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .text.lp_core_uart_check_timeout
+                0x00000000       0x56 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .text.lp_core_uart_tx_chars
+                0x00000000       0x28 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .text.lp_core_uart_tx_flush
+                0x00000000       0x88 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .text.lp_core_uart_write_bytes
+                0x00000000       0xe4 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .text.lp_core_uart_read_bytes
+                0x00000000       0xee CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .sdata.hal     0x00000000        0x4 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .debug_info    0x00000000     0x4c51 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .debug_abbrev  0x00000000      0x45e CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .debug_loclists
+                0x00000000      0x4da CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .debug_aranges
+                0x00000000       0x40 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .debug_rnglists
+                0x00000000       0xa6 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .debug_line    0x00000000      0x9af CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .debug_str     0x00000000     0x2eee CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .debug_line_str
+                0x00000000      0x520 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .comment       0x00000000       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .debug_frame   0x00000000       0xf8 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .riscv.attributes
+                0x00000000       0x5c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .text.lp_core_cvt
+                0x00000000       0xbc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .text.lp_uart_send_char
+                0x00000000       0x34 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .rodata.lp_core_printf.str1.4
+                0x00000000       0x39 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .text.lp_core_printf
+                0x00000000      0x49e CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .rodata.lp_core_printf
+                0x00000000       0x48 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .text.lp_core_print_str
+                0x00000000       0x22 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .text.lp_core_print_hex
+                0x00000000       0x3c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .text.lp_core_print_dec_two_digits
+                0x00000000       0x3e CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .debug_info    0x00000000      0x602 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .debug_abbrev  0x00000000      0x2d6 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .debug_loclists
+                0x00000000      0x85c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .debug_aranges
+                0x00000000       0x48 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .debug_rnglists
+                0x00000000       0x4f CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .debug_line    0x00000000      0xc35 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .debug_str     0x00000000      0x2ca CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .debug_line_str
+                0x00000000      0x2d3 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .comment       0x00000000       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .debug_frame   0x00000000      0x140 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .riscv.attributes
+                0x00000000       0x5c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_panic.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_panic.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_panic.c.obj
+ .debug_info    0x00000000       0x6c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_panic.c.obj
+ .debug_abbrev  0x00000000       0x26 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_panic.c.obj
+ .debug_aranges
+                0x00000000       0x18 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_panic.c.obj
+ .debug_line    0x00000000       0x35 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_panic.c.obj
+ .debug_str     0x00000000      0x112 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_panic.c.obj
+ .debug_line_str
+                0x00000000      0x188 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_panic.c.obj
+ .comment       0x00000000       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_panic.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_panic.c.obj
+ .riscv.attributes
+                0x00000000       0x5c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_panic.c.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+ .text.ulp_lp_core_intr_enable
+                0x00000000        0xe CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+ .text.ulp_lp_core_intr_disable
+                0x00000000        0xe CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .text.lp_core_i2c_wait_for_interrupt
+                0x00000000       0x62 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .text.lp_core_i2c_format_cmd.constprop.0
+                0x00000000       0x28 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .text.lp_core_i2c_config_device_addr.constprop.0
+                0x00000000       0x32 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .text.lp_core_i2c_master_set_ack_check_en
+                0x00000000        0xa CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .text.lp_core_i2c_master_read_from_device
+                0x00000000      0x170 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .text.lp_core_i2c_master_write_to_device
+                0x00000000      0x170 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .text.lp_core_i2c_master_write_read_device
+                0x00000000      0x272 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .sdata.s_ack_check_en
+                0x00000000        0x1 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .sdata.dev     0x00000000        0x4 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .debug_info    0x00000000     0x2790 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .debug_abbrev  0x00000000      0x4a8 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .debug_loclists
+                0x00000000      0xc88 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .debug_aranges
+                0x00000000       0x50 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .debug_rnglists
+                0x00000000      0x146 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .debug_line    0x00000000     0x1049 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .debug_str     0x00000000     0x1c66 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .debug_line_str
+                0x00000000      0x4ff CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .comment       0x00000000       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .debug_frame   0x00000000      0x170 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .riscv.attributes
+                0x00000000       0x5c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_spi.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_spi.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_spi.c.obj
+ .debug_line    0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_spi.c.obj
+ .debug_str     0x00000000       0x82 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_spi.c.obj
+ .debug_line_str
+                0x00000000       0xc2 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_spi.c.obj
+ .comment       0x00000000       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_spi.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_spi.c.obj
+ .riscv.attributes
+                0x00000000       0x5c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_spi.c.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.unlikely.__ubsan_handle_type_mismatch
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.unlikely.__ubsan_handle_type_mismatch_v1
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.unlikely.__ubsan_handle_add_overflow
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.unlikely.__ubsan_handle_sub_overflow
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.unlikely.__ubsan_handle_mul_overflow
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.unlikely.__ubsan_handle_negate_overflow
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.unlikely.__ubsan_handle_divrem_overflow
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.__ubsan_handle_shift_out_of_bounds
+                0x00000000       0x16 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.unlikely.__ubsan_handle_out_of_bounds
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.unlikely.__ubsan_handle_missing_return
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.unlikely.__ubsan_handle_vla_bound_not_positive
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.unlikely.__ubsan_handle_load_invalid_value
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.unlikely.__ubsan_handle_nonnull_arg
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.unlikely.__ubsan_handle_nonnull_return
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.unlikely.__ubsan_handle_builtin_unreachable
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.unlikely.__ubsan_handle_pointer_overflow
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text.unlikely.__ubsan_handle_invalid_builtin
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .debug_info    0x00000000      0x939 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .debug_abbrev  0x00000000      0x1ef CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .debug_loclists
+                0x00000000      0x1e7 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .debug_aranges
+                0x00000000       0xa0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .debug_rnglists
+                0x00000000       0xa3 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .debug_line    0x00000000      0x262 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .debug_str     0x00000000      0x573 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .debug_line_str
+                0x00000000      0x2e5 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .comment       0x00000000       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .debug_frame   0x00000000      0x1ac CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .riscv.attributes
+                0x00000000       0x5c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_adc_shared.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_adc_shared.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_adc_shared.c.obj
+ .debug_line    0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_adc_shared.c.obj
+ .debug_str     0x00000000       0x82 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_adc_shared.c.obj
+ .debug_line_str
+                0x00000000       0xcf CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_adc_shared.c.obj
+ .comment       0x00000000       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_adc_shared.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_adc_shared.c.obj
+ .riscv.attributes
+                0x00000000       0x5c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_adc_shared.c.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_vad_shared.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_vad_shared.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_vad_shared.c.obj
+ .debug_line    0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_vad_shared.c.obj
+ .debug_str     0x00000000       0x82 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_vad_shared.c.obj
+ .debug_line_str
+                0x00000000       0xcf CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_vad_shared.c.obj
+ .comment       0x00000000       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_vad_shared.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_vad_shared.c.obj
+ .riscv.attributes
+                0x00000000       0x5c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_vad_shared.c.obj
+ .text          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .data          0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .bss           0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .text.ulp_lp_core_spinlock_init
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .text.ulp_lp_core_enter_critical
+                0x00000000       0x2a CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .text.ulp_lp_core_exit_critical
+                0x00000000        0xc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .debug_info    0x00000000      0x266 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .debug_abbrev  0x00000000      0x1b8 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .debug_loclists
+                0x00000000       0x8d CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .debug_aranges
+                0x00000000       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .debug_rnglists
+                0x00000000       0x1f CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .debug_line    0x00000000      0x24a CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .debug_str     0x00000000      0x299 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .debug_line_str
+                0x00000000      0x2b2 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .comment       0x00000000       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .debug_frame   0x00000000       0x50 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .riscv.attributes
+                0x00000000       0x5c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+ .text          0x00000000       0x2a C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_ashrdi3.o)
+ .data          0x00000000        0x0 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_ashrdi3.o)
+ .bss           0x00000000        0x0 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_ashrdi3.o)
+ .debug_info    0x00000000      0x1b6 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_ashrdi3.o)
+ .debug_abbrev  0x00000000      0x10c C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_ashrdi3.o)
+ .debug_loclists
+                0x00000000       0x6b C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_ashrdi3.o)
+ .debug_aranges
+                0x00000000       0x20 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_ashrdi3.o)
+ .debug_line    0x00000000      0x113 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_ashrdi3.o)
+ .debug_str     0x00000000      0x1ee C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_ashrdi3.o)
+ .debug_line_str
+                0x00000000      0x1a2 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_ashrdi3.o)
+ .comment       0x00000000       0x30 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_ashrdi3.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_ashrdi3.o)
+ .debug_frame   0x00000000       0x20 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_ashrdi3.o)
+ .riscv.attributes
+                0x00000000       0x5c C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_ashrdi3.o)
+ .data          0x00000000        0x0 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o)
+ .bss           0x00000000        0x0 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o)
+ .eh_frame      0x00000000       0x28 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o)
+ .data          0x00000000        0x0 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_umoddi3.o)
+ .bss           0x00000000        0x0 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_umoddi3.o)
+ .eh_frame      0x00000000       0x28 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_umoddi3.o)
+ .text          0x00000000        0x0 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_clz.o)
+ .data          0x00000000        0x0 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_clz.o)
+ .bss           0x00000000        0x0 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_clz.o)
+ .text          0x00000000       0x64 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a(libc_a-strlen.o)
+ .data          0x00000000        0x0 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a(libc_a-strlen.o)
+ .bss           0x00000000        0x0 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a(libc_a-strlen.o)
+ .debug_info    0x00000000      0x1a8 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a(libc_a-strlen.o)
+ .debug_abbrev  0x00000000      0x121 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a(libc_a-strlen.o)
+ .debug_loclists
+                0x00000000       0x75 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a(libc_a-strlen.o)
+ .debug_aranges
+                0x00000000       0x20 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a(libc_a-strlen.o)
+ .debug_rnglists
+                0x00000000       0x13 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a(libc_a-strlen.o)
+ .debug_line    0x00000000      0x242 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a(libc_a-strlen.o)
+ .debug_str     0x00000000      0x13d C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a(libc_a-strlen.o)
+ .debug_line_str
+                0x00000000      0x3cf C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a(libc_a-strlen.o)
+ .comment       0x00000000       0x30 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a(libc_a-strlen.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a(libc_a-strlen.o)
+ .debug_frame   0x00000000       0x20 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a(libc_a-strlen.o)
+ .riscv.attributes
+                0x00000000       0x5c C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a(libc_a-strlen.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+vector_table     0x50000000         0x00000080         xr
+ram              0x50000080         0x00001f70         xrw
+shared_mem_ram   0x50001ff0         0x00000010         rw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD C:/Espressif/frameworks/esp-idf-v5.4.2/components/soc/esp32c6/ld/esp32c6.peripherals.ld
+                0x60000000                        PROVIDE (UART0 = 0x60000000)
+                [!provide]                        PROVIDE (UART1 = 0x60001000)
+                [!provide]                        PROVIDE (SPIMEM0 = 0x60002000)
+                [!provide]                        PROVIDE (SPIMEM1 = 0x60003000)
+                [!provide]                        PROVIDE (I2C0 = 0x60004000)
+                [!provide]                        PROVIDE (UHCI0 = 0x60005000)
+                [!provide]                        PROVIDE (RMT = 0x60006000)
+                [!provide]                        PROVIDE (RMTMEM = 0x60006400)
+                [!provide]                        PROVIDE (LEDC = 0x60007000)
+                [!provide]                        PROVIDE (TIMERG0 = 0x60008000)
+                [!provide]                        PROVIDE (TIMERG1 = 0x60009000)
+                [!provide]                        PROVIDE (SYSTIMER = 0x6000a000)
+                [!provide]                        PROVIDE (TWAI0 = 0x6000b000)
+                [!provide]                        PROVIDE (I2S0 = 0x6000c000)
+                [!provide]                        PROVIDE (TWAI1 = 0x6000d000)
+                [!provide]                        PROVIDE (APB_SARADC = 0x6000e000)
+                [!provide]                        PROVIDE (USB_SERIAL_JTAG = 0x6000f000)
+                [!provide]                        PROVIDE (INTMTX = 0x60010000)
+                [!provide]                        PROVIDE (ATOMIC_LOCKER = 0x60011000)
+                [!provide]                        PROVIDE (PCNT = 0x60012000)
+                [!provide]                        PROVIDE (SOC_ETM = 0x60013000)
+                [!provide]                        PROVIDE (MCPWM0 = 0x60014000)
+                [!provide]                        PROVIDE (PARL_IO = 0x60015000)
+                [!provide]                        PROVIDE (HINF = 0x60016000)
+                [!provide]                        PROVIDE (SLC = 0x60017000)
+                [!provide]                        PROVIDE (HOST = 0x60018000)
+                [!provide]                        PROVIDE (PVT_MONITOR = 0x60019000)
+                [!provide]                        PROVIDE (GDMA = 0x60080000)
+                [!provide]                        PROVIDE (GPSPI2 = 0x60081000)
+                [!provide]                        PROVIDE (AES = 0x60088000)
+                [!provide]                        PROVIDE (SHA = 0x60089000)
+                [!provide]                        PROVIDE (RSA = 0x6008a000)
+                [!provide]                        PROVIDE (ECC = 0x6008b000)
+                [!provide]                        PROVIDE (DS = 0x6008c000)
+                [!provide]                        PROVIDE (HMAC = 0x6008d000)
+                [!provide]                        PROVIDE (IO_MUX = 0x60090000)
+                [!provide]                        PROVIDE (GPIO = 0x60091000)
+                [!provide]                        PROVIDE (GPIO_EXT = 0x60091f00)
+                [!provide]                        PROVIDE (SDM = 0x60091f00)
+                [!provide]                        PROVIDE (GLITCH_FILTER = 0x60091f30)
+                [!provide]                        PROVIDE (GPIO_ETM = 0x60091f60)
+                [!provide]                        PROVIDE (MEM_MONITOR = 0x60092000)
+                [!provide]                        PROVIDE (PAU = 0x60093000)
+                [!provide]                        PROVIDE (HP_SYSTEM = 0x60095000)
+                0x60096000                        PROVIDE (PCR = 0x60096000)
+                [!provide]                        PROVIDE (TEE = 0x60098000)
+                [!provide]                        PROVIDE (HP_APM = 0x60099000)
+                [!provide]                        PROVIDE (IEEE802154 = 0x600a3000)
+                [!provide]                        PROVIDE (MODEM_SYSCON = 0x600a9800)
+                [!provide]                        PROVIDE (MODEM_LPCON = 0x600af000)
+                0x600b0000                        PROVIDE (PMU = 0x600b0000)
+                0x600b0400                        PROVIDE (LP_CLKRST = 0x600b0400)
+                [!provide]                        PROVIDE (EFUSE = 0x600b0800)
+                0x600b0c00                        PROVIDE (LP_TIMER = 0x600b0c00)
+                0x600b1000                        PROVIDE (LP_AON = 0x600b1000)
+                0x600b1400                        PROVIDE (LP_UART = 0x600b1400)
+                0x600b1800                        PROVIDE (LP_I2C = 0x600b1800)
+                [!provide]                        PROVIDE (LP_WDT = 0x600b1c00)
+                0x600b2000                        PROVIDE (LP_IO = 0x600b2000)
+                [!provide]                        PROVIDE (LP_I2C_ANA_MST = 0x600b2400)
+                0x600b2800                        PROVIDE (LPPERI = 0x600b2800)
+                [!provide]                        PROVIDE (LP_ANA_PERI = 0x600b2c00)
+                [!provide]                        PROVIDE (LP_APM = 0x600b3800)
+                [!provide]                        PROVIDE (OTP_DEBUG = 0x600b3c00)
+LOAD CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/start.S.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/vector.S.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/port/esp32c6/vector_table.S.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal_iram.c.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/hal/uart_hal.c.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_uart.c.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_print.c.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_panic.c.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_spi.c.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_adc_shared.c.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_vad_shared.c.obj
+LOAD CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj
+LOAD C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a
+LOAD C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libg_nano.a
+LOAD C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libc_nano.a
+LOAD C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a
+START GROUP
+LOAD C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a
+LOAD C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libc_nano.a
+LOAD C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libnosys.a
+END GROUP
+START GROUP
+LOAD C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a
+LOAD C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libc_nano.a
+LOAD C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/../../../../riscv32-esp-elf/lib/rv32imac_zicsr_zifencei/ilp32\libnosys.a
+END GROUP
+
+.vector.text    0x50000000       0x80
+                0x50000000                        __mtvec_base = .
+ *(.init.vector .init.vector.*)
+ .init.vector   0x50000000       0x80 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/port/esp32c6/vector_table.S.obj
+                0x50000000                _vector_table
+                0x50000080                        . = ORIGIN (ram)
+
+.text           0x50000080     0x16fe
+ *(.text.vectors)
+ .text.vectors  0x50000080       0x1c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/start.S.obj
+                0x50000080                reset_vector
+ *(.text)
+ .text          0x5000009c      0x35a C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o)
+                0x5000009c                __udivdi3
+ .text          0x500003f6      0x322 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_umoddi3.o)
+                0x500003f6                __umoddi3
+ *(.text*)
+ .text.finalize_burst.constprop.0
+                0x50000718      0x156 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .text.ulp_lp_core_gpio_init
+                0x5000086e       0x66 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .text.startup.main
+                0x500008d4      0xaea CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+                0x500008d4                main
+ .text.handlers
+                0x500013be       0xfa CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/vector.S.obj
+                0x500013be                _panic_handler
+                0x5000142e                _interrupt_handler
+ .text.ulp_lp_core_memory_shared_cfg_get
+                0x500014b8        0xa CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+                0x500014b8                ulp_lp_core_memory_shared_cfg_get
+ .text.lp_timer_hal_set_alarm_target
+                0x500014c2       0x38 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .text.ulp_lp_core_lp_timer_get_cycle_count
+                0x500014fa       0x26 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+                0x500014fa                ulp_lp_core_lp_timer_get_cycle_count
+ .text.ulp_lp_core_lp_timer_set_wakeup_ticks
+                0x50001520       0x24 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+                0x50001520                ulp_lp_core_lp_timer_set_wakeup_ticks
+ .text.ulp_lp_core_lp_timer_calculate_sleep_ticks
+                0x50001544       0x20 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+                0x50001544                ulp_lp_core_lp_timer_calculate_sleep_ticks
+ .text.lp_core_startup
+                0x50001564       0x1c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+                0x50001564                lp_core_startup
+ .text.ulp_lp_core_update_wakeup_cause
+                0x50001580      0x144 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+                0x50001580                ulp_lp_core_update_wakeup_cause
+ .text.ulp_lp_core_wakeup_main_processor
+                0x500016c4       0x14 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+                0x500016c4                ulp_lp_core_wakeup_main_processor
+ .text.ulp_lp_core_delay_us
+                0x500016d8       0x12 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+                0x500016d8                ulp_lp_core_delay_us
+ .text.ulp_lp_core_halt
+                0x500016ea       0x18 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+                0x500016ea                ulp_lp_core_halt
+ .text.ulp_lp_core_stop_lp_core
+                0x50001702       0x1c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+                0x50001702                ulp_lp_core_stop_lp_core
+ .text.ulp_lp_core_abort
+                0x5000171e        0x8 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+                0x5000171e                ulp_lp_core_abort
+ .text.ulp_lp_core_default_intr_handler
+                0x50001726        0x6 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+                0x50001726                ulp_lp_core_efuse_intr_handler
+                0x50001726                ulp_lp_core_lp_touch_intr_handler
+                0x50001726                ulp_lp_core_sw_intr_handler
+                0x50001726                ulp_lp_core_lp_adc_intr_handler
+                0x50001726                ulp_lp_core_lp_ana_peri_intr_handler
+                0x50001726                ulp_lp_core_trng_intr_handler
+                0x50001726                ulp_lp_core_lp_uart_intr_handler
+                0x50001726                ulp_lp_core_lp_spi_intr_handler
+                0x50001726                ulp_lp_core_lp_io_intr_handler
+                0x50001726                ulp_lp_core_lp_wdt_intr_handler
+                0x50001726                ulp_lp_core_mailbox_intr_handler
+                0x50001726                ulp_lp_core_lp_sysreg_intr_handler
+                0x50001726                ulp_lp_core_tsens_intr_handler
+                0x50001726                ulp_lp_core_lp_rtc_intr_handler
+                0x50001726                ulp_lp_core_lp_timer_intr_handler
+                0x50001726                ulp_lp_core_lp_pmu_intr_handler
+                0x50001726                ulp_lp_core_lp_i2c_intr_handler
+ .text.ulp_lp_core_panic_handler
+                0x5000172c        0x6 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+                0x5000172c                ulp_lp_core_panic_handler
+ .text.ulp_lp_core_intr_handler
+                0x50001732       0x4c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+                0x50001732                ulp_lp_core_intr_handler
+
+.rodata         0x50001780      0x118
+ *(.rodata)
+ .rodata        0x50001780      0x100 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_clz.o)
+                0x50001780                __clz_tab
+ *(.rodata*)
+ .rodata.s_intr_handlers
+                0x50001880       0x18 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+
+.rela.dyn       0x50001898        0x0
+ .rela.text.ulp_lp_core_gpio_init
+                0x50001898        0x0 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .rela.text.startup.main
+                0x50001898        0x0 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .rela.text.vectors
+                0x50001898        0x0 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .rela.text.lp_timer_hal_set_alarm_target
+                0x50001898        0x0 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .rela.text.ulp_lp_core_lp_timer_get_cycle_count
+                0x50001898        0x0 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .rela.text.ulp_lp_core_update_wakeup_cause
+                0x50001898        0x0 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .rela.text.ulp_lp_core_halt
+                0x50001898        0x0 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .rela.text.ulp_lp_core_stop_lp_core
+                0x50001898        0x0 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .rela.text.ulp_lp_core_intr_handler
+                0x50001898        0x0 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .rela.rodata.s_intr_handlers
+                0x50001898        0x0 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+
+.data
+ *(.data)
+ *(.data*)
+ *(.sdata)
+ *(.sdata*)
+
+.rtc.force_slow.0
+                0x50001898       0xc8
+ .rtc.force_slow.0
+                0x50001898       0xc8 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+                0x50001898                ulp_shared_data
+
+.bss            0x50001960      0x100
+ *(.bss)
+ *(.bss*)
+ .bss.s_gtt_change_buf.1
+                0x50001960       0x3c CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .bss.gtt_history.4
+                0x5000199c       0x28 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ *fill*         0x500019c4        0x4 
+ .bss.s_algo_state
+                0x500019c8       0x78 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ *(.sbss)
+ *(.sbss*)
+ .sbss.s_gtt_change_wr.0
+                0x50001a40        0x4 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .sbss.s_gtt_change_cnt.2
+                0x50001a44        0x4 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .sbss.gtt_hist_filled.3
+                0x50001a48        0x4 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .sbss.gtt_hist_idx.5
+                0x50001a4c        0x4 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .sbss.prev_raw_edge_count.6
+                0x50001a50        0x4 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .sbss.raw_edge_count.7
+                0x50001a54        0x4 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .sbss.s_led_on_drop_until_us
+                0x50001a58        0x4 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .sbss.lp_wakeup_cause
+                0x50001a5c        0x4 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+                [!provide]                        PROVIDE (end = .)
+                0x50001ff0                        __stack_top = (ORIGIN (ram) + LENGTH (ram))
+                0x50001ff0                        . = ORIGIN (shared_mem_ram)
+
+.shared_mem     0x50001ff0       0x10
+ *(.shared_mem)
+ .shared_mem    0x50001ff0       0x10 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+OUTPUT(lp_core_main.elf elf32-littleriscv)
+
+.debug_info     0x00000000     0xa31a
+ .debug_info    0x00000000     0x2a55 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .debug_info    0x00002a55       0x24 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/start.S.obj
+ .debug_info    0x00002a79       0x25 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/vector.S.obj
+ .debug_info    0x00002a9e       0x33 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/port/esp32c6/vector_table.S.obj
+ .debug_info    0x00002ad1       0xed CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+ .debug_info    0x00002bbe      0xc0f CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .debug_info    0x000037cd      0x15f CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+ .debug_info    0x0000392c     0x514e CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .debug_info    0x00008a7a      0x87a CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+ .debug_info    0x000092f4      0x776 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o)
+ .debug_info    0x00009a6a      0x7c3 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_umoddi3.o)
+ .debug_info    0x0000a22d       0xed C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_clz.o)
+
+.debug_abbrev   0x00000000     0x1515
+ .debug_abbrev  0x00000000      0x50b CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .debug_abbrev  0x0000050b       0x14 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/start.S.obj
+ .debug_abbrev  0x0000051f       0x14 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/vector.S.obj
+ .debug_abbrev  0x00000533       0x28 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/port/esp32c6/vector_table.S.obj
+ .debug_abbrev  0x0000055b       0x90 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+ .debug_abbrev  0x000005eb      0x35d CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .debug_abbrev  0x00000948      0x108 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+ .debug_abbrev  0x00000a50      0x4e2 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .debug_abbrev  0x00000f32      0x223 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+ .debug_abbrev  0x00001155      0x1a6 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o)
+ .debug_abbrev  0x000012fb      0x1aa C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_umoddi3.o)
+ .debug_abbrev  0x000014a5       0x70 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_clz.o)
+
+.debug_loclists
+                0x00000000     0x1a11
+ .debug_loclists
+                0x00000000      0xc0b CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .debug_loclists
+                0x00000c0b       0xf0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .debug_loclists
+                0x00000cfb       0x2a CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+ .debug_loclists
+                0x00000d25       0xbe CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .debug_loclists
+                0x00000de3       0x61 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+ .debug_loclists
+                0x00000e44      0x6ad C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o)
+ .debug_loclists
+                0x000014f1      0x520 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_umoddi3.o)
+
+.debug_aranges  0x00000000      0x228
+ .debug_aranges
+                0x00000000       0x30 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .debug_aranges
+                0x00000030       0x20 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/start.S.obj
+ .debug_aranges
+                0x00000050       0x20 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/vector.S.obj
+ .debug_aranges
+                0x00000070       0x20 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/port/esp32c6/vector_table.S.obj
+ .debug_aranges
+                0x00000090       0x20 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+ .debug_aranges
+                0x000000b0       0x48 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .debug_aranges
+                0x000000f8       0x20 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+ .debug_aranges
+                0x00000118       0x78 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .debug_aranges
+                0x00000190       0x40 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+ .debug_aranges
+                0x000001d0       0x20 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o)
+ .debug_aranges
+                0x000001f0       0x20 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_umoddi3.o)
+ .debug_aranges
+                0x00000210       0x18 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_clz.o)
+
+.debug_rnglists
+                0x00000000      0x443
+ .debug_rnglists
+                0x00000000      0x1de CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .debug_rnglists
+                0x000001de       0x13 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+ .debug_rnglists
+                0x000001f1       0x67 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .debug_rnglists
+                0x00000258       0x13 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+ .debug_rnglists
+                0x0000026b       0xb6 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .debug_rnglists
+                0x00000321       0x3d CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+ .debug_rnglists
+                0x0000035e       0x8f C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o)
+ .debug_rnglists
+                0x000003ed       0x56 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_umoddi3.o)
+
+.debug_line     0x00000000     0x46a0
+ .debug_line    0x00000000     0x2235 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .debug_line    0x00002235       0x68 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/start.S.obj
+ .debug_line    0x0000229d       0xd5 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/vector.S.obj
+ .debug_line    0x00002372       0x56 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/port/esp32c6/vector_table.S.obj
+ .debug_line    0x000023c8       0x84 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+ .debug_line    0x0000244c      0x416 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .debug_line    0x00002862       0xd9 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+ .debug_line    0x0000293b      0x7ba CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .debug_line    0x000030f5      0x264 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+ .debug_line    0x00003359      0x97b C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o)
+ .debug_line    0x00003cd4      0x98d C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_umoddi3.o)
+ .debug_line    0x00004661       0x3f C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_clz.o)
+
+.debug_str      0x00000000     0x49be
+ .debug_str     0x00000000     0x49be CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+                               0x1b6c (size before relaxing)
+ .debug_str     0x000049be       0xca CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/start.S.obj
+ .debug_str     0x000049be       0xcb CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/vector.S.obj
+ .debug_str     0x000049be       0xec CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/port/esp32c6/vector_table.S.obj
+ .debug_str     0x000049be      0x1a1 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+ .debug_str     0x000049be      0xa99 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .debug_str     0x000049be      0x20b CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+ .debug_str     0x000049be     0x2f45 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .debug_str     0x000049be      0x608 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+ .debug_str     0x000049be      0x264 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o)
+ .debug_str     0x000049be      0x264 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_umoddi3.o)
+ .debug_str     0x000049be      0x1b1 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_clz.o)
+
+.debug_line_str
+                0x00000000      0xafb
+ .debug_line_str
+                0x00000000      0xafb CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+                                0x4e9 (size before relaxing)
+ .debug_line_str
+                0x00000afb       0xbc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/start.S.obj
+ .debug_line_str
+                0x00000afb       0xbd CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/vector.S.obj
+ .debug_line_str
+                0x00000afb       0xd0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/port/esp32c6/vector_table.S.obj
+ .debug_line_str
+                0x00000afb      0x308 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+ .debug_line_str
+                0x00000afb      0x481 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .debug_line_str
+                0x00000afb      0x36c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+ .debug_line_str
+                0x00000afb      0x54d CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .debug_line_str
+                0x00000afb      0x3f6 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+ .debug_line_str
+                0x00000afb      0x1a2 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o)
+ .debug_line_str
+                0x00000afb      0x1a2 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_umoddi3.o)
+ .debug_line_str
+                0x00000afb      0x1a2 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_clz.o)
+
+.comment        0x00000000       0x2f
+ .comment       0x00000000       0x2f CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+                                 0x30 (size before relaxing)
+ .comment       0x0000002f       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+ .comment       0x0000002f       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .comment       0x0000002f       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+ .comment       0x0000002f       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .comment       0x0000002f       0x30 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+ .comment       0x0000002f       0x30 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o)
+ .comment       0x0000002f       0x30 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_umoddi3.o)
+ .comment       0x0000002f       0x30 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_clz.o)
+
+.note.GNU-stack
+                0x00000000        0x0
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+ .note.GNU-stack
+                0x00000000        0x0 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_umoddi3.o)
+ .note.GNU-stack
+                0x00000000        0x0 C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_clz.o)
+
+.riscv.attributes
+                0x00000000       0x60
+ .riscv.attributes
+                0x00000000       0x5c CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .riscv.attributes
+                0x0000005c       0x5e CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/start.S.obj
+ .riscv.attributes
+                0x000000ba       0x5e CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/vector.S.obj
+ .riscv.attributes
+                0x00000118       0x5a CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/port/esp32c6/vector_table.S.obj
+ .riscv.attributes
+                0x00000172       0x5c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+ .riscv.attributes
+                0x000001ce       0x5c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .riscv.attributes
+                0x0000022a       0x5c CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+ .riscv.attributes
+                0x00000286       0x60 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .riscv.attributes
+                0x000002e6       0x60 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj
+ .riscv.attributes
+                0x00000346       0x5c C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_udivdi3.o)
+ .riscv.attributes
+                0x000003a2       0x5c C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_umoddi3.o)
+ .riscv.attributes
+                0x000003fe       0x5c C:/Espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin/../lib/gcc/riscv32-esp-elf/14.2.0/rv32imac_zicsr_zifencei/ilp32\libgcc.a(_clz.o)
+
+.debug_frame    0x00000000      0x2dc
+ .debug_frame   0x00000000       0x68 CMakeFiles/lp_core_main.dir/6aaf7b0e835bc6cfefea8252cfd91628/iringer_ir_end_device_2.1/components/iringer_lp_core/lp_core_main_lp.c.obj
+ .debug_frame   0x00000068       0x20 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj
+ .debug_frame   0x00000088       0xbc CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj
+ .debug_frame   0x00000144       0x28 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_startup.c.obj
+ .debug_frame   0x0000016c       0xe0 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_utils.c.obj
+ .debug_frame   0x0000024c       0x90 CMakeFiles/lp_core_main.dir/C_/Espressif/frameworks/esp-idf-v5.4.2/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj

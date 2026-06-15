@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCD 흰색 화면 발생 가능 지점 전수조사 보고서</title>
+    <style>
+        body { font-family: 'Malgun Gothic', 'Segoe UI', sans-serif; margin: 2rem; max-width: 960px; line-height: 1.55; color: #333; }
+        h1 { color: #1a5276; border-bottom: 2px solid #1a5276; padding-bottom: 0.5rem; }
+        h2 { color: #2874a6; margin-top: 1.5rem; }
+        h3 { color: #3498db; margin-top: 1rem; }
+        table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.9rem; }
+        th, td { border: 1px solid #bdc3c7; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+        th { background: #ebf5fb; }
+        .code { font-family: 'Consolas', 'Monaco', monospace; background: #f4f6f7; padding: 0.15rem 0.35rem; border-radius: 3px; font-size: 0.9em; }
+        .file { font-family: 'Consolas', monospace; color: #6c3483; font-size: 0.9em; }
+        .risk-high { background: #fadbd8; border-left: 4px solid #c0392b; }
+        .risk-mid { background: #fdebd0; border-left: 4px solid #f39c12; }
+        .risk-low { background: #e8f6f3; border-left: 4px solid #1abc9c; }
+        .finding { padding: 0.6rem 0.8rem; margin: 0.8rem 0; }
+        ul { margin: 0.4rem 0; padding-left: 1.2rem; }
+        .meta { color: #7f8c8d; font-size: 0.9rem; margin-bottom: 1.2rem; }
+        .fn-list { font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <h1>LCD 흰색 화면 발생 가능 지점 전수조사 보고서</h1>
+    <p class="meta">대상: iringer_ir_end_device_2.1 | 조사일: 2026-01-30 | LCD 관련 함수 전수조사 및 흰색 화면 발생 여지 검토</p>
+
+    <h2>1. LCD 관련 함수 목록</h2>
+    <p>iringer_tft.c/h 및 메인 앱에서의 호출 관계를 기준으로 정리함.</p>
+
+    <h3>1.1 초기화·화면 구성</h3>
+    <table class="fn-list">
+        <thead><tr><th>함수</th><th>파일</th><th>역할</th></tr></thead>
+        <tbody>
+            <tr><td><span class="code">tft_init()</span></td><td>iringer_tft.c</td><td>GPIO/SPI/백라이트 초기화, ST7735 초기화 시퀀스, <span class="code">tft_fillScreen(ST7735_BLACK)</span>, 활동 시간 설정</td></tr>
+            <tr><td><span class="code">tft_init_sequence()</span></td><td>iringer_tft.c (static)</td><td>ST7735 SWRESET, SLPOUT, 프레임/전원/감마 설정, NORON, DISPON, CASET/RASET 설정</td></tr>
+            <tr><td><span class="code">display_main()</span></td><td>iringer_tft.c</td><td>라벨(ml, cc/hr, Gtt) 1회 표시, 배경은 <span class="code">tft_init()</span>의 fillScreen(BLACK) 유지</td></tr>
+            <tr><td><span class="code">print_data()</span></td><td>iringer_tft.c</td><td>device_data_ptr 기반으로 투여량/GTT/cc/hr/배터리/연결 아이콘 갱신. 변경 없으면 early return 가능</td></tr>
+        </tbody>
+    </table>
+
+    <h3>1.2 슬립/웨이크·백라이트</h3>
+    <table class="fn-list">
+        <thead><tr><th>함수</th><th>파일</th><th>역할</th></tr></thead>
+        <tbody>
+            <tr><td><span class="code">tft_enter_sleep()</span></td><td>iringer_tft.c</td><td>DSPOFF → SLPIN 전송, <span class="code">tft_is_sleeping = true</span>. 이후 CS/DC/RST/MOSI/SCLK를 INPUT(HIGH-Z), 백라이트 GPIO hold 후 0 유지</td></tr>
+            <tr><td><span class="code">tft_exit_sleep()</span></td><td>iringer_tft.c</td><td><span class="code">tft_is_sleeping = false</span>, BACKLIGHT hold 해제만. GPIO/ST7735 복원·DISPON은 <span class="code">tft_backlight_turn_on_condition()</span>에서 수행</td></tr>
+            <tr><td><span class="code">tft_backlight_turn_on_condition()</span></td><td>iringer_tft.c</td><td>슬립 중이면 GPIO 복원 → SLPOUT, NORON, DISPON → <span class="code">force_refresh_after_sleep = true</span> → <span class="code">print_data()</span> 호출. 백라이트 ON, Phase 2 타이머 조건부 시작</td></tr>
+            <tr><td><span class="code">tft_set_backlight_duty()</span></td><td>iringer_tft.c</td><td>백라이트 GPIO ON/OFF (duty 0이면 OFF, 그 외 ON)</td></tr>
+            <tr><td><span class="code">tft_backlight_release_hold()</span></td><td>iringer_tft.c</td><td>BACKLIGHT GPIO hold 해제 후 LOW 유지. DISPON/화면 갱신 없음 (현재 메인 앱에서 미호출)</td></tr>
+        </tbody>
+    </table>
+
+    <h3>1.3 그리기·SPI 하부</h3>
+    <table class="fn-list">
+        <thead><tr><th>함수</th><th>파일</th><th>역할</th></tr></thead>
+        <tbody>
+            <tr><td><span class="code">tft_fillScreen()</span></td><td>iringer_tft.c</td><td>CASET/RASET/RAMWR 후 전체 픽셀 전송. <span class="code">spi_handle == NULL</span>이면 로그 후 return (일부만 CASET/RASET 전송된 상태로 종료 가능)</td></tr>
+            <tr><td><span class="code">tft_fill_rect_fast()</span></td><td>iringer_tft.c (static)</td><td>영역 CASET/RASET/RAMWR 후 픽셀 전송. spi_handle NULL이면 CASET/RASET/RAMWR만 전송 후 return</td></tr>
+            <tr><td><span class="code">tft_write_cmd()</span> / <span class="code">tft_write_data()</span> / <span class="code">tft_write_data16()</span></td><td>iringer_tft.c (static)</td><td>SPI로 명령/데이터 전송. <span class="code">spi_handle == NULL</span> 또는 뮤텍스 실패 시 로그 후 return (전송 생략)</td></tr>
+        </tbody>
+    </table>
+
+    <h2>2. 30분~1시간 구간과의 연관성</h2>
+    <p>흰색 화면이 “30분에서 1시간 정도” 후에 보고되는 점과 맞춰 볼 수 있는 설정·타이머는 다음과 같음.</p>
+    <ul>
+        <li><strong>LCD_SLEEP_DELAY</strong>: <span class="code">iringer_tft.h</span>에서 <span class="code">LCD_SLEEP_DELAY_SEC = 18000</span>(5시간)으로 정의되어 있으나, 주석에는 “30분 후 LCD OFF: LCD_SLEEP_DELAY_SEC = 1800” 예시가 있음. 과거/다른 빌드에서 1800(30분)을 사용한 경우, 첫 다운링크 수신 후 약 30분 시점에 <span class="code">tft_enter_sleep()</span> 호출 → 백라이트 OFF 및 GPIO HIGH-Z. 이 시점 이후 메인 루프는 계속 <span class="code">print_data()</span>를 호출하는데, <span class="code">print_data()</span>는 <span class="code">tft_is_sleeping</span>을 검사하지 않아 슬립 중에도 SPI/GPIO에 접근 → 불안정한 신호로 패널 상태 오염 → 이후 웨이크 시 흰색/깨진 화면 가능.</li>
+        <li><strong>Phase 2 타이머</strong>: <span class="code">BACKLIGHT_ON_DURATION_MS = 300000</span>(5분). 백라이트 ON 조건 만족 후 5분이 지나면 <span class="code">lcd_sleep_timer_callback()</span>에서 <span class="code">tft_enter_sleep()</span> 호출. 30분~1시간은 “5분 타이머가 여러 번 돌거나, LCD_SLEEP_DELAY(30분)와 겹치는” 구간으로 해석 가능.</li>
+    </ul>
+
+    <h2>3. GTT가 측정되다가 0이 될 때 (확인된 재현 조건)</h2>
+    <p>흰색 화면이 <strong>GTT가 측정되다가 0 gtt가 될 때</strong> 발생한다는 보고가 있음. 해당 구간의 코드 흐름과 가능한 원인을 정리함.</p>
+
+    <h3>3.1 GTT → 0 시 흐름</h3>
+    <ul>
+        <li><strong>LP Core</strong>: 마지막 방울 감지 후 10초 타임아웃(<span class="code">LP_ALGO_GTT_TIMEOUT_US</span>) 경과 또는 방울 1개만 감지 시 <span class="code">shared->gtt = 0</span> 설정 (<span class="file">lp_core_main_lp.c</span> 602~618행).</li>
+        <li><strong>HP Core calc_drop()</strong>: <span class="code">device_data.gtt</span>를 LP 공유 메모리 값으로 갱신 → 0.0f.</li>
+        <li><strong>알람 조건</strong>: <span class="code">device_data.gtt &lt;= 0.0f</span>이면 <span class="code">is_gtt_zero = true</span> → 조건 3(0gtt만) 또는 조건 2(95%+ AND 0gtt)로 알람 조건 충족 (<span class="file">iringer_ir_end_device_2.1.c</span> 346~357행).</li>
+        <li><strong>알람 활성화 시</strong>: <span class="code">tft_set_device_data(&amp;device_data)</span> 후 <span class="code">tft_backlight_turn_on_condition()</span> 호출 (1323~1325행, 1335~1336행). 즉, <strong>GTT→0으로 알람이 켜질 때 LCD가 슬립 중이면 웨이크됨</strong>.</li>
+    </ul>
+
+    <h3>3.2 GTT→0 시 흰색 화면 가능 원인</h3>
+    <ul>
+        <li><strong>슬립 해제 직후 배경 미채움</strong>: <span class="code">tft_backlight_turn_on_condition()</span>에서 DISPON 전송 후 <span class="code">print_data()</span>만 호출함. <span class="code">print_data()</span>는 <strong>전체 화면을 <span class="code">tft_fillScreen(ST7735_BLACK)</span>으로 초기화하지 않고</strong>, 투여량·cc/hr·GTT·신호·배터리 등 UI 요소만 그리므로, <strong>그리지 않는 배경 영역은 그대로 둠</strong>. ST7735는 DISPON 후 디스플레이 RAM 내용이 미정의(또는 슬립 전/오염된 값)일 수 있어, 그리지 않은 영역이 흰색으로 보일 수 있음.</li>
+        <li><strong>정리</strong>: GTT→0으로 알람이 울리면서 LCD가 웨이크될 때, DISPON만 보내고 전체 화면을 검정으로 채우지 않은 채 <span class="code">print_data()</span>만 호출하면, 배경이 흰색으로 남는 현상과 일치함.</li>
+    </ul>
+
+    <h2>4. 흰색 화면 발생 가능 시나리오</h2>
+    <p>ST7735는 DISPON 후 RAM에 유효한 데이터가 없으면 기본/미정의 값(흰색에 가까운 경우 많음)을 표시할 수 있음. 따라서 <strong>「DISPON을 보냈는데 그 직후 RAM을 채우는 동작이 수행되지 않거나 실패하는 경로」</strong>와 <strong>「슬립 중(GPIO HIGH-Z)에 그리기 함수가 호출되어 패널에 잘못된 신호가 들어가는 경로」</strong>, 그리고 <strong>「GTT→0 알람 웨이크 시 배경 미채움」</strong>이 흰색 화면의 주요 원인 후보임.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>구분</th>
+                <th>발생 조건</th>
+                <th>위치 (파일: 흐름)</th>
+                <th>위험도</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="risk-high">
+                <td><strong>4-1</strong></td>
+                <td><strong>슬립 해제 직후 <span class="code">print_data()</span>가 <span class="code">device_data_ptr == NULL</span>으로 즉시 return</strong><br>
+                    → DISPON은 이미 전송됐으나 화면 갱신 없음 → 미쓰기 RAM 그대로 표시(흰색 가능)</td>
+                <td><span class="file">iringer_tft.c</span> <span class="code">tft_backlight_turn_on_condition()</span> (704~708행): SLPOUT, NORON, DISPON 전송 후 <span class="code">print_data()</span> 호출.<br>
+                    <span class="file">iringer_tft.c</span> <span class="code">print_data()</span> (1954~1957행): <span class="code">device_data_ptr == NULL</span>이면 로그 후 return. 주석에도 "미전송 시 하얀 화면 가능"(708행) 명시.</td>
+                <td>높음</td>
+            </tr>
+            <tr class="risk-high">
+                <td><strong>4-2</strong></td>
+                <td><strong>슬립 해제 직후 <span class="code">print_data()</span> 내부에서 SPI/뮤텍스 실패로 그리기 생략</strong><br>
+                    → DISPON만 나가고 RAM 쓰기 실패 → 흰색 또는 이전 프레임 잔상</td>
+                <td><span class="file">iringer_tft.c</span> <span class="code">tft_write_cmd()</span> / <span class="code">tft_write_data()</span> / <span class="code">tft_fill_rect_fast()</span> 등: <span class="code">spi_handle == NULL</span> 또는 <span class="code">xSemaphoreTake(spi_mutex)</span> 실패 시 로그 후 return. 전송은 부분적으로만 되거나 안 됨.<br>
+                    <span class="code">print_data()</span>는 <span class="code">tft_is_sleeping</span>을 보지 않음. 슬립 해제 직후 GPIO가 아직 INPUT(HIGH-Z)이면 SPI가 실제로 동작하지 않을 수 있음.</td>
+                <td>높음</td>
+            </tr>
+            <tr class="risk-mid">
+                <td><strong>4-3</strong></td>
+                <td><strong>슬립 해제 후 SLPOUT/DISPON 직후 지연 부족</strong><br>
+                    ST7735 데이터시트상 SLPOUT 후 안정화 시간 필요. 지연 부족 시 일부 명령/데이터가 무시되거나 RAM이 비정상 상태로 남을 수 있음 → 흰색/깨진 화면 가능</td>
+                <td><span class="file">iringer_tft.c</span> (694~699행): SLPOUT 후 120ms, NORON 후 10ms, DISPON 후 100ms. 제품별로는 더 긴 지연이 필요할 수 있음.</td>
+                <td>중간</td>
+            </tr>
+            <tr class="risk-mid">
+                <td><strong>3-4</strong></td>
+                <td><strong><span class="code">print_data()</span> early return으로 슬립 해제 직후에도 그리기 생략</strong><br>
+                    <span class="code">force_refresh_after_sleep</span>는 <span class="code">device_data_ptr</span> 체크 <strong>다음</strong>에만 반영됨. <span class="code">device_data_ptr</span>는 널이 아니지만, 그 다음에 <span class="code">has_changes</span>/<span class="code">need_redraw_icon</span>만으로 early return하는 경우는 <span class="code">force_refresh_after_sleep</span>가 true이면 발생하지 않음. 다만 <span class="code">force_refresh_after_sleep</span>를 false로 만든 뒤 다른 경로에서 print_data()가 호출될 때 early return하면 갱신 누락 가능.</td>
+                <td><span class="file">iringer_tft.c</span> (1968~1970행): <span class="code">force_refresh_after_sleep</span>로 <span class="code">has_changes = true</span> 설정. (2034~2036행): <span class="code">!has_changes && !first_call && !need_redraw_icon</span>이면 return. 슬립 해제 직후 1회 호출에서는 force_refresh로 has_changes가 true이므로 정상적으로 그리기 수행. 단, <span class="code">device_data_ptr</span>가 NULL이면 그 전에 return하므로 4-1과 동일.</td>
+                <td>중간</td>
+            </tr>
+            <tr class="risk-mid">
+                <td><strong>4-5</strong></td>
+                <td><strong>초기화 중 <span class="code">tft_fillScreen(ST7735_BLACK)</span> 실패</strong><br>
+                    <span class="code">tft_init()</span>에서 CASET/RASET/RAMWR까지 보낸 뒤 spi_handle이 NULL이거나 전송 중 실패하면 화면 일부만 검정이거나 미쓰기 상태(흰색)로 남을 수 있음.</td>
+                <td><span class="file">iringer_tft.c</span> (988~1047행): <span class="code">tft_fillScreen()</span> 내부에서 spi_handle NULL 체크, 뮤텍스 실패 시 return. NULL이면 CASET/RASET/RAMWR만 보낸 뒤 return. 전송 실패 시 break로 루프 탈출 → 일부만 채워짐.</td>
+                <td>중간</td>
+            </tr>
+            <tr class="risk-high">
+                <td><strong>3-6</strong></td>
+                <td><strong><span class="code">print_data()</span>가 슬립 중(<span class="code">tft_is_sleeping == true</span>)에 호출될 때 GPIO가 HIGH-Z</strong><br>
+                    <span class="code">tft_enter_sleep()</span> 후 CS/DC/RST/MOSI/SCLK는 모두 INPUT(플로팅). 메인 루프는 매 주기(약 1초)마다 <span class="code">tft_set_device_data()</span> 후 <span class="code">print_data()</span>를 호출하며, <span class="code">print_data()</span>는 <span class="code">tft_is_sleeping</span>을 검사하지 않음. 따라서 슬립 중에도 <span class="code">tft_write_cmd</span>/<span class="code">tft_fill_rect_fast</span> 등이 호출되고, GPIO가 HIGH-Z인 상태에서 SPI/GPIO 제어가 이루어져 잘못된 신호가 패널에 들어갈 수 있음. 이로 인해 컨트롤러 상태가 오염되고, 이후 웨이크 시 또는 백라이트만 켜진 상황에서 흰색/깨진 화면으로 보일 수 있음. 30분~1시간 후 보고와 일치하려면 LCD_SLEEP_DELAY=1800(30분) 빌드 또는 Phase 2(5분) 후 슬립 진입이 선행된 경우를 가정하면 됨.</td>
+                <td><span class="file">iringer_tft.c</span> <span class="code">print_data()</span> (1944행~): <span class="code">tft_is_sleeping</span> 검사 없음. <span class="file">iringer_ir_end_device_2.1.c</span> (1424~1426행): 매 주기 <span class="code">tft_set_device_data(&device_data); print_data();</span> 호출.</td>
+                <td>높음 (30분~1시간 구간과 연관 가능)</td>
+            </tr>
+            <tr class="risk-low">
+                <td><strong>4-7</strong></td>
+                <td><strong><span class="code">tft_exit_sleep()</span>만 호출되고 <span class="code">tft_backlight_turn_on_condition()</span>이 호출되지 않는 경로</strong><br>
+                    현재 코드상 <span class="code">tft_exit_sleep()</span>는 <span class="code">tft_backlight_turn_on_condition()</span> 내부에서만 호출됨. 따라서 단독으로 exit_sleep만 호출되어 DISPON 없이 화면만 켜지는 경로는 없음. 만약 추후 다른 경로에서 exit_sleep만 호출하면 GPIO/ST7735 복원 및 DISPON 없이 상태가 꼬여 흰색/깨짐 가능.</td>
+                <td><span class="file">iringer_tft.c</span> (219~243행): <span class="code">tft_exit_sleep()</span>는 <span class="code">tft_is_sleeping = false</span>와 BACKLIGHT hold 해제만 수행. GPIO 복원 및 SLPOUT/NORON/DISPON은 하지 않음.</td>
+                <td>낮음 (현재 구조상 경로 없음)</td>
+            </tr>
+            <tr class="risk-high">
+                <td><strong>4-8</strong></td>
+                <td><strong>GTT→0 시 알람 웨이크: DISPON 직후 배경 미채움</strong><br>
+                    GTT가 측정되다가 0이 되면 알람 조건(0gtt) 충족 → <span class="code">tft_backlight_turn_on_condition()</span> 호출 → LCD 슬립 해제 시 DISPON 전송 후 <span class="code">print_data()</span>만 호출. <span class="code">print_data()</span>는 전체 화면을 <span class="code">tft_fillScreen(ST7735_BLACK)</span>으로 채우지 않고 UI 요소만 그리므로, 그리지 않은 배경 영역이 ST7735 미정의 RAM(또는 슬립 전/오염 값)으로 인해 흰색으로 보일 수 있음. <strong>현장에서 “GTT가 0이 될 때 흰색 화면”으로 확인된 재현 조건과 일치.</strong></td>
+                <td><span class="file">iringer_ir_end_device_2.1.c</span> (1323~1325행): 알람 활성화 시 <span class="code">tft_set_device_data</span> 후 <span class="code">tft_backlight_turn_on_condition()</span>.<br>
+                    <span class="file">iringer_tft.c</span> <span class="code">tft_backlight_turn_on_condition()</span> (694~706행): DISPON 후 <span class="code">print_data()</span>만 호출, 전체 화면 검정 채우기 없음.</td>
+                <td>높음 (GTT→0 재현 조건과 일치)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>5. 요약 및 권고 사항</h2>
+
+    <div class="finding risk-high">
+        <strong>가장 유력한 원인 (4-1, 4-2, 4-6, 4-8)</strong>
+        <ul>
+            <li><strong>4-1</strong>: 슬립 해제 시 <span class="code">tft_backlight_turn_on_condition()</span>에서 DISPON까지 보낸 뒤 <span class="code">print_data()</span>를 호출하는데, <span class="code">device_data_ptr</span>가 NULL이면 <span class="code">print_data()</span>가 아무것도 그리지 않고 return → 흰색 화면.</li>
+            <li><strong>4-2</strong>: 같은 호출에서 <span class="code">print_data()</span>는 실행되지만, 내부의 <span class="code">tft_write_cmd</span>/<span class="code">tft_fill_rect_fast</span> 등이 spi_handle NULL 또는 뮤텍스 실패로 전송을 생략하면, DISPON만 나가고 RAM 쓰기가 안 되어 흰색 화면.</li>
+            <li><strong>4-6</strong>: 슬립 중(<span class="code">tft_is_sleeping == true</span>)에도 메인 루프가 매 주기 <span class="code">print_data()</span>를 호출하는데, <span class="code">print_data()</span>는 <span class="code">tft_is_sleeping</span>을 검사하지 않음. GPIO가 HIGH-Z인 상태에서 SPI/그리기 호출이 이루어져 패널에 잘못된 신호가 들어가고, 이후 웨이크 시 흰색/깨진 화면으로 나타날 수 있음. 30분~1시간 구간 보고와 맞추려면 LCD_SLEEP_DELAY=1800(30분) 빌드 또는 Phase 2(5분) 슬립 후 누적 동작을 가정하면 됨.</li>
+            <li><strong>4-8 (GTT→0 확인)</strong>: GTT가 측정되다가 0이 될 때 알람으로 LCD가 웨이크되며, DISPON 직후 전체 화면을 검정으로 채우지 않고 <span class="code">print_data()</span>만 호출하여 배경이 흰색으로 남는 경우. 현장 재현 조건과 일치.</li>
+        </ul>
+    </div>
+
+    <p><strong>권고 사항</strong></p>
+    <ul>
+        <li><strong>4-1 대응</strong>: <span class="code">tft_backlight_turn_on_condition()</span>에서 <span class="code">print_data()</span> 호출 전에 <span class="code">device_data_ptr != NULL</span>을 확인하고, NULL이면 최소한 <span class="code">tft_fillScreen(ST7735_BLACK)</span> 한 번 호출하여 DISPON 후 RAM을 검정으로 채우거나, DISPON 전에 device_data_ptr 설정이 보장되도록 호출 순서/초기화 순서를 정리.</li>
+        <li><strong>4-2 대응</strong>: 슬립 해제·GPIO 복원 직후 1회는 <span class="code">spi_handle</span> 및 뮤텍스 검사 후 실패 시 <span class="code">tft_fillScreen(ST7735_BLACK)</span> 등 폴백으로 전체 화면을 한 번 채우는 경로 추가 검토.</li>
+        <li><strong>4-6 대응 (필수 권고, 적용 완료)</strong>: <span class="code">print_data()</span> 진입 직후 <span class="code">if (tft_is_sleeping) return;</span> 추가하여 슬립 중에는 그리기/SPI 접근을 하지 않도록 함.</li>
+        <li><strong>4-8 대응 (GTT→0 흰색 화면 방지)</strong>: <span class="code">tft_backlight_turn_on_condition()</span>에서 슬립 해제 시 DISPON 전송 직후 <strong><span class="code">tft_fillScreen(ST7735_BLACK)</span>을 한 번 호출한 뒤</strong> <span class="code">print_data()</span>를 호출하도록 수정. 이렇게 하면 GTT→0 알람 웨이크 시에도 배경이 검정으로 채워져 흰색 화면이 나오지 않음.</li>
+        <li><strong>4-3 대응</strong>: SLPOUT/DISPON 직후 딜레이를 데이터시트 또는 실기 테스트로 확인하고, 필요 시 120ms/100ms를 늘려 적용.</li>
+        <li><strong>일관성</strong>: DISPON을 보내는 모든 경로(초기화 시퀀스, <span class="code">tft_backlight_turn_on_condition()</span>)에서 그 직후 반드시 전체 화면 채우기 또는 <span class="code">print_data()</span>로 유효한 내용을 그리도록 보장.</li>
+    </ul>
+
+    <p class="meta">— 보고서 끝 —</p>
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+/* ULP variable definitions for the linker.
+ * This file is generated automatically by esp32ulp_mapgen.py utility.
+ */
+PROVIDE ( ulp___clz_tab = 0x50001780 );
+PROVIDE ( ulp___mtvec_base = 0x50000000 );
+PROVIDE ( ulp___stack_top = 0x50001ff0 );
+PROVIDE ( ulp___udivdi3 = 0x5000009c );
+PROVIDE ( ulp___umoddi3 = 0x500003f6 );
+PROVIDE ( ulp__interrupt_handler = 0x5000142e );
+PROVIDE ( ulp__panic_handler = 0x500013be );
+PROVIDE ( ulp__vector_table = 0x50000000 );
+PROVIDE ( ulp_LP_AON = 0x600b1000 );
+PROVIDE ( ulp_LP_CLKRST = 0x600b0400 );
+PROVIDE ( ulp_lp_core_startup = 0x50001564 );
+PROVIDE ( ulp_LP_I2C = 0x600b1800 );
+PROVIDE ( ulp_LP_IO = 0x600b2000 );
+PROVIDE ( ulp_LP_TIMER = 0x600b0c00 );
+PROVIDE ( ulp_LP_UART = 0x600b1400 );
+PROVIDE ( ulp_LPPERI = 0x600b2800 );
+PROVIDE ( ulp_main = 0x500008d4 );
+PROVIDE ( ulp_PCR = 0x60096000 );
+PROVIDE ( ulp_PMU = 0x600b0000 );
+PROVIDE ( ulp_reset_vector = 0x50000080 );
+PROVIDE ( ulp_UART0 = 0x60000000 );
+PROVIDE ( ulp_ulp_lp_core_abort = 0x5000171e );
+PROVIDE ( ulp_ulp_lp_core_delay_us = 0x500016d8 );
+PROVIDE ( ulp_ulp_lp_core_efuse_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_halt = 0x500016ea );
+PROVIDE ( ulp_ulp_lp_core_intr_handler = 0x50001732 );
+PROVIDE ( ulp_ulp_lp_core_lp_adc_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_lp_ana_peri_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_lp_i2c_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_lp_io_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_lp_pmu_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_lp_rtc_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_lp_spi_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_lp_sysreg_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_lp_timer_calculate_sleep_ticks = 0x50001544 );
+PROVIDE ( ulp_ulp_lp_core_lp_timer_get_cycle_count = 0x500014fa );
+PROVIDE ( ulp_ulp_lp_core_lp_timer_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_lp_timer_set_wakeup_ticks = 0x50001520 );
+PROVIDE ( ulp_ulp_lp_core_lp_touch_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_lp_uart_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_lp_wdt_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_mailbox_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_memory_shared_cfg_get = 0x500014b8 );
+PROVIDE ( ulp_ulp_lp_core_panic_handler = 0x5000172c );
+PROVIDE ( ulp_ulp_lp_core_stop_lp_core = 0x50001702 );
+PROVIDE ( ulp_ulp_lp_core_sw_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_trng_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_tsens_intr_handler = 0x50001726 );
+PROVIDE ( ulp_ulp_lp_core_update_wakeup_cause = 0x50001580 );
+PROVIDE ( ulp_ulp_lp_core_wakeup_main_processor = 0x500016c4 );
+PROVIDE ( ulp_ulp_shared_data = 0x50001898 );

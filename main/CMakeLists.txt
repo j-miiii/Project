@@ -1,0 +1,27 @@
+idf_component_register(
+    SRCS
+        "iringer_ir_end_device_2.1.c"
+        "iringer_app_helpers.c"
+        "iringer_app_sleep.c"
+        "iringer_app_report.c"
+        "iringer_alarm_authority.c"
+        "iringer_alive_marker.c"
+    INCLUDE_DIRS
+        "."
+    REQUIRES
+        esp_timer
+        esp_common
+        nvs_flash
+        json
+        iringer_contracts
+        iringer_device_state
+        iringer_reporting
+        iringer_storage
+        iringer_connectivity_zigbee
+        iringer_power
+        iringer_io
+        iringer_display
+        iringer_domain
+        iringer_lp_core
+)
+

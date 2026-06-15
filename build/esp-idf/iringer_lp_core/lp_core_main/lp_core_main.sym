@@ -1,0 +1,51 @@
+__clz_tab R 50001780 100
+__mtvec_base T 50000000 
+__stack_top B 50001ff0 
+__udivdi3 T 5000009c 35a
+__umoddi3 T 500003f6 322
+_interrupt_handler T 5000142e 
+_panic_handler T 500013be 
+_vector_table T 50000000 80
+LP_AON A 600b1000 
+LP_CLKRST A 600b0400 
+lp_core_startup T 50001564 1c
+LP_I2C A 600b1800 
+LP_IO A 600b2000 
+LP_TIMER A 600b0c00 
+LP_UART A 600b1400 
+LPPERI A 600b2800 
+main T 500008d4 aea
+PCR A 60096000 
+PMU A 600b0000 
+reset_vector T 50000080 
+UART0 A 60000000 
+ulp_lp_core_abort T 5000171e 8
+ulp_lp_core_delay_us T 500016d8 12
+ulp_lp_core_efuse_intr_handler W 50001726 6
+ulp_lp_core_halt T 500016ea 18
+ulp_lp_core_intr_handler W 50001732 4c
+ulp_lp_core_lp_adc_intr_handler W 50001726 6
+ulp_lp_core_lp_ana_peri_intr_handler W 50001726 6
+ulp_lp_core_lp_i2c_intr_handler W 50001726 6
+ulp_lp_core_lp_io_intr_handler W 50001726 6
+ulp_lp_core_lp_pmu_intr_handler W 50001726 6
+ulp_lp_core_lp_rtc_intr_handler W 50001726 6
+ulp_lp_core_lp_spi_intr_handler W 50001726 6
+ulp_lp_core_lp_sysreg_intr_handler W 50001726 6
+ulp_lp_core_lp_timer_calculate_sleep_ticks T 50001544 20
+ulp_lp_core_lp_timer_get_cycle_count T 500014fa 26
+ulp_lp_core_lp_timer_intr_handler W 50001726 6
+ulp_lp_core_lp_timer_set_wakeup_ticks T 50001520 24
+ulp_lp_core_lp_touch_intr_handler W 50001726 6
+ulp_lp_core_lp_uart_intr_handler W 50001726 6
+ulp_lp_core_lp_wdt_intr_handler W 50001726 6
+ulp_lp_core_mailbox_intr_handler W 50001726 6
+ulp_lp_core_memory_shared_cfg_get T 500014b8 a
+ulp_lp_core_panic_handler W 5000172c 6
+ulp_lp_core_stop_lp_core T 50001702 1c
+ulp_lp_core_sw_intr_handler W 50001726 6
+ulp_lp_core_trng_intr_handler W 50001726 6
+ulp_lp_core_tsens_intr_handler W 50001726 6
+ulp_lp_core_update_wakeup_cause T 50001580 144
+ulp_lp_core_wakeup_main_processor T 500016c4 14
+ulp_shared_data D 50001898 c8

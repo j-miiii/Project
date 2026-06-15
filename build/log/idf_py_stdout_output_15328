@@ -1,0 +1,93 @@
+[1/17] Performing build step for 'lp_core_main'
+ninja: no work to do.
+[2/13] No install step for 'lp_core_main'
+[3/13] Performing build step for 'bootloader'
+[1/1] C:\Windows\system32\cmd.exe /C "cd /D C:\githubrepo\iringer_song_final\iringer\iringer_ir_end_device_2.1\build\bootloader\esp-idf\esptool_py && C:\Espressif\python_env\idf5.4_py3.13_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.4.2/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/bootloader/bootloader.bin"
+Bootloader binary size 0x5610 bytes. 0x29f0 bytes (33%) free.
+[4/13] Completed 'lp_core_main'
+[5/13] No install step for 'bootloader'
+[6/13] Completed 'bootloader'
+[7/13] Building C object esp-idf/iringer_display/CMakeFiles/__idf_iringer_display.dir/iringer_tft_ui.c.obj
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/components/iringer_display/iringer_tft_ui.c: In function 'tft_render_mlph':
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/components/iringer_display/iringer_tft_ui.c:357:10: warning: unused variable 'buf' [-Wunused-variable]
+  357 |     char buf[10];
+      |          ^~~
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/components/iringer_display/iringer_tft_ui.c: In function 'tft_display_main_render':
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/components/iringer_display/iringer_tft_ui.c:958:14: warning: unused variable 'buf_mlph' [-Wunused-variable]
+  958 |         char buf_mlph[10];
+      |              ^~~~~~~~
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/components/iringer_display/iringer_tft_ui.c: At top level:
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/components/iringer_display/iringer_tft_ui.c:367:13: warning: 'tft_render_labels_after_wakeup' defined but not used [-Wunused-function]
+  367 | static void tft_render_labels_after_wakeup(const tft_frame_t *f)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/components/iringer_display/iringer_tft_ui.c:234:13: warning: 'tft_render_injected_amount' defined but not used [-Wunused-function]
+  234 | static void tft_render_injected_amount(const tft_frame_t *f, bool first_call)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[8/13] Linking C static library esp-idf\iringer_display\libiringer_display.a
+[9/13] Generating ld/sections.ld
+[10/13] Linking CXX executable iringer_ir_end_device_2_1.elf
+[11/13] Generating binary image from built executable
+esptool.py v4.10.0
+Creating esp32c6 image...
+Merged 3 ELF sections
+Successfully created esp32c6 image.
+Generated C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/iringer_ir_end_device_2_1.bin
+[12/13] C:\Windows\system32\cmd.exe /C "cd /D C:\githubrepo\iringer_song_final\iringer\iringer_ir_end_device_2.1\build\esp-idf\esptool_py && C:\Espressif\python_env\idf5.4_py3.13_env\Scripts\python.exe C:/Espressif/frameworks/esp-idf-v5.4.2/components/partition_table/check_sizes.py --offset 0x8000 partition --type app C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/partition_table/partition-table.bin C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/iringer_ir_end_device_2_1.bin"
+iringer_ir_end_device_2_1.bin binary size 0x91a00 bytes. Smallest app partition is 0x15e000 bytes. 0xcc600 bytes (58%) free.
+[12/13] C:\Windows\system32\cmd.exe /C "cd /D C:\Espressif\frameworks\esp-idf-v5.4.2\components\esptool_py && C:\Espressif\tools\cmake\3.30.2\bin\cmake.exe -D IDF_PATH=C:/Espressif/frameworks/esp-idf-v5.4.2 -D SERIAL_TOOL=C:/Espressif/python_env/idf5.4_py3.13_env/Scripts/python.exe;;C:/Espressif/frameworks/esp-idf-v5.4.2/components/esptool_py/esptool/esptool.py;--chip;esp32c6 -D SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args -D WORKING_DIRECTORY=C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build -P C:/Espressif/frameworks/esp-idf-v5.4.2/components/esptool_py/run_serial_tool.cmake"
+esptool.py --chip esp32c6 -p COM50 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 2MB 0x0 bootloader/bootloader.bin 0x10000 iringer_ir_end_device_2_1.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.10.0
+Serial port COM50
+Connecting....
+Chip is ESP32-C6 (QFN40) (revision v0.2)
+Features: WiFi 6, BT 5, IEEE802.15.4
+Crystal is 40MHz
+MAC: 58:8c:81:ff:fe:35:cd:a8
+BASE MAC: 58:8c:81:35:cd:a8
+MAC_EXT: ff:fe
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x000a1fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 22032 bytes to 13644...
+Writing at 0x00000000... (100 %)
+Wrote 22032 bytes (13644 compressed) at 0x00000000 in 0.5 seconds (effective 322.6 kbit/s)...
+Hash of data verified.
+Compressed 596480 bytes to 346550...
+Writing at 0x00010000... (4 %)
+Writing at 0x0001d445... (9 %)
+Writing at 0x000283ca... (13 %)
+Writing at 0x0002f5cf... (18 %)
+Writing at 0x000355f9... (22 %)
+Writing at 0x0003c201... (27 %)
+Writing at 0x00042f21... (31 %)
+Writing at 0x000493e6... (36 %)
+Writing at 0x0004f058... (40 %)
+Writing at 0x0005506c... (45 %)
+Writing at 0x0005adb6... (50 %)
+Writing at 0x00060cfb... (54 %)
+Writing at 0x00066c68... (59 %)
+Writing at 0x0006d99f... (63 %)
+Writing at 0x00073af2... (68 %)
+Writing at 0x0007a7d3... (72 %)
+Writing at 0x00080ae2... (77 %)
+Writing at 0x000873c7... (81 %)
+Writing at 0x0008d0e3... (86 %)
+Writing at 0x00093444... (90 %)
+Writing at 0x0009967d... (95 %)
+Writing at 0x000a04ea... (100 %)
+Wrote 596480 bytes (346550 compressed) at 0x00010000 in 9.3 seconds (effective 511.3 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 169...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (169 compressed) at 0x00008000 in 0.1 seconds (effective 323.5 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCD_SLEEP_DELAY 구현 현황 및 10분 꺼짐 가능성 검토 보고서</title>
+    <style>
+        body { font-family: 'Malgun Gothic', 'Segoe UI', sans-serif; margin: 2rem; max-width: 900px; line-height: 1.6; color: #333; }
+        h1 { color: #1a5276; border-bottom: 2px solid #1a5276; padding-bottom: 0.5rem; }
+        h2 { color: #2874a6; margin-top: 1.5rem; }
+        h3 { color: #3498db; margin-top: 1rem; }
+        table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+        th, td { border: 1px solid #bdc3c7; padding: 0.5rem 0.75rem; text-align: left; }
+        th { background: #ebf5fb; }
+        .code { font-family: 'Consolas', 'Monaco', monospace; background: #f4f6f7; padding: 0.2rem 0.4rem; border-radius: 3px; }
+        .file { font-family: 'Consolas', monospace; color: #6c3483; }
+        .warning { background: #fdebd0; padding: 0.75rem; border-left: 4px solid #f39c12; margin: 1rem 0; }
+        .finding { background: #e8f6f3; padding: 0.75rem; border-left: 4px solid #1abc9c; margin: 1rem 0; }
+        .conclusion { background: #ebf5fb; padding: 1rem; border-left: 4px solid #3498db; margin: 1rem 0; }
+        ul { margin: 0.5rem 0; }
+        .meta { color: #7f8c8d; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    </style>
+</head>
+<body>
+    <h1>LCD_SLEEP_DELAY 구현 현황 및 10분 꺼짐 가능성 검토 보고서</h1>
+    <p class="meta">대상: iringer_ir_end_device_2.1 | 검토일: 2026-01-30 | 대상 설정: <span class="code">LCD_SLEEP_DELAY_SEC = 18000</span></p>
+
+    <h2>1. 요약</h2>
+    <p>
+        <span class="code">iringer_tft.h</span>의 <span class="code">LCD_SLEEP_DELAY_SEC(18000)</span>는 <strong>초기 부팅 후 첫 다운링크 수신까지 LCD를 끄지 않고 유지하는 시간</strong>을 제어하는 설정이 맞습니다.
+        다만, 코드에는 <strong>LCD_SLEEP_DELAY와 독립적으로 동작하는 또 다른 LCD OFF 경로</strong>가 있어, 18000초로 설정해도 <strong>그보다 훨씬 빨리(약 5분 후) LCD가 꺼질 수 있는 가능성</strong>이 있습니다.
+        "10분만에 꺼졌다"는 보고는 이 5분 타이머 또는 사용자 인지(대략 5분을 10분으로 인식)와 연관될 수 있습니다.
+    </p>
+
+    <h2>2. LCD OFF 관련 구현 현황</h2>
+    <p>LCD를 끄는 경로는 다음 두 가지가 <strong>독립적</strong>으로 존재합니다.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>구분</th>
+                <th>설정/위치</th>
+                <th>동작 조건</th>
+                <th>LCD OFF 시점</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>경로 A</strong><br>(메인 루프)</td>
+                <td><span class="file">iringer_tft.h</span><br><span class="code">LCD_SLEEP_DELAY_SEC</span> → <span class="code">LCD_SLEEP_DELAY_MS</span><br><span class="file">iringer_ir_end_device_2.1.c</span> 메인 루프</td>
+                <td>Zigbee 조인 완료 + <strong>첫 다운링크 수신</strong> 후, <span class="code">LCD_SLEEP_DELAY_MS</span> 경과 시</td>
+                <td>첫 다운링크 수신 시점부터 <strong>18000초(5시간)</strong> 후</td>
+            </tr>
+            <tr>
+                <td><strong>경로 B</strong><br>(Phase 2 타이머)</td>
+                <td><span class="file">iringer_tft.c</span><br><span class="code">BACKLIGHT_ON_DURATION_MS = 300000</span><br><span class="code">lcd_sleep_timer</span> (esp_timer)</td>
+                <td><span class="code">tft_backlight_turn_on_condition()</span> 호출 시 5분 원샷 타이머 시작</td>
+                <td><strong>호출 시점부터 300000ms = 5분 후</strong> (LCD_SLEEP_DELAY와 무관)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>2.1 경로 A: LCD_SLEEP_DELAY (메인 루프)</h3>
+    <ul>
+        <li><strong>정의</strong>: <span class="file">iringer_tft.h</span> 100~103행<br>
+            <span class="code">LCD_SLEEP_DELAY_SEC = 18000</span>, <span class="code">LCD_SLEEP_DELAY_MS = LCD_SLEEP_DELAY_SEC * 1000</span>
+        </li>
+        <li><strong>사용처</strong>: <span class="file">iringer_ir_end_device_2.1.c</span> 91~96행에서 <span class="code">FIRST_DOWNLINK_SLEEP_DELAY_MS = LCD_SLEEP_DELAY_MS</span>로 사용.</li>
+        <li><strong>동작</strong>: 첫 다운링크 수신 시각(<span class="code">first_downlink_time_us</span>)을 기준으로 <span class="code">elapsed_ms &lt; FIRST_DOWNLINK_SLEEP_DELAY_MS</span>인 동안은 슬립 진입하지 않고 LCD ON 유지. 경과 후에만 LCD OFF 및 슬립 진입.</li>
+        <li>즉, <strong>경로 A만 적용된다면</strong> 첫 다운링크 수신 후 18000초(5시간) 동안 LCD가 켜져 있는 것이 맞습니다.</li>
+    </ul>
+
+    <h3>2.2 경로 B: Phase 2 LCD 5분 타이머</h3>
+    <ul>
+        <li><strong>정의</strong>: <span class="file">iringer_tft.c</span> 101행 <span class="code">BACKLIGHT_ON_DURATION_MS = 300000</span> (5분).</li>
+        <li><strong>타이머 시작</strong>: <span class="code">tft_backlight_turn_on_condition()</span> 호출 시(675~733행) <span class="code">lcd_sleep_timer</span>를 5분(300000ms) 후 한 번만 동작하도록 시작.</li>
+        <li><strong>콜백</strong>: 163~204행 <span class="code">lcd_sleep_timer_callback()</span>에서 백라이트 OFF, <span class="code">tft_enter_sleep()</span>, GPIO HIGH-Z 등으로 LCD OFF 처리.</li>
+        <li><strong>tft_backlight_turn_on_condition() 호출 위치</strong>: <span class="file">iringer_ir_end_device_2.1.c</span>에서 <strong>수액 종료 알람 활성화 시</strong>(1322, 1334행) 호출됨. (초기 부팅 시에는 호출하지 않고, 알람 또는 injection_complete 시에만 호출)</li>
+    </ul>
+    <p>
+        따라서 <strong>수액 종료 알람이 한 번이라도 울리면</strong> 그 시점부터 5분 후에 Phase 2 타이머에 의해 LCD가 꺼지며, 이 동작은 <span class="code">LCD_SLEEP_DELAY_SEC(18000)</span>와 <strong>완전히 독립</strong>입니다.
+    </p>
+
+    <h2>3. "10분만에 꺼졌다" 보고에 대한 가능성 검토</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>가능성</th>
+                <th>설명</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>1) Phase 2 타이머(5분)에 의한 조기 OFF</strong></td>
+                <td>수액 종료 알람 등으로 <span class="code">tft_backlight_turn_on_condition()</span>이 호출되면, <strong>그 시점부터 정확히 5분 후</strong> LCD가 꺼집니다. 사용자가 "10분"이라고 한 것이 실제로는 약 5분이었을 가능성(인지 오차) 또는, 부팅 후 얼마 지나서 알람이 울리고 5분 후 꺼져서 전체적으로 "10분쯤에 꺼진 것처럼" 느껴졌을 가능성이 있습니다.</td>
+            </tr>
+            <tr>
+                <td><strong>2) 주석/문서와 값 불일치</strong></td>
+                <td><span class="file">iringer_tft.h</span> 103행 주석에는 <span class="code">LCD_SLEEP_DELAY_MS</span>가 "600000ms (10분)"으로 적혀 있으나, 실제 값은 <span class="code">LCD_SLEEP_DELAY_SEC * 1000 = 18000000 ms</span>입니다. 10분(600초)과 혼동할 여지는 있으나, 코드 동작 자체는 18000초 기준으로 정상입니다.</td>
+            </tr>
+            <tr>
+                <td><strong>3) 첫 다운링크 시각 오류</strong></td>
+                <td><span class="code">first_downlink_time_us</span>는 1621~1623행에서 첫 다운링크 수신 시에만 설정됩니다. 잘못된 시각이 들어가면 <span class="code">elapsed_ms</span>가 비정상적으로 커져 조기 슬립으로 이어질 수 있으나, 현재 구현상 정상 경로에서는 그럴 만한 근거는 없습니다. (다만 펌웨어/통신 이상 시 예외 동작 가능성은 열어두는 것이 좋습니다.)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="finding">
+        <strong>정리:</strong> 18000초로 설정해도 LCD가 10분(또는 그 근처) 만에 꺼질 수 있는 <strong>가장 그럴듯한 원인</strong>은 <strong>경로 B(Phase 2 LCD 5분 타이머)</strong>입니다. 알람 등으로 <span class="code">tft_backlight_turn_on_condition()</span>이 호출된 뒤 5분이 지나면 LCD가 꺼지며, 사용자가 "10분만에 꺼졌다"고 인지했을 수 있습니다.
+    </div>
+
+    <h2>4. 기타 참고 사항</h2>
+    <ul>
+        <li><strong>BACKLIGHT_DIM_TIMEOUT_MS(10초) / BACKLIGHT_OFF_TIMEOUT_MS(15초)</strong>: <span class="file">iringer_tft.h</span>에 정의되어 있으나, 자동 백라이트 제어 태스크 제거로 현재 코드에서 사용처가 없습니다. 따라서 10초/15초 타임아웃으로 인한 OFF는 발생하지 않습니다.</li>
+        <li><strong>주석 불일치</strong>: 100행 주석 "기본값: 30분 (1800초)"는 값 18000과 맞지 않으며, 103행 "600000ms (10분)"도 실제 계산값(18000000 ms)과 다릅니다. 유지보수 시 혼동을 줄이기 위해 주석 수정을 권장합니다.</li>
+    </ul>
+
+    <h2>5. 결론 및 권고 사항</h2>
+    <div class="conclusion">
+        <ul>
+            <li><strong>LCD_SLEEP_DELAY_SEC(18000)</strong>는 "첫 다운링크 수신 후 LCD를 끄지 않고 유지하는 시간" 설정이 맞으며, <strong>경로 A만 적용될 경우</strong> 18000초(5시간) 동안 LCD가 유지됩니다.</li>
+            <li>그럼에도 <strong>10분(또는 약 5분) 만에 꺼질 수 있는 가능성</strong>은 있습니다. 그 이유는 <strong>경로 B(Phase 2 LCD 5분 타이머)</strong>가 <span class="code">LCD_SLEEP_DELAY</span>와 무관하게 동작하기 때문입니다. 수액 종료 알람 등으로 <span class="code">tft_backlight_turn_on_condition()</span>이 호출되면 그 시점부터 5분 후 LCD가 꺼집니다.</li>
+            <li><strong>권고:</strong>
+                <ul>
+                    <li>초기 부팅 후 LCD를 18000초 동안 유지하려면, Phase 2 타이머가 그 목표를 방해하지 않도록 <span class="code">tft_backlight_turn_on_condition()</span> 호출 시점에 5분 타이머를 시작하지 않거나, 타이머 값을 <span class="code">LCD_SLEEP_DELAY_MS</span>와 연동(또는 비활성화)하는 방안 검토.</li>
+                    <li><span class="file">iringer_tft.h</span> 100·103행 주석을 실제 값(18000초, 18000000ms) 및 의도(예: 5시간)에 맞게 수정.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <p class="meta">— 보고서 끝 —</p>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>통신 5시간 후 중단 현상과 LCD 18000초 설정 영향 검토 보고서</title>
+    <style>
+        body { font-family: 'Malgun Gothic', 'Segoe UI', sans-serif; margin: 2rem; max-width: 960px; line-height: 1.55; color: #333; }
+        h1 { color: #1a5276; border-bottom: 2px solid #1a5276; padding-bottom: 0.5rem; }
+        h2 { color: #2874a6; margin-top: 1.5rem; }
+        h3 { color: #3498db; margin-top: 1rem; }
+        table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.9rem; }
+        th, td { border: 1px solid #bdc3c7; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+        th { background: #ebf5fb; }
+        .code { font-family: 'Consolas', 'Monaco', monospace; background: #f4f6f7; padding: 0.15rem 0.35rem; border-radius: 3px; font-size: 0.9em; }
+        .file { font-family: 'Consolas', monospace; color: #6c3483; font-size: 0.9em; }
+        .warning { background: #fdebd0; border-left: 4px solid #f39c12; padding: 0.6rem 0.8rem; margin: 0.8rem 0; }
+        .finding { background: #e8f6f3; border-left: 4px solid #1abc9c; padding: 0.6rem 0.8rem; margin: 0.8rem 0; }
+        .conclusion { background: #ebf5fb; border-left: 4px solid #3498db; padding: 0.8rem 1rem; margin: 1rem 0; }
+        ul { margin: 0.4rem 0; padding-left: 1.2rem; }
+        .meta { color: #7f8c8d; font-size: 0.9rem; margin-bottom: 1.2rem; }
+    </style>
+</head>
+<body>
+    <h1>통신 5시간 후 중단 현상과 LCD 18000초 설정 영향 검토 보고서</h1>
+    <p class="meta">대상: iringer_ir_end_device_2.1 | 검토일: 2026-01-30 | 관련 설정: <span class="code">LCD_SLEEP_DELAY_SEC = 18000</span> (5시간)</p>
+
+    <h2>1. 요약</h2>
+    <p>
+        <strong>통신 중 5시간이 지나면 통신이 안 되는 현상</strong>과 <strong>LCD 꺼지는 18000초(5시간) 설정</strong>은 <strong>시간적으로 일치</strong>합니다.
+        LCD 꺼짐 설정 자체가 Zigbee/SPI 리소스를 직접 건드리지는 않으나, <strong>18000초 경과 시점에 ESP Light Sleep 진입</strong>이 함께 이루어지므로,
+        해당 설정이 <strong>간접적으로 영향 줄 가능성</strong>이 있습니다. 직접 원인 규명을 위해서는 Light Sleep 진입/해제 경로 및 Zigbee 복구 동작 검토가 필요합니다.
+    </p>
+
+    <h2>2. 보고된 증상</h2>
+    <ul>
+        <li>통신 중 <strong>5시간이 지나면 통신이 안 되는 현상</strong> 발생</li>
+    </ul>
+
+    <h2>3. LCD 18000초 설정의 역할</h2>
+    <table>
+        <thead>
+            <tr><th>항목</th><th>내용</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>설정 위치</td>
+                <td><span class="file">iringer_tft.h</span> 100행 <span class="code">LCD_SLEEP_DELAY_SEC = 18000</span>, <span class="code">LCD_SLEEP_DELAY_MS = LCD_SLEEP_DELAY_SEC * 1000</span></td>
+            </tr>
+            <tr>
+                <td>의미</td>
+                <td>첫 다운링크 수신 시각을 기준으로, 그때부터 <strong>18000초(5시간) 동안</strong> LCD를 끄지 않고 유지. 경과 후 LCD OFF 및 슬립 진입 가능.</td>
+            </tr>
+            <tr>
+                <td>메인 루프 사용처</td>
+                <td><span class="file">iringer_ir_end_device_2.1.c</span>에서 <span class="code">FIRST_DOWNLINK_SLEEP_DELAY_MS = LCD_SLEEP_DELAY_MS</span>로 사용. 첫 다운링크 수신 후 <span class="code">elapsed_ms &lt; FIRST_DOWNLINK_SLEEP_DELAY_MS</span>인 동안은 슬립 진입하지 않고 LCD ON 유지.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>4. 5시간(18000초) 경과 시 실제 동작 흐름</h2>
+    <p>첫 다운링크 수신 후 18000초가 지나면 메인 루프에서 아래 순서로 진행됩니다.</p>
+    <table>
+        <thead>
+            <tr><th>순서</th><th>동작</th><th>파일/위치</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><span class="code">can_enter_sleep = true</span> (첫 다운링크 후 18000초 경과)</td>
+                <td><span class="file">iringer_ir_end_device_2.1.c</span> 1116~1156행 부근</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>알람 비활성 시: <span class="code">tft_set_backlight_duty(0)</span> → <span class="code">tft_enter_sleep()</span> 호출</td>
+                <td>1178~1181행</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><span class="code">enter_light_sleep()</span> 호출 → ESP Light Sleep 진입 (RTC 타이머: <span class="code">REPORT_INTERVAL_US</span> = 5분 후 wake-up)</td>
+                <td>1190행, 895~951행</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        즉, <strong>5시간 시점</strong>에 (1) LCD 백라이트 OFF 및 ST7735 슬립 명령(<span class="code">tft_enter_sleep()</span>), (2) <strong>ESP Light Sleep 진입</strong>이 함께 발생합니다.
+        이 시점까지는 5시간 동안 <strong>리포트 전송 → 다운링크 대기</strong> 루프만 반복하며 Light Sleep에 들어가지 않습니다.
+    </p>
+
+    <h2>5. LCD 꺼짐(18000초) 설정이 통신에 영향을 줄 수 있는지</h2>
+
+    <h3>5.1 LCD 슬립 시 GPIO HIGH-Z: 두 경로 차이</h3>
+    <p>LCD를 끄는 경로가 두 가지 있어, <strong>5시간 경로</strong>에서는 GPIO HIGH-Z를 하지 않고, <strong>5분 타이머 콜백 경로</strong>에서만 HIGH-Z를 합니다.</p>
+    <table>
+        <thead>
+            <tr><th>경로</th><th>호출 위치</th><th>tft_enter_sleep() 호출</th><th>GPIO HIGH-Z 수행</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>5시간 경과</strong> (메인 루프)</td>
+                <td><span class="file">iringer_ir_end_device_2.1.c</span> 1178~1181행</td>
+                <td>예 (ST7735 DSPOFF/SLPIN만 전송)</td>
+                <td><strong>아니오</strong> — 이 경로에는 HIGH-Z 코드 없음</td>
+            </tr>
+            <tr>
+                <td><strong>Phase 2: 5분 타이머</strong> (콜백)</td>
+                <td><span class="file">iringer_tft.c</span> <span class="code">lcd_sleep_timer_callback()</span> 164~203행</td>
+                <td>예 (동일)</td>
+                <td><strong>예</strong> — 콜백 안에서 <span class="code">tft_enter_sleep()</span> 호출 후 gpio_reset_pin, INPUT, FLOATING으로 HIGH-Z 설정</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>5.2 직접적 영향 (LCD/GPIO가 Zigbee 통신을 끊는지)</h3>
+    <ul>
+        <li><strong>TFT 전용 리소스</strong>: <span class="file">iringer_tft.h</span> 기준 TFT는 GPIO 18, 19, 20, 21, 22, 23 및 SPI(HSPI) 사용. Zigbee는 ESP 내장 802.15.4 라디오 사용으로, TFT와 GPIO/버스가 겹치지 않습니다.</li>
+        <li><strong>5시간 경로에서의 LCD 처리</strong>: 메인 루프 5시간 경과 시에는 <span class="code">tft_set_backlight_duty(0)</span>와 <span class="code">tft_enter_sleep()</span>만 호출합니다. <span class="code">tft_enter_sleep()</span> 함수 자체는 ST7735에 <span class="code">DSPOFF</span>, <span class="code">SLPIN</span> 명령만 전송하고 끝나며, <strong>GPIO HIGH-Z 코드는 이 함수 안에 없습니다</strong>. GPIO HIGH-Z(gpio_reset_pin, INPUT, FLOATING)는 <span class="file">iringer_tft.c</span>의 <strong>Phase 2 콜백 <span class="code">lcd_sleep_timer_callback()</span> 안에서만</strong> 수행됩니다. 5시간 경로에서는 이 콜백을 호출하지 않으므로, 5시간 후 LCD 슬립 시에는 <strong>TFT 관련 GPIO가 HIGH-Z로 전환되지 않고</strong> 기존 출력 상태로 남습니다.</li>
+        <li><strong>결론</strong>: LCD 꺼짐(18000초) 설정이 Zigbee/통신 스택을 <strong>직접</strong> 끊는 가능성은 낮습니다.</li>
+    </ul>
+
+    <h3>5.3 간접적 영향 (5시간 시점 Light Sleep 진입과 통신 중단)</h3>
+    <div class="finding">
+        <strong>시간적 일치:</strong> 18000초 설정 때문에 <strong>정확히 5시간 후</strong>에만 최초로 (LCD OFF +) <strong>ESP Light Sleep</strong>에 진입합니다. 따라서 "통신이 5시간 후 안 된다"는 현상과 18000초 설정은 시점이 같습니다.
+    </div>
+    <ul>
+        <li><strong>가능 시나리오 1</strong>: 5시간이 되면 Light Sleep에 들어가므로, 그 구간 동안에는 통신이 없는 것이 정상. 다만 사용자가 "5시간 지나면 통신이 안 된다"고 인지한 경우, Sleep 진입 시점과 인지 시점이 겹친 것일 수 있음.</li>
+        <li><strong>가능 시나리오 2</strong>: Light Sleep에서 깨어난 뒤 리포트 전송/다운링크 수신이 복구되지 않는 버그가 있을 수 있음. 그 경우 18000초 설정은 "최초 Light Sleep 진입 시점을 5시간으로 고정"하므로, 통신 중단이 5시간 시점에서 나타나게 만드는 <strong>간접 원인</strong>이 됨.</li>
+        <li><strong>Zigbee ED 설정 참고</strong>: <span class="file">iringer_ir_end_device_2.1.h</span> 기준 <span class="code">ED_AGING_TIMEOUT = ESP_ZB_ED_AGING_TIMEOUT_8MIN</span>(8분), <span class="code">ED_KEEP_ALIVE = REPORT_INTERVAL_MS</span>(5분). Light Sleep 구간이 5분이면 이론상 8분 안에 wake 후 리포트로 keep-alive 가능. 단, wake 실패·지연·첫 전송 실패 시 aging으로 연결 끊김 가능성은 있음.</li>
+    </ul>
+
+    <h2>6. 정리 및 권장 사항</h2>
+    <div class="conclusion">
+        <ul>
+            <li><strong>18000초 설정의 직접 영향</strong>: LCD 꺼짐 설정 자체가 Zigbee/통신 리소스를 직접 사용하지 않으므로, 통신 중단의 <strong>직접 원인</strong>일 가능성은 낮습니다.</li>
+            <li><strong>18000초 설정의 간접 영향</strong>: 18000초 경과 시점에 LCD OFF와 함께 <strong>ESP Light Sleep 진입</strong>이 이루어지므로, "5시간 후 통신 안 됨" 현상이 Light Sleep 진입/해제와 연관되어 있다면, 18000초 설정은 <strong>영향을 줄 가능성이 있음</strong> (간접적).</li>
+            <li><strong>추가 검토 권장</strong>:
+                <ul>
+                    <li>5시간 경과 후 최초 <span class="code">enter_light_sleep()</span> 진입 → RTC/ULP wake-up 후 리포트 전송 및 다운링크 수신이 정상 동작하는지 로그/동작 확인.</li>
+                    <li>Light Sleep 해제 직후 Zigbee 스택 상태, 리포트 성공 여부, Coordinator 측 aging 발생 여부 확인.</li>
+                    <li>필요 시 18000초를 다른 값(예: 10분)으로 줄여서, 통신 중단 시점이 해당 시간과 같이 앞당겨지는지 재현 테스트하여 Light Sleep 경로와의 인과 관계 검증.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <h2>7. 참고: 관련 설정 요약</h2>
+    <table>
+        <thead>
+            <tr><th>설정</th><th>값</th><th>비고</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><span class="code">LCD_SLEEP_DELAY_SEC</span></td><td>18000 (5시간)</td><td>첫 다운링크 후 LCD 유지 시간. 이 시간 경과 시 LCD OFF + Light Sleep 진입 가능.</td></tr>
+            <tr><td><span class="code">REPORT_INTERVAL_SEC</span> / <span class="code">REPORT_INTERVAL_US</span></td><td>5분 / 300000000 us</td><td>리포트 주기 및 RTC wake-up 주기.</td></tr>
+            <tr><td><span class="code">ED_AGING_TIMEOUT</span></td><td>ESP_ZB_ED_AGING_TIMEOUT_8MIN (8분)</td><td>Coordinator가 ED를 aging 처리하기까지 시간.</td></tr>
+            <tr><td><span class="code">ED_KEEP_ALIVE</span></td><td>REPORT_INTERVAL_MS (5분)</td><td>Long Poll 간격.</td></tr>
+        </tbody>
+    </table>
+</body>
+</html>

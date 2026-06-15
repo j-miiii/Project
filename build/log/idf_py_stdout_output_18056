@@ -1,0 +1,376 @@
+
+Build:Sep 19 2022
+rst:0x1 (POWERON),boot:0x1f (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:2�ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x1 (POWERON),boot:0x1f (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:2
+load:0x40875720,len:0x16b8
+load:0x4086c110,len:0xe90
+load:0x4086e610,len:0x3068
+entry 0x4086c11a
+[0;32mI (23) boot: ESP-IDF v5.4.2 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Jun 15 2026 11:47:55[0m
+[0;32mI (24) boot: chip revision: v0.2[0m
+[0;32mI (24) boot: efuse block revision: v0.3[0m
+[0;32mI (27) boot.esp32c6: SPI Speed      : 80MHz[0m
+[0;32mI (31) boot.esp32c6: SPI Mode       : DIO[0m
+[0;32mI (35) boot.esp32c6: SPI Flash Size : 2MB[0m
+[0;32mI (39) boot: Enabling RNG early entropy source...[0m
+[0;32mI (43) boot: Partition Table:[0m
+[0;32mI (46) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (52) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (58) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (65) boot:  2 factory          factory app      00 00 00010000 0015e000[0m
+[0;32mI (71) boot:  3 zb_storage       Unknown data     01 81 0016e000 00004000[0m
+[0;32mI (78) boot:  4 zb_fct           Unknown data     01 81 00172000 00000400[0m
+[0;32mI (84) boot:  5 rcp_fw           Unknown data     01 82 00173000 00001000[0m
+[0;32mI (91) boot:  6 coredump         Unknown data     01 03 00174000 00020000[0m
+[0;32mI (98) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=42068020 size=1c3ech (115692) map[0m
+[0;32mI (131) esp_image: segment 1: paddr=0002c414 vaddr=40800000 size=03c04h ( 15364) load[0m
+[0;32mI (135) esp_image: segment 2: paddr=00030020 vaddr=42000020 size=61a1ch (399900) map[0m
+[0;32mI (211) esp_image: segment 3: paddr=00091a44 vaddr=40803c04 size=0d890h ( 55440) load[0m
+[0;32mI (224) esp_image: segment 4: paddr=0009f2dc vaddr=408114a0 size=02628h (  9768) load[0m
+[0;32mI (227) esp_image: segment 5: paddr=000a190c vaddr=50002000 size=0006ch (   108) load[0m
+[0;32mI (232) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (233) boot: Disabling RNG early entropy source...[0m
+[0;32mI (249) cpu_start: Unicore app[0m
+[0;32mI (258) cpu_start: Pro cpu start user code[0m
+[0;32mI (258) cpu_start: cpu freq: 80000000 Hz[0m
+[0;32mI (258) app_init: Application information:[0m
+[0;32mI (258) app_init: Project name:     iringer_ir_end_device_2_1[0m
+[0;32mI (263) app_init: App version:      8f24914-dirty[0m
+[0;32mI (268) app_init: Compile time:     Jun 15 2026 11:47:30[0m
+[0;32mI (273) app_init: ELF file SHA256:  228aab14e...[0m
+[0;32mI (277) app_init: ESP-IDF:          v5.4.2[0m
+[0;32mI (281) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (285) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (289) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (293) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (299) heap_init: At 40818190 len 00064480 (401 KiB): RAM[0m
+[0;32mI (304) heap_init: At 4087C610 len 00002F54 (11 KiB): RAM[0m
+[0;32mI (309) heap_init: At 500020D0 len 00001F18 (7 KiB): RTCRAM[0m
+[0;32mI (315) spi_flash: detected chip: generic[0m
+[0;32mI (318) spi_flash: flash io: dio[0m
+[0;33mW (321) spi_flash: Detected size(8192k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (334) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (340) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (347) sleep_clock: System Power, Clock and Reset sleep retention initialization[0m
+[0;32mI (366) coexist: coex firmware version: 7b9a184[0m
+[0;32mI (366) coexist: coexist rom version 5b8dcfa[0m
+[0;32mI (368) main_task: Started on CPU0[0m
+[0;32mI (368) main_task: Calling app_main()[0m
+[0;32mI (370) ALIVE: ALIVE MARKER: 이전 마커 없음 (magic=0x995279B9, reset=1) — 첫 부팅 또는 power cycle[0m
+[0;33mW (380) ALIVE: ALIVE MARKER 초기화 완료: 부팅 #1[0m
+[0;32mI (385) IRINGER_IR_2.1: Cold boot (POWERON) - 전원 안정화 대기 (50 ms)[0m
+[0;32mI (442) IRINGER_IR_2.1: 부팅 시간 기록: 127212 us (알람 워밍업 시간: 1분)[0m
+[0;32mI (442) IRINGER_IR_2.1: Starting i-Ringer IR End Device v2.1[0m
+[0;32mI (557) IRINGER_IR_2.1: 리셋 원인=1 (1=SW,2=잠깸,3=익셉션,4=SW_WDT,5=TG0_WDT,6=TG1_WDT,7=RTCWDT), reboot_count=46, reconnect_count=40[0m
+[0;33mW (560) LP_CORE_SHARED_MEM: 공유 메모리가 초기화되지 않음, 자동 초기화[0m
+[0;32mI (566) IRINGER_IR_2.1: NVS에서 총 수액량 로드: 31.0 ml, 현재 수액량 초기화: 31.0 ml[0m
+[1;31mE (575) TRAP_1: 부팅 직후 뿌리 데이터: 0.00[0m
+[0;32mI (580) IRINGER_IR_2.1: 기기 SN: iRinger-Nc2o[0m
+[0;32mI (584) IRINGER_IR_2.1: 기기 MAC Address: 58:8c:81:ff:fe:35:cd:a8[0m
+[0;32mI (590) BATTERY: 배터리 모듈 초기화 시작[0m
+[0;32mI (595) BATTERY: 커브 피팅 캘리브레이션 스킴 사용[0m
+[0;32mI (600) BATTERY: ADC 캘리브레이션 성공[0m
+[0;32mI (604) BATTERY: 배터리 모듈 초기화 완료[0m
+[0;32mI (609) CAPACITOR_SENSOR: 커패시터 센서 초기화 완료 (LP Core에서 제어, GPIO7)[0m
+[0;32mI (617) IRINGER_IR_2.1: 더미 타이머 3개 시작 완료 (copy 버전과 유사한 환경 유지)[0m
+[0;32mI (626) IRINGER_IR_2.1: LP Core 초기화 완료 (기존 알고리즘 사용)[0m
+[0;32mI (734) IRINGER_IR_2.1: LP Core 시작 완료 및 동작 확인 (GPIO3에서 500Hz 샘플링, data_ready=0)[0m
+[0;32mI (734) IRINGER_IR_2.1: ULP wakeup 설정 완료 (LP Core 비상 wakeup 활성화)[0m
+[0;33mW (739) TFT: [TFTINIT HB] #1 진입 (first_boot=1, heap=402060, min_heap=402060)[0m
+[0;32mI (747) TFT: TFT 초기화 시작 (first_boot=1)[0m
+[0;32mI (751) TFT: 백라이트 GPIO 초기화 완료 (PWM 사용 안 함)[0m
+[0;32mI (757) TFT: tft_set_backlight_duty 호출: duty=0[0m
+[0;32mI (761) TFT: 백라이트 끄기 시작[0m
+[0;32mI (765) TFT: 백라이트 완전히 끄기 완료 (GPIO18 LOW 설정, 확인 레벨=0)[0m
+[0;32mI (773) TFT: GPIO18 Hold 활성화 (Sleep 상태 유지)[0m
+[0;32mI (1452) TFT: tft_set_backlight_duty 호출: duty=50[0m
+[0;32mI (1452) TFT: 백라이트 켜기 시작[0m
+[0;32mI (1452) TFT: 백라이트 켜기 완료 (GPIO18 HIGH 설정, 확인 레벨=0)[0m
+[0;32mI (1456) TFT: TFT 초기화 완료[0m
+[0;33mW (1459) TFT: [TFTINIT HB] #1 완료 (heap=396048)[0m
+[0;32mI (2200) BATTERY: 배터리 전압 측정: ADC 원시값=2130, vIn=3541mV[0m
+[0;32mI (2200) BATTERY: 배터리 레벨: 캐시 사용 level=100%[0m
+[0;32mI (2201) IRINGER_IR_2.1: 초기 배터리 측정: 전압=3541mV, 레벨=100%[0m
+[0;32mI (2227) IRINGER_IR_2.1: TFT 디스플레이 초기화 완료 (초기 GTT 측정 및 UI 업데이트 완료)[0m
+[0;32mI (2228) IRINGER_IR_2.1: 데이터 업데이트 태스크 시작 (ESP Light Sleep 전용 모드)[0m
+[0;32mI (2234) IRINGER_IR_2.1: ESP Light Sleep 전용: 리포트 전송 → 다운링크 수신 → Light Sleep → 반복[0m
+[0;32mI (2245) IRINGER_IR_2.1: GTT 측정: LP Core 사용 중[0m
+[0;32mI (2228) IRINGER_IR_2.1: Data update task successful[0m
+[0;32mI (2254) IRINGER_IR_2.1: Watchdog yield 태스크 시작 완료 (Task watchdog 에러 방지)[0m
+[0;32mI (2263) IRINGER_IR_2.1: Zigbee 네트워크 조인 시작[0m
+[0;32mI (2268) IRINGER_IR_2.1: Zigbee 초기화 (sleep은 조인 후 활성화)[0m
+[0;32mI (2346) IRINGER_IR_2.1: Zigbee Light Sleep 사전 활성화 (init 직후)[0m
+[0;32mI (2347) IRINGER_IR_2.1: Sleepy End Device 모드 활성화: rx_on_when_idle=false[0m
+[0;32mI (2367) IRINGER_IR_2.1: Initialize Zigbee stack[0m
+[0;32mI (3142) IRINGER_IR_2.1: Zigbee initial report setup completed[0m
+[0;32mI (3143) IRINGER_IR_2.1: Device started up in non factory-reset mode[0m
+[0;32mI (3143) IRINGER_IR_2.1: Device rebooted[0m
+[0;32mI (3148) IRINGER_IR_2.1: 재부팅: 네트워크 연결 확인 (short_addr: 0xeedd)[0m
+[0;32mI (3155) IRINGER_IR_2.1: 재부팅: 리포트 설정 재적용 완료, Time Cluster Read Attributes 전송 (시간 동기화 대기 중)[0m
+[0;32mI (3960) IRINGER_IR_2.1: Time Cluster Read Attributes 응답: time=1781527441 (Unix epoch 초, type=226)[0m
+[0;32mI (3961) [15 12:44:01.00] IRINGER_IR_2.1: === Time Cluster로 시간 동기화 완료 === time_value=1781527441, adjusted_time=1781527441, boot_time_us=3646399[0m
+[0;32mI (3972) [15 12:44:01.01] IRINGER_IR_2.1: 시간 동기화 완료: 첫 리포트 즉시 전송[0m
+[0;32mI (4249) [15 12:44:01.28] IRINGER_IR_2.1: Zigbee Light Sleep 메인 루틴 시작 (CAN_SLEEP 정석 모드)[0m
+[0;33mW (4249) [15 12:44:01.28] IRINGER_IR_2.1: [MAINLOOP HB] iter=1 state=IDLE t=3935 ms[0m
+[0;32mI (4255) [15 12:44:01.29] IRINGER_IR_2.1: 리포트 전송 시작[0m
+[0;32mI (5392) [15 12:44:02.43] BATTERY: 배터리 전압 측정: ADC 원시값=2104, vIn=3498mV[0m
+[0;32mI (5392) [15 12:44:02.43] BATTERY: 배터리 레벨: 캐시 사용 level=100%[0m
+[0;33mW (6396) [15 12:44:03.43] IRINGER_APP: GTT 범위 이탈: 68.00 (20.00 ~ 40.00)[0m
+[0;33mW (6397) [15 12:44:03.43] IRINGER_APP: GTT 범위 이탈: 115.00 (20.00 ~ 40.00)[0m
+[0;33mW (7400) [15 12:44:04.43] IRINGER_APP: GTT 범위 이탈: 55.00 (20.00 ~ 40.00)[0m
+[0;33mW (7401) [15 12:44:04.44] IRINGER_APP: GTT 범위 이탈: 68.00 (20.00 ~ 40.00)[0m
+[0;32mI (7582) [15 12:44:04.62] IRINGER_IR_2.1: 다운링크 수신: 네트워크 연결 확인 및 연결 상태 아이콘 업데이트 (short_addr: 0xeedd)[0m
+[0;32mI (7585) [15 12:44:04.62] IRINGER_IR_2.1: 첫 다운링크 수신: Zigbee 연결 완료 + 첫 다운링크 수신 시간 기록 (600초 후 슬립 진입 가능)[0m
+[0;32mI (7599) [15 12:44:04.63] IRINGER_IR_2.1: Received downlink binary: r_vol=25, ord_gtt=2100, min_gtt=0, max_gtt=0, rest=0, server_time=1781527441[0m
+[0;33mW (7611) [15 12:44:04.65] IRINGER_IR_2.1: [DL-RX] #1 server_time=1781527441[0m
+[0;32mI (7619) [15 12:44:04.65] IRINGER_IR_2.1: 다운링크 수신: r_volume_max=25 ml (r_volume_now=30.9 ml, calc_drop()에서 계속 업데이트)[0m
+[0;32mI (7631) [15 12:44:04.67] IRINGER_IR_2.1: ordered_gtt 업데이트: 21.00[0m
+[0;32mI (7637) [15 12:44:04.67] IRINGER_IR_2.1: min_gtt 업데이트: 0.00[0m
+[0;33mW (7644) [15 12:44:04.68] IRINGER_APP: GTT 기본 범위 이탈: 55.00 (10.50 ~ 31.50)[0m
+[0;33mW (7651) [15 12:44:04.69] IRINGER_APP: GTT 기본 범위 이탈: 55.00 (10.50 ~ 31.50)[0m
+[0;32mI (7659) [15 12:44:04.69] IRINGER_IR_2.1: 다운링크 수신 후 calc_drop() 호출 완료 (GTT=55.0)[0m
+[0;32mI (7668) [15 12:44:04.70] IRINGER_IR_2.1: 다운링크 수신 후 calc_drop() 호출 완료 (cchr=21.0)[0m
+[0;32mI (7677) [15 12:44:04.71] IRINGER_IR_2.1: 다운링크 수신 후 LCD 업데이트 완료 (연결 상태 및 GTT=55.0 등)[0m
+[0;32mI (7688) [15 12:44:04.72] IRINGER_IR_2.1: 다음 리포트까지 30초 대기 (CAN_SLEEP이 sleep 관리)[0m
+[0;33mW (8404) [15 12:44:05.44] IRINGER_APP: GTT 기본 범위 이탈: 47.00 (10.50 ~ 31.50)[0m
+[0;33mW (8405) [15 12:44:05.44] IRINGER_APP: GTT 기본 범위 이탈: 55.00 (10.50 ~ 31.50)[0m
+[0;33mW (9409) [15 12:44:06.44] IRINGER_APP: GTT 기본 범위 이탈: 48.00 (10.50 ~ 31.50)[0m
+[0;33mW (9409) [15 12:44:06.44] IRINGER_APP: GTT 기본 범위 이탈: 47.00 (10.50 ~ 31.50)[0m
+[0;33mW (10341) [15 12:44:07.37] TFT: ui_task heartbeat: idle wait #1 (queue 0/16, sleeping=0)[0m
+[0;33mW (10414) [15 12:44:07.45] IRINGER_IR_2.1: data_update_task heartbeat #1 (t=10099 ms, lcd_sleeping=0)[0m
+[0;33mW (10414) [15 12:44:07.45] IRINGER_APP: GTT 기본 범위 이탈: 48.00 (10.50 ~ 31.50)[0m
+[0;33mW (10420) [15 12:44:07.45] IRINGER_APP: GTT 기본 범위 이탈: 48.00 (10.50 ~ 31.50)[0m
+ESP-ROM:esp32c6-20220919
+B 19 2022
+rst:0x1 (POWERON),boot:0x1f (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:2
+load:0x40875720,len:0x16b8
+load:0x4086c110,len:0xe90
+load:0x4086e610,len:0x3068
+entry 0x4086c11a
+[0;32mI (23) boot: ESP-IDF v5.4.2 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Jun 15 2026 11:47:55[0m
+[0;32mI (24) boot: chip revision: v0.2[0m
+[0;32mI (24) boot: efuse block revision: v0.3[0m
+[0;32mI (27) boot.esp32c6: SPI Speed      : 80MHz[0m
+[0;32mI (31) boot.esp32c6: SPI Mode       : DIO[0m
+[0;32mI (35) boot.esp32c6: SPI Flash Size : 2MB[0m
+[0;32mI (39) boot: Enabling RNG early entropy source...[0m
+[0;32mI (43) boot: Partition Table:[0m
+[0;32mI (46) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (52) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (58) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (65) boot:  2 factory          factory app      00 00 00010000 0015e000[0m
+[0;32mI (71) boot:  3 zb_storage       Unknown data     01 81 0016e000 00004000[0m
+[0;32mI (78) boot:  4 zb_fct           Unknown data     01 81 00172000 00000400[0m
+[0;32mI (84) boot:  5 rcp_fw           Unknown data     01 82 00173000 00001000[0m
+[0;32mI (91) boot:  6 coredump         Unknown data     01 03 00174000 00020000[0m
+[0;32mI (98) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=42068020 size=1c3ech (115692) map[0m
+[0;32mI (131) esp_image: segment 1: paddr=0002c414 vaddr=40800000 size=03c04h ( 15364) load[0m
+[0;32mI (135) esp_image: segment 2: paddr=00030020 vaddr=42000020 size=61a1ch (399900) map[0m
+[0;32mI (211) esp_image: segment 3: paddr=00091a44 vaddr=40803c04 size=0d890h ( 55440) load[0m
+[0;32mI (224) esp_image: segment 4: paddr=0009f2dc vaddr=408114a0 size=02628h (  9768) load[0m
+[0;32mI (227) esp_image: segment 5: paddr=000a190c vaddr=50002000 size=0006ch (   108) load[0m
+[0;32mI (232) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (233) boot: Disabling RNG early entropy source...[0m
+[0;32mI (249) cpu_start: Unicore app[0m
+[0;32mI (258) cpu_start: Pro cpu start user code[0m
+[0;32mI (258) cpu_start: cpu freq: 80000000 Hz[0m
+[0;32mI (258) app_init: Application information:[0m
+[0;32mI (258) app_init: Project name:     iringer_ir_end_device_2_1[0m
+[0;32mI (263) app_init: App version:      8f24914-dirty[0m
+[0;32mI (268) app_init: Compile time:     Jun 15 2026 11:47:30[0m
+[0;32mI (273) app_init: ELF file SHA256:  228aab14e...[0m
+[0;32mI (277) app_init: ESP-IDF:          v5.4.2[0m
+[0;32mI (281) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (285) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (289) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (293) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (299) heap_init: At 40818190 len 00064480 (401 KiB): RAM[0m
+[0;32mI (304) heap_init: At 4087C610 len 00002F54 (11 KiB): RAM[0m
+[0;32mI (309) heap_init: At 500020D0 len 00001F18 (7 KiB): RTCRAM[0m
+[0;32mI (315) spi_flash: detected chip: generic[0m
+[0;32mI (318) spi_flash: flash io: dio[0m
+[0;33mW (321) spi_flash: Detected size(8192k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (334) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (340) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (347) sleep_clock: System Power, Clock and Reset sleep retention initialization[0m
+[0;32mI (366) coexist: coex firmware version: 7b9a184[0m
+[0;32mI (366) coexist: coexist rom version 5b8dcfa[0m
+[0;32mI (368) main_task: Started on CPU0[0m
+[0;32mI (368) main_task: Calling app_main()[0m
+[0;32mI (370) ALIVE: ALIVE MARKER: 이전 마커 없음 (magic=0x997279BB, reset=1) — 첫 부팅 또는 power cycle[0m
+[0;33mW (380) ALIVE: ALIVE MARKER 초기화 완료: 부팅 #1[0m
+[0;32mI (385) IRINGER_IR_2.1: Cold boot (POWERON) - 전원 안정화 대기 (50 ms)[0m
+[0;32mI (442) IRINGER_IR_2.1: 부팅 시간 기록: 127212 us (알람 워밍업 시간: 1분)[0m
+[0;32mI (442) IRINGER_IR_2.1: Starting i-Ringer IR End Device v2.1[0m
+[0;32mI (557) IRINGER_IR_2.1: 리셋 원인=1 (1=SW,2=잠깸,3=익셉션,4=SW_WDT,5=TG0_WDT,6=TG1_WDT,7=RTCWDT), reboot_count=47, reconnect_count=41[0m
+[0;33mW (560) LP_CORE_SHARED_MEM: 공유 메모리가 초기화되지 않음, 자동 초기화[0m
+[0;32mI (566) IRINGER_IR_2.1: NVS에서 총 수액량 로드: 31.0 ml, 현재 수액량 초기화: 31.0 ml[0m
+[1;31mE (575) TRAP_1: 부팅 직후 뿌리 데이터: 0.00[0m
+[0;32mI (580) IRINGER_IR_2.1: 기기 SN: iRinger-Nc2o[0m
+[0;32mI (584) IRINGER_IR_2.1: 기기 MAC Address: 58:8c:81:ff:fe:35:cd:a8[0m
+[0;32mI (590) BATTERY: 배터리 모듈 초기화 시작[0m
+[0;32mI (595) BATTERY: 커브 피팅 캘리브레이션 스킴 사용[0m
+[0;32mI (600) BATTERY: ADC 캘리브레이션 성공[0m
+[0;32mI (604) BATTERY: 배터리 모듈 초기화 완료[0m
+[0;32mI (609) CAPACITOR_SENSOR: 커패시터 센서 초기화 완료 (LP Core에서 제어, GPIO7)[0m
+[0;32mI (617) IRINGER_IR_2.1: 더미 타이머 3개 시작 완료 (copy 버전과 유사한 환경 유지)[0m
+[0;32mI (626) IRINGER_IR_2.1: LP Core 초기화 완료 (기존 알고리즘 사용)[0m
+[0;32mI (734) IRINGER_IR_2.1: LP Core 시작 완료 및 동작 확인 (GPIO3에서 500Hz 샘플링, data_ready=0)[0m
+[0;32mI (734) IRINGER_IR_2.1: ULP wakeup 설정 완료 (LP Core 비상 wakeup 활성화)[0m
+[0;33mW (739) TFT: [TFTINIT HB] #1 진입 (first_boot=1, heap=402060, min_heap=402060)[0m
+[0;32mI (747) TFT: TFT 초기화 시작 (first_boot=1)[0m
+[0;32mI (751) TFT: 백라이트 GPIO 초기화 완료 (PWM 사용 안 함)[0m
+[0;32mI (757) TFT: tft_set_backlight_duty 호출: duty=0[0m
+[0;32mI (761) TFT: 백라이트 끄기 시작[0m
+[0;32mI (765) TFT: 백라이트 완전히 끄기 완료 (GPIO18 LOW 설정, 확인 레벨=0)[0m
+[0;32mI (773) TFT: GPIO18 Hold 활성화 (Sleep 상태 유지)[0m
+[0;32mI (1452) TFT: tft_set_backlight_duty 호출: duty=50[0m
+[0;32mI (1452) TFT: 백라이트 켜기 시작[0m
+[0;32mI (1452) TFT: 백라이트 켜기 완료 (GPIO18 HIGH 설정, 확인 레벨=0)[0m
+[0;32mI (1456) TFT: TFT 초기화 완료[0m
+[0;33mW (1459) TFT: [TFTINIT HB] #1 완료 (heap=396048)[0m
+[0;32mI (2200) BATTERY: 배터리 전압 측정: ADC 원시값=2136, vIn=3551mV[0m
+[0;32mI (2200) BATTERY: 배터리 레벨: 캐시 사용 level=100%[0m
+[0;32mI (2201) IRINGER_IR_2.1: 초기 배터리 측정: 전압=3551mV, 레벨=100%[0m
+[0;32mI (2227) IRINGER_IR_2.1: TFT 디스플레이 초기화 완료 (초기 GTT 측정 및 UI 업데이트 완료)[0m
+[0;32mI (2228) IRINGER_IR_2.1: 데이터 업데이트 태스크 시작 (ESP Light Sleep 전용 모드)[0m
+[0;32mI (2234) IRINGER_IR_2.1: ESP Light Sleep 전용: 리포트 전송 → 다운링크 수신 → Light Sleep → 반복[0m
+[0;32mI (2245) IRINGER_IR_2.1: GTT 측정: LP Core 사용 중[0m
+[0;32mI (2228) IRINGER_IR_2.1: Data update task successful[0m
+[0;32mI (2254) IRINGER_IR_2.1: Watchdog yield 태스크 시작 완료 (Task watchdog 에러 방지)[0m
+[0;32mI (2262) IRINGER_IR_2.1: Zigbee 네트워크 조인 시작[0m
+[0;32mI (2268) IRINGER_IR_2.1: Zigbee 초기화 (sleep은 조인 후 활성화)[0m
+[0;32mI (2345) IRINGER_IR_2.1: Zigbee Light Sleep 사전 활성화 (init 직후)[0m
+[0;32mI (2346) IRINGER_IR_2.1: Sleepy End Device 모드 활성화: rx_on_when_idle=false[0m
+[0;32mI (2368) IRINGER_IR_2.1: Initialize Zigbee stack[0m
+[0;32mI (3148) IRINGER_IR_2.1: Zigbee initial report setup completed[0m
+[0;32mI (3149) IRINGER_IR_2.1: Device started up in non factory-reset mode[0m
+[0;32mI (3149) IRINGER_IR_2.1: Device rebooted[0m
+[0;32mI (3154) IRINGER_IR_2.1: 재부팅: 네트워크 연결 확인 (short_addr: 0xeedd)[0m
+[0;32mI (3161) IRINGER_IR_2.1: 재부팅: 리포트 설정 재적용 완료, Time Cluster Read Attributes 전송 (시간 동기화 대기 중)[0m
+[0;32mI (3961) IRINGER_IR_2.1: Time Cluster Read Attributes 응답: time=1781527441 (Unix epoch 초, type=226)[0m
+[0;32mI (3962) [15 12:44:01.00] IRINGER_IR_2.1: === Time Cluster로 시간 동기화 완료 === time_value=1781527441, adjusted_time=1781527441, boot_time_us=3647457[0m
+[0;32mI (3973) [15 12:44:01.01] IRINGER_IR_2.1: 시간 동기화 완료: 첫 리포트 즉시 전송[0m
+[0;32mI (4249) [15 12:44:01.28] IRINGER_IR_2.1: Zigbee Light Sleep 메인 루틴 시작 (CAN_SLEEP 정석 모드)[0m
+[0;33mW (4249) [15 12:44:01.28] IRINGER_IR_2.1: [MAINLOOP HB] iter=1 state=IDLE t=3935 ms[0m
+[0;32mI (4255) [15 12:44:01.29] IRINGER_IR_2.1: 리포트 전송 시작[0m
+[0;32mI (5392) [15 12:44:02.42] BATTERY: 배터리 전압 측정: ADC 원시값=2110, vIn=3508mV[0m
+[0;32mI (5392) [15 12:44:02.43] BATTERY: 배터리 레벨: 캐시 사용 level=100%[0m
+[0;33mW (6396) [15 12:44:03.43] IRINGER_APP: GTT 범위 이탈: 63.00 (20.00 ~ 40.00)[0m
+[0;33mW (6397) [15 12:44:03.43] IRINGER_APP: GTT 범위 이탈: 59.00 (20.00 ~ 40.00)[0m
+[0;33mW (7400) [15 12:44:04.43] IRINGER_APP: GTT 범위 이탈: 63.00 (20.00 ~ 40.00)[0m
+[0;32mI (7577) [15 12:44:04.61] IRINGER_IR_2.1: 다운링크 수신: 네트워크 연결 확인 및 연결 상태 아이콘 업데이트 (short_addr: 0xeedd)[0m
+[0;32mI (7579) [15 12:44:04.61] IRINGER_IR_2.1: 첫 다운링크 수신: Zigbee 연결 완료 + 첫 다운링크 수신 시간 기록 (600초 후 슬립 진입 가능)[0m
+[0;32mI (7594) [15 12:44:04.63] IRINGER_IR_2.1: Received downlink binary: r_vol=25, ord_gtt=2100, min_gtt=0, max_gtt=0, rest=0, server_time=1781527441[0m
+[0;33mW (7606) [15 12:44:04.64] IRINGER_IR_2.1: [DL-RX] #1 server_time=1781527441[0m
+[0;32mI (7614) [15 12:44:04.65] IRINGER_IR_2.1: 다운링크 수신: r_volume_max=25 ml (r_volume_now=30.8 ml, calc_drop()에서 계속 업데이트)[0m
+[0;32mI (7625) [15 12:44:04.66] IRINGER_IR_2.1: ordered_gtt 업데이트: 21.00[0m
+[0;32mI (7632) [15 12:44:04.67] IRINGER_IR_2.1: min_gtt 업데이트: 0.00[0m
+[0;33mW (7638) [15 12:44:04.67] IRINGER_APP: GTT 기본 범위 이탈: 39.00 (10.50 ~ 31.50)[0m
+[0;33mW (7646) [15 12:44:04.68] IRINGER_APP: GTT 기본 범위 이탈: 39.00 (10.50 ~ 31.50)[0m
+[0;32mI (7654) [15 12:44:04.69] IRINGER_IR_2.1: 다운링크 수신 후 calc_drop() 호출 완료 (GTT=39.0)[0m
+[0;32mI (7663) [15 12:44:04.70] IRINGER_IR_2.1: 다운링크 수신 후 calc_drop() 호출 완료 (cchr=21.0)[0m
+[0;32mI (7672) [15 12:44:04.71] IRINGER_IR_2.1: 다운링크 수신 후 LCD 업데이트 완료 (연결 상태 및 GTT=39.0 등)[0m
+[0;32mI (7682) [15 12:44:04.72] IRINGER_IR_2.1: 다음 리포트까지 30초 대기 (CAN_SLEEP이 sleep 관리)[0m
+[0;33mW (9401) [15 12:44:06.43] IRINGER_APP: GTT 기본 범위 이탈: 56.00 (10.50 ~ 31.50)[0m
+[0;33mW (9401) [15 12:44:06.43] IRINGER_APP: GTT 기본 범위 이탈: 84.00 (10.50 ~ 31.50)[0m
+[0;33mW (10380) [15 12:44:07.41] TFT: ui_task heartbeat: idle wait #1 (queue 0/16, sleeping=0)[0m
+[0;33mW (10406) [15 12:44:07.44] IRINGER_IR_2.1: data_update_task heartbeat #1 (t=10091 ms, lcd_sleeping=0)[0m
+[0;33mW (10406) [15 12:44:07.44] IRINGER_APP: GTT 기본 범위 이탈: 64.00 (10.50 ~ 31.50)[0m
+[0;33mW (10412) [15 12:44:07.44] IRINGER_APP: GTT 기본 범위 이탈: 56.00 (10.50 ~ 31.50)[0m
+[0;32mI (10926) [15 12:44:07.96] IRINGER_IR_2.1: 다운링크 수신: 네트워크 연결 확인 및 연결 상태 아이콘 업데이트 (short_addr: 0xeedd)[0m
+[0;32mI (10929) [15 12:44:07.96] IRINGER_IR_2.1: Received downlink binary: r_vol=25, ord_gtt=2100, min_gtt=0, max_gtt=0, rest=0, server_time=1781527441[0m
+[0;33mW (10941) [15 12:44:07.97] IRINGER_IR_2.1: [DL-RX] #2 server_time=1781527441[0m
+[0;33mW (10948) [15 12:44:07.98] IRINGER_IR_2.1: [DL-RX] 중복 무시 (3.3초 이내 동일 데이터)[0m
+[0;33mW (11419) [15 12:44:08.45] IRINGER_APP: GTT 기본 범위 이탈: 61.00 (10.50 ~ 31.50)[0m
+[0;33mW (11420) [15 12:44:08.45] IRINGER_APP: GTT 기본 범위 이탈: 64.00 (10.50 ~ 31.50)[0m
+[0;33mW (12425) [15 12:44:09.46] IRINGER_APP: GTT 기본 범위 이탈: 67.00 (10.50 ~ 31.50)[0m
+[0;33mW (12426) [15 12:44:09.46] IRINGER_APP: GTT 기본 범위 이탈: 61.00 (10.50 ~ 31.50)[0m
+[0;33mW (13430) [15 12:44:10.46] IRINGER_APP: GTT 기본 범위 이탈: 36.00 (10.50 ~ 31.50)[0m
+[0;33mW (13431) [15 12:44:10.46] IRINGER_APP: GTT 기본 범위 이탈: 67.00 (10.50 ~ 31.50)[0m
+[0;33mW (14435) [15 12:44:11.47] IRINGER_APP: GTT 기본 범위 이탈: 36.00 (10.50 ~ 31.50)[0m
+[0;33mW (17436) [15 12:44:14.47] IRINGER_APP: GTT 기본 범위 이탈: 10.00 (10.50 ~ 31.50)[0m
+[0;33mW (18436) [15 12:44:15.47] IRINGER_APP: GTT 기본 범위 이탈: 9.00 (10.50 ~ 31.50)[0m
+[0;33mW (18436) [15 12:44:15.47] IRINGER_APP: GTT 기본 범위 이탈: 10.00 (10.50 ~ 31.50)[0m
+[0;33mW (19441) [15 12:44:16.47] IRINGER_APP: GTT 기본 범위 이탈: 7.00 (10.50 ~ 31.50)[0m
+[0;33mW (19441) [15 12:44:16.47] IRINGER_APP: GTT 기본 범위 이탈: 9.00 (10.50 ~ 31.50)[0m
+[0;33mW (20426) [15 12:44:17.46] TFT: ui_task heartbeat: idle wait #2 (queue 0/16, sleeping=0)[0m
+[0;33mW (20445) [15 12:44:17.48] IRINGER_IR_2.1: data_update_task heartbeat #2 (t=20130 ms, lcd_sleeping=0)[0m
+[0;33mW (20445) [15 12:44:17.48] IRINGER_APP: GTT 기본 범위 이탈: 6.00 (10.50 ~ 31.50)[0m
+[0;33mW (20450) [15 12:44:17.48] IRINGER_APP: GTT 기본 범위 이탈: 7.00 (10.50 ~ 31.50)[0m
+[0;33mW (21458) [15 12:44:18.49] IRINGER_APP: GTT 기본 범위 이탈: 6.00 (10.50 ~ 31.50)[0m
+[0;33mW (21459) [15 12:44:18.49] IRINGER_APP: GTT 기본 범위 이탈: 6.00 (10.50 ~ 31.50)[0m
+[0;33mW (22463) [15 12:44:19.50] IRINGER_APP: GTT 기본 범위 이탈: 5.00 (10.50 ~ 31.50)[0m
+[0;33mW (22463) [15 12:44:19.50] IRINGER_APP: GTT 기본 범위 이탈: 6.00 (10.50 ~ 31.50)[0m
+[0;33mW (23468) [15 12:44:20.50] IRINGER_APP: GTT 기본 범위 이탈: 7.00 (10.50 ~ 31.50)[0m
+[0;33mW (23468) [15 12:44:20.50] IRINGER_APP: GTT 기본 범위 이탈: 5.00 (10.50 ~ 31.50)[0m
+[0;33mW (24473) [15 12:44:21.51] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (24473) [15 12:44:21.51] IRINGER_APP: GTT 기본 범위 이탈: 7.00 (10.50 ~ 31.50)[0m
+[0;33mW (25478) [15 12:44:22.51] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (25478) [15 12:44:22.51] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (26482) [15 12:44:23.52] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (26483) [15 12:44:23.52] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (27487) [15 12:44:24.52] IRINGER_APP: GTT 기본 범위 이탈: 3.00 (10.50 ~ 31.50)[0m
+[0;33mW (27487) [15 12:44:24.52] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (28492) [15 12:44:25.53] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (28492) [15 12:44:25.53] IRINGER_APP: GTT 기본 범위 이탈: 3.00 (10.50 ~ 31.50)[0m
+[0;33mW (29497) [15 12:44:26.53] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (29497) [15 12:44:26.53] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (30501) [15 12:44:27.53] IRINGER_IR_2.1: data_update_task heartbeat #3 (t=30186 ms, lcd_sleeping=0)[0m
+[0;33mW (30501) [15 12:44:27.53] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (30506) [15 12:44:27.54] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (30638) [15 12:44:27.67] TFT: ui_task heartbeat: idle wait #3 (queue 0/16, sleeping=0)[0m
+[0;33mW (31514) [15 12:44:28.55] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (31515) [15 12:44:28.55] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (32519) [15 12:44:29.55] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (32519) [15 12:44:29.55] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (33523) [15 12:44:30.56] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (33523) [15 12:44:30.56] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (34527) [15 12:44:31.56] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (34527) [15 12:44:31.56] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;32mI (35661) [15 12:44:32.69] BATTERY: 배터리 전압 측정: ADC 원시값=2111, vIn=3510mV[0m
+[0;32mI (35661) [15 12:44:32.69] BATTERY: 배터리 레벨: 캐시 사용 level=100%[0m
+[0;33mW (35665) [15 12:44:32.70] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (35673) [15 12:44:32.71] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (36680) [15 12:44:33.71] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (36681) [15 12:44:33.71] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (37685) [15 12:44:34.72] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (37685) [15 12:44:34.72] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;32mI (37692) [15 12:44:34.72] IRINGER_IR_2.1: 다음 리포트 전송 준비 (state=IDLE)[0m
+[0;33mW (37697) [15 12:44:34.73] IRINGER_IR_2.1: [MAINLOOP HB] iter=2 state=IDLE t=37382 ms[0m
+[0;32mI (37705) [15 12:44:34.74] IRINGER_IR_2.1: 리포트 전송 시작[0m
+[0;32mI (38254) [15 12:44:35.29] IRINGER_IR_2.1: 다운링크 수신: 네트워크 연결 확인 및 연결 상태 아이콘 업데이트 (short_addr: 0xeedd)[0m
+[0;32mI (38257) [15 12:44:35.29] IRINGER_IR_2.1: Received downlink binary: r_vol=25, ord_gtt=2100, min_gtt=0, max_gtt=0, rest=166, server_time=1781527441[0m
+[0;33mW (38270) [15 12:44:35.30] IRINGER_IR_2.1: [DL-RX] #3 server_time=1781527441[0m
+[0;32mI (38277) [15 12:44:35.31] IRINGER_IR_2.1: 다운링크 수신: r_volume_max=25 ml (r_volume_now=24.6 ml, calc_drop()에서 계속 업데이트)[0m
+[0;32mI (38289) [15 12:44:35.32] IRINGER_IR_2.1: ordered_gtt 업데이트: 21.00[0m
+[0;32mI (38296) [15 12:44:35.33] IRINGER_IR_2.1: min_gtt 업데이트: 0.00[0m
+[0;33mW (38302) [15 12:44:35.34] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (38310) [15 12:44:35.34] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;32mI (38317) [15 12:44:35.35] IRINGER_IR_2.1: 다운링크 수신 후 calc_drop() 호출 완료 (GTT=4.0)[0m
+[0;32mI (38326) [15 12:44:35.36] IRINGER_IR_2.1: 다운링크 수신 후 calc_drop() 호출 완료 (cchr=21.0)[0m
+[0;32mI (38336) [15 12:44:35.37] IRINGER_IR_2.1: 다운링크 수신 후 LCD 업데이트 완료 (연결 상태 및 GTT=4.0 등)[0m
+[0;33mW (38689) [15 12:44:35.72] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (38690) [15 12:44:35.72] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;32mI (38812) [15 12:44:35.84] IRINGER_IR_2.1: 다음 리포트까지 30초 대기 (CAN_SLEEP이 sleep 관리)[0m
+[0;33mW (39694) [15 12:44:36.73] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (39694) [15 12:44:36.73] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (40698) [15 12:44:37.73] IRINGER_IR_2.1: data_update_task heartbeat #4 (t=40383 ms, lcd_sleeping=0)[0m
+[0;33mW (40698) [15 12:44:37.73] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (40703) [15 12:44:37.74] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (40835) [15 12:44:37.87] TFT: ui_task heartbeat: idle wait #4 (queue 0/16, sleeping=0)[0m
+[0;33mW (41711) [15 12:44:38.74] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (41712) [15 12:44:38.75] IRINGER_APP: GTT 기본 범위 이탈: 4.00 (10.50 ~ 31.50)[0m
+[0;33mW (50716) [15 12:44:47.75] IRINGER_IR_2.1: data_update_task heartbeat #5 (t=50401 ms, lcd_sleeping=0)[0m
+[0;33mW (50840) [15 12:44:47.87] TFT: ui_task heartbeat: idle wait #5 (queue 0/16, sleeping=0)[0m

@@ -1,0 +1,13 @@
+# Target labels
+ lp_core_main
+# Source files and their labels
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/esp-idf/iringer_lp_core/CMakeFiles/lp_core_main
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/esp-idf/iringer_lp_core/CMakeFiles/lp_core_main.rule
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/esp-idf/iringer_lp_core/CMakeFiles/lp_core_main-complete.rule
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/esp-idf/iringer_lp_core/lp_core_main-prefix/src/lp_core_main-stamp/lp_core_main-build.rule
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/esp-idf/iringer_lp_core/lp_core_main-prefix/src/lp_core_main-stamp/lp_core_main-configure.rule
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/esp-idf/iringer_lp_core/lp_core_main-prefix/src/lp_core_main-stamp/lp_core_main-download.rule
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/esp-idf/iringer_lp_core/lp_core_main-prefix/src/lp_core_main-stamp/lp_core_main-install.rule
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/esp-idf/iringer_lp_core/lp_core_main-prefix/src/lp_core_main-stamp/lp_core_main-mkdir.rule
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/esp-idf/iringer_lp_core/lp_core_main-prefix/src/lp_core_main-stamp/lp_core_main-patch.rule
+C:/githubrepo/iringer_song_final/iringer/iringer_ir_end_device_2.1/build/esp-idf/iringer_lp_core/lp_core_main-prefix/src/lp_core_main-stamp/lp_core_main-update.rule

@@ -1,0 +1,124 @@
+uild:Sep 19 2022
+rst:0x1 (POWERON),boot:0x1f (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:2
+load:0x40875720,len:�ESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x1 (POWERON),boot:0x1f (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:2
+load:0x40875720,len:0x16b8
+load:0x4086c110,len:0xe90
+load:0x4086e610,len:0x3068
+entry 0x4086c11a
+[0;32mI (23) boot: ESP-IDF v5.4.2 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Jun 15 2026 11:47:55[0m
+[0;32mI (24) boot: chip revision: v0.2[0m
+[0;32mI (24) boot: efuse block revision: v0.3[0m
+[0;32mI (27) boot.esp32c6: SPI Speed      : 80MHz[0m
+[0;32mI (31) boot.esp32c6: SPI Mode       : DIO[0m
+[0;32mI (35) boot.esp32c6: SPI Flash Size : 2MB[0m
+[0;32mI (39) boot: Enabling RNG early entropy source...[0m
+[0;32mI (43) boot: Partition Table:[0m
+[0;32mI (46) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (52) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (58) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (65) boot:  2 factory          factory app      00 00 00010000 0015e000[0m
+[0;32mI (71) boot:  3 zb_storage       Unknown data     01 81 0016e000 00004000[0m
+[0;32mI (78) boot:  4 zb_fct           Unknown data     01 81 00172000 00000400[0m
+[0;32mI (84) boot:  5 rcp_fw           Unknown data     01 82 00173000 00001000[0m
+[0;32mI (91) boot:  6 coredump         Unknown data     01 03 00174000 00020000[0m
+[0;32mI (98) boot: End of partition table[0m
+[0;32mI (101) esp_image: segment 0: paddr=00010020 vaddr=42068020 size=1c3ech (115692) map[0m
+[0;32mI (131) esp_image: segment 1: paddr=0002c414 vaddr=40800000 size=03c04h ( 15364) load[0m
+[0;32mI (135) esp_image: segment 2: paddr=00030020 vaddr=42000020 size=61b10h (400144) map[0m
+[0;32mI (211) esp_image: segment 3: paddr=00091b38 vaddr=40803c04 size=0d890h ( 55440) load[0m
+[0;32mI (224) esp_image: segment 4: paddr=0009f3d0 vaddr=408114a0 size=02628h (  9768) load[0m
+[0;32mI (227) esp_image: segment 5: paddr=000a1a00 vaddr=50002000 size=0006ch (   108) load[0m
+[0;32mI (232) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (233) boot: Disabling RNG early entropy source...[0m
+[0;32mI (249) cpu_start: Unicore app[0m
+[0;32mI (258) cpu_start: Pro cpu start user code[0m
+[0;32mI (258) cpu_start: cpu freq: 80000000 Hz[0m
+[0;32mI (258) app_init: Application information:[0m
+[0;32mI (259) app_init: Project name:     iringer_ir_end_device_2_1[0m
+[0;32mI (263) app_init: App version:      8f24914-dirty[0m
+[0;32mI (268) app_init: Compile time:     Jun 15 2026 11:47:30[0m
+[0;32mI (273) app_init: ELF file SHA256:  a033d256b...[0m
+[0;32mI (277) app_init: ESP-IDF:          v5.4.2[0m
+[0;32mI (281) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (285) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (289) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (293) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (299) heap_init: At 40818190 len 00064480 (401 KiB): RAM[0m
+[0;32mI (304) heap_init: At 4087C610 len 00002F54 (11 KiB): RAM[0m
+[0;32mI (309) heap_init: At 500020D0 len 00001F18 (7 KiB): RTCRAM[0m
+[0;32mI (315) spi_flash: detected chip: generic[0m
+[0;32mI (318) spi_flash: flash io: dio[0m
+[0;33mW (321) spi_flash: Detected size(8192k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (334) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (340) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (347) sleep_clock: System Power, Clock and Reset sleep retention initialization[0m
+[0;32mI (366) coexist: coex firmware version: 7b9a184[0m
+[0;32mI (367) coexist: coexist rom version 5b8dcfa[0m
+[0;32mI (368) main_task: Started on CPU0[0m
+[0;32mI (368) main_task: Calling app_main()[0m
+[0;32mI (370) ALIVE: ALIVE MARKER: 이전 마커 없음 (magic=0x99527BB9, reset=1) — 첫 부팅 또는 power cycle[0m
+[0;33mW (380) ALIVE: ALIVE MARKER 초기화 완료: 부팅 #1[0m
+[0;32mI (385) IRINGER_IR_2.1: Cold boot (POWERON) - 전원 안정화 대기 (50 ms)[0m
+[0;32mI (442) IRINGER_IR_2.1: 부팅 시간 기록: 127239 us (알람 워밍업 시간: 1분)[0m
+[0;32mI (442) IRINGER_IR_2.1: Starting i-Ringer IR End Device v2.1[0m
+[0;32mI (557) IRINGER_IR_2.1: 리셋 원인=1 (1=SW,2=잠깸,3=익셉션,4=SW_WDT,5=TG0_WDT,6=TG1_WDT,7=RTCWDT), reboot_count=43, reconnect_count=37[0m
+[0;33mW (560) LP_CORE_SHARED_MEM: 공유 메모리가 초기화되지 않음, 자동 초기화[0m
+[0;32mI (566) IRINGER_IR_2.1: NVS에서 총 수액량 로드: 31.0 ml, 현재 수액량 초기화: 31.0 ml[0m
+[1;31mE (575) TRAP_1: 부팅 직후 뿌리 데이터: 0.00[0m
+[0;32mI (580) IRINGER_IR_2.1: 기기 SN: iRinger-Nc2o[0m
+[0;32mI (584) IRINGER_IR_2.1: 기기 MAC Address: 58:8c:81:ff:fe:35:cd:a8[0m
+[0;32mI (590) BATTERY: 배터리 모듈 초기화 시작[0m
+[0;32mI (595) BATTERY: 커브 피팅 캘리브레이션 스킴 사용[0m
+[0;32mI (600) BATTERY: ADC 캘리브레이션 성공[0m
+[0;32mI (604) BATTERY: 배터리 모듈 초기화 완료[0m
+[0;32mI (609) CAPACITOR_SENSOR: 커패시터 센서 초기화 완료 (LP Core에서 제어, GPIO7)[0m
+[0;32mI (617) IRINGER_IR_2.1: 더미 타이머 3개 시작 완료 (copy 버전과 유사한 환경 유지)[0m
+[0;32mI (626) IRINGER_IR_2.1: LP Core 초기화 완료 (기존 알고리즘 사용)[0m
+[0;32mI (734) IRINGER_IR_2.1: LP Core 시작 완료 및 동작 확인 (GPIO3에서 500Hz 샘플링, data_ready=0)[0m
+[0;32mI (734) IRINGER_IR_2.1: ULP wakeup 설정 완료 (LP Core 비상 wakeup 활성화)[0m
+[0;33mW (740) TFT: [TFTINIT HB] #1 진입 (first_boot=1, heap=402060, min_heap=402060)[0m
+[0;32mI (747) TFT: TFT 초기화 시작 (first_boot=1)[0m
+[0;32mI (751) TFT: 백라이트 GPIO 초기화 완료 (PWM 사용 안 함)[0m
+[0;32mI (757) TFT: tft_set_backlight_duty 호출: duty=0[0m
+[0;32mI (761) TFT: 백라이트 끄기 시작[0m
+[0;32mI (765) TFT: 백라이트 완전히 끄기 완료 (GPIO18 LOW 설정, 확인 레벨=0)[0m
+[0;32mI (773) TFT: GPIO18 Hold 활성화 (Sleep 상태 유지)[0m
+[0;32mI (1452) TFT: tft_set_backlight_duty 호출: duty=50[0m
+[0;32mI (1452) TFT: 백라이트 켜기 시작[0m
+[0;32mI (1452) TFT: 백라이트 켜기 완료 (GPIO18 HIGH 설정, 확인 레벨=0)[0m
+[0;32mI (1456) TFT: TFT 초기화 완료[0m
+[0;33mW (1459) TFT: [TFTINIT HB] #1 완료 (heap=396048)[0m
+[0;32mI (2303) BATTERY: 배터리 전압 측정: ADC 원시값=2130, vIn=3541mV[0m
+[0;32mI (2303) BATTERY: 배터리 레벨: 캐시 사용 level=100%[0m
+[0;32mI (2304) IRINGER_IR_2.1: 초기 배터리 측정: 전압=3541mV, 레벨=100%[0m
+[0;32mI (2331) IRINGER_IR_2.1: TFT 디스플레이 초기화 완료 (초기 GTT 측정 및 UI 업데이트 완료)[0m
+[0;32mI (2332) IRINGER_IR_2.1: 데이터 업데이트 태스크 시작 (ESP Light Sleep 전용 모드)[0m
+[0;32mI (2338) IRINGER_IR_2.1: ESP Light Sleep 전용: 리포트 전송 → 다운링크 수신 → Light Sleep → 반복[0m
+[0;32mI (2349) IRINGER_IR_2.1: GTT 측정: LP Core 사용 중[0m
+[0;32mI (2332) IRINGER_IR_2.1: Data update task successful[0m
+[0;32mI (2358) IRINGER_IR_2.1: Watchdog yield 태스크 시작 완료 (Task watchdog 에러 방지)[0m
+[0;32mI (2366) IRINGER_IR_2.1: Zigbee 네트워크 조인 시작[0m
+[0;32mI (2372) IRINGER_IR_2.1: Zigbee 초기화 (sleep은 조인 후 활성화)[0m
+[0;32mI (2449) IRINGER_IR_2.1: Zigbee Light Sleep 사전 활성화 (init 직후)[0m
+[0;32mI (2449) IRINGER_IR_2.1: Sleepy End Device 모드 활성화: rx_on_when_idle=false[0m
+[0;32mI (2463) IRINGER_IR_2.1: Initialize Zigbee stack[0m
+[0;32mI (3238) IRINGER_IR_2.1: Zigbee initial report setup completed[0m
+[0;32mI (3239) IRINGER_IR_2.1: Device started up in non factory-reset mode[0m
+[0;32mI (3239) IRINGER_IR_2.1: Device rebooted[0m
+[0;32mI (3244) IRINGER_IR_2.1: 재부팅: 네트워크 연결 확인 (short_addr: 0xeedd)[0m
+[0;32mI (3251) IRINGER_IR_2.1: 재부팅: 리포트 설정 재적용 완료, Time Cluster Read Attributes 전송 (시간 동기화 대기 중)[0m
+[0;32mI (4056) IRINGER_IR_2.1: Time Cluster Read Attributes 응답: time=1781523837 (Unix epoch 초, type=226)[0m
+[0;32mI (4057) [15 11:43:57.00] IRINGER_IR_2.1: === Time Cluster로 시간 동기화 완료 === time_value=1781523837, adjusted_time=1781523837, boot_time_us=3742431[0m
+[0;32mI (4068) [15 11:43:57.01] IRINGER_IR_2.1: 시간 동기화 완료: 첫 리포트 즉시 전송[0m
+[0;32mI (4353) [15 11:43:57.29] IRINGER_IR_2.1: Zigbee Light Sleep 메인 루틴 시작 (CAN_SLEEP 정석 모드)[0m
+[0;33mW (4353) [15 11:43:57.29] IRINGER_IR_2.1: [MAINLOOP HB] iter=1 state=IDLE t=4039 ms[0m
+[0;32mI (4359) [15 11:43:57.30] IRINGER_IR_2.1: 리포트 전송 시작[0m
+[0;32mI (5496) [15 11:43:58.43] BATTERY: 배터리 전압 측정: ADC 원시값=2105, vIn=3500mV[0m
+[0;32mI (5496) [15 11:43:58.43] BATTERY: 배터리 레벨: 캐시 사용 level=100%[0m

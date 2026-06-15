@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED 점등 기능 개발 계획서 (고객사 협의 반영)</title>
+    <style>
+        body { font-family: 'Malgun Gothic', 'Segoe UI', sans-serif; margin: 2rem; max-width: 960px; line-height: 1.55; color: #333; }
+        h1 { color: #1a5276; border-bottom: 2px solid #1a5276; padding-bottom: 0.5rem; }
+        h2 { color: #2874a6; margin-top: 1.5rem; }
+        h3 { color: #3498db; margin-top: 1rem; }
+        table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.9rem; }
+        th, td { border: 1px solid #bdc3c7; padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+        th { background: #ebf5fb; }
+        .code { font-family: 'Consolas', 'Monaco', monospace; background: #f4f6f7; padding: 0.15rem 0.35rem; border-radius: 3px; font-size: 0.9em; }
+        .file { font-family: 'Consolas', monospace; color: #6c3483; font-size: 0.9em; }
+        .req { background: #e8f6f3; border-left: 4px solid #1abc9c; padding: 0.6rem 0.8rem; margin: 0.8rem 0; }
+        .remove { background: #fdebd0; border-left: 4px solid #e74c3c; padding: 0.6rem 0.8rem; margin: 0.8rem 0; }
+        .optional { background: #f4f6f7; border-left: 4px solid #95a5a6; padding: 0.6rem 0.8rem; margin: 0.8rem 0; }
+        ul { margin: 0.4rem 0; padding-left: 1.2rem; }
+        .meta { color: #7f8c8d; font-size: 0.9rem; margin-bottom: 1.2rem; }
+    </style>
+</head>
+<body>
+    <h1>LED 점등 기능 개발 계획서 (고객사 협의 반영)</h1>
+    <p class="meta">대상: iringer_ir_end_device_2.1 | 작성일: 2026-01-30 | 브랜치: feature/blink</p>
+
+    <h2>1. 개요</h2>
+    <p>고객사 협의를 반영한 LED(PWR LED, GPIO1) 점등 규격 및 구현 계획입니다. Beep(수액 종료 알람) 구간에서는 LED 점등, 비알람 구간에서는 일정 간격 점멸로 동작하며, 데이터 송신 시 LED 점등 기능은 제거합니다.</p>
+    <p><strong>구현 위치:</strong> LED 점등·점멸 로직은 <strong>LP Core(Low Power Core)</strong>에서 구현합니다. HP Core는 알람 활성 여부 등을 공유 메모리에 기록하고, LP Core가 이를 참조하여 LED를 제어합니다.</p>
+
+    <h2>2. 요구사항 요약</h2>
+    <table>
+        <thead>
+            <tr><th>구분</th><th>내용</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Beep 알람 울릴 때</td><td>LED 점등 (알람 구간 동안 ON 유지)</td></tr>
+            <tr><td>알람이 아닐 때 (1이 아닐 경우)</td><td>일정 간격으로 LED 점등 (점멸)</td></tr>
+            <tr><td>점멸 주기</td><td><span class="code">#define</span>으로 설정 가능, 기본값 1분</td></tr>
+            <tr><td>LED 점등 시간</td><td><span class="code">#define</span>으로 설정 가능, 기본값 0.1초</td></tr>
+            <tr><td>LED 밝기</td><td><span class="code">#define</span>으로 설정 (0~100%). PWM 미사용, 1000Hz 루프 위상으로 ON 비율 제어</td></tr>
+            <tr><td>데이터 송신 시 LED</td><td>점등 기능 <strong>삭제</strong></td></tr>
+        </tbody>
+    </table>
+
+    <h2>3. 상세 요구사항 및 구현 방향</h2>
+
+    <h3>3.1 Beep 알람 울릴 때 LED 점등</h3>
+    <div class="req">
+        <strong>요구:</strong> Beep(수액 종료 알람)이 울릴 때 LED 점등.<br>
+        <strong>구현 방향 (LP Core):</strong> HP Core는 알람 활성 시 공유 메모리(예: <span class="code">lp_core_shared_memory</span>)에 알람 플래그를 설정. LP Core는 주기적으로 해당 플래그를 읽어, 알람이 활성인 동안 LED를 ON 유지. 알람 비활성 시 비알람 구간 동작(일정 간격 점멸)으로 복귀.
+    </div>
+    <p><strong>관련 코드:</strong> LP Core: <span class="file">lp_core_main_lp.c</span>, <span class="file">lp_core_shared_memory.h</span>. HP Core: <span class="file">iringer_ir_end_device_2.1.c</span>에서 알람 조건 체크 후 공유 메모리에 플래그 기록.</p>
+
+    <h3>3.2 알람이 아닐 때(1이 아닐 경우) 일정 간격으로 점등</h3>
+    <div class="req">
+        <strong>요구:</strong> 알람이 울리지 않을 때는 일정 간격으로 LED 점등(점멸).<br>
+        <strong>구현 방향 (LP Core):</strong> LP Core 내 주기 타이머에서 <span class="code">LED_BLINK_INTERVAL_MS</span>마다 LED를 <span class="code">LED_ON_DURATION_MS</span>만큼 ON 후 OFF. 주기와 점등 시간은 <span class="code">#define</span>으로 제어(설정은 LP Core용 헤더 또는 공유 설정 헤더에 정의).
+    </div>
+
+    <h3>3.3 점멸 주기 및 점등 시간 #define</h3>
+    <table>
+        <thead>
+            <tr><th>항목</th><th>#define 예시</th><th>기본값</th><th>비고</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>점멸 주기 (간격)</td>
+                <td><span class="code">LED_BLINK_INTERVAL_MS</span></td>
+                <td>60000 (1분)</td>
+                <td>한 번 점등 후 다음 점등까지의 간격(ms). 상수로 주기 조절 가능.</td>
+            </tr>
+            <tr>
+                <td>LED 점등 시간</td>
+                <td><span class="code">LED_ON_DURATION_MS</span></td>
+                <td>100 (0.1초)</td>
+                <td>한 번 점등 시 LED가 켜져 있는 시간(ms).</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><strong>설정 위치 제안:</strong> LP Core에서 사용하므로 <span class="file">lp_core/lp_core_algorithm_config.h</span> 또는 <span class="file">iringer_led.h</span> 등에 상수 정의. 테스트/운영에 따라 값만 변경하면 되도록 구현.</p>
+
+    <h3>3.4 LED 밝기 조절 (PWM 미사용, 1000Hz 루프 활용)</h3>
+    <div class="req">
+        <strong>요구:</strong> LED 밝기를 <span class="code">#define</span>으로 설정 가능하게 하되, <strong>하드웨어 PWM(LEDC)은 사용하지 않음</strong>.<br>
+        <strong>구현 방향 (LP Core):</strong> LP Core 메인 루프 주기가 IR 샘플링 기준 약 <strong>1000Hz(1ms 주기)</strong>이므로, 이 1ms 주기를 하나의 “프레임”으로 활용하여 소프트웨어로 밝기를 조절한다.
+    </div>
+    <ul>
+        <li><strong>원리:</strong> 매 1ms(루프 1회)마다 위상 카운터(예: 0~99)를 증가시키고, <code>(위상 % 100) &lt; LED_BRIGHTNESS_PERCENT</code>이면 이번 구간에서 LED ON, 아니면 OFF로 설정한다. 100ms 구간 기준으로 보면 ON 비율이 밝기 퍼센트와 같아져, 체감 밝기가 조절된다.</li>
+        <li><strong>#define:</strong> <span class="code">LED_BRIGHTNESS_PERCENT</span> (0~100). 100이면 항상 ON(최대 밝기), 0이면 항상 OFF, 50이면 약 50% 밝기. 설정 위치: <span class="file">lp_core_algorithm_config.h</span>.</li>
+        <li><strong>적용 시점:</strong> “LED를 켜야 하는” 구간(알람 시 상시 ON, 비알람 시 점등 구간 내 ON)에서만 위 밝기 로직 적용. LED를 꺼야 하는 구간(비알람 시 점등 간격 대기)에서는 계속 OFF.</li>
+        <li><strong>장점:</strong> LEDC/타이머 리소스 사용 없음, 기존 1ms 루프만 활용하여 구현 가능.</li>
+    </ul>
+    <table>
+        <thead>
+            <tr><th>항목</th><th>내용</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>루프 주기</td><td>약 1000Hz (1ms) — IR 샘플링 주기와 동일</td></tr>
+            <tr><td>위상 주기</td><td>100 카운트 (0~99) → 1% 단위 밝기. 필요 시 10 카운트(10% 단위)로 단순화 가능.</td></tr>
+            <tr><td>조건</td><td><span class="code">(phase_counter % 100) &lt; LED_BRIGHTNESS_PERCENT</span> → LED ON, else OFF</td></tr>
+            <tr><td>#define</td><td><span class="code">LED_BRIGHTNESS_PERCENT</span> (0~100, 기본값 예: 100)</td></tr>
+        </tbody>
+    </table>
+
+    <h3>3.5 데이터 송신 시 LED 점등 기능 삭제</h3>
+    <div class="remove">
+        <strong>요구:</strong> 데이터 송신 시 LED 점등 기능 삭제.<br>
+        <strong>삭제 대상:</strong>
+        <ul>
+            <li><span class="file">iringer_ir_end_device_2.1.c</span> 내 “리포트 전송 성공 시 GPIO1 LED 1회 깜빡임” 처리: <span class="code">gpio_hold_dis(LED_PWR_GPIO)</span> 후 <span class="code">led_pwr_set(true)</span> → 딜레이 → <span class="code">led_pwr_set(false)</span> 구간 제거 (현재 약 800~806행 부근).</li>
+            <li>Wake-up 시 “리포트 전송 목적”으로만 깨어났을 때 LED를 HIGH로 켜는 처리 제거 (현재 약 2204~2207행 부근: <span class="code">gpio_hold_dis(LED_PWR_GPIO)</span>, <span class="code">led_pwr_set(true)</span>).</li>
+        </ul>
+        위 삭제 후에도 Sleep 진입 시 LED OFF·hold, 일반 Wake-up 시 LED 동작은 “알람 시 점등 / 비알람 시 일정 간격 점멸” 규격에 맞게 유지.
+    </div>
+
+    <h2>4. 구현 작업 목록</h2>
+    <p>LED 점등·점멸 동작은 <strong>LP Core</strong>에서 구현합니다. HP Core가 하는 일은 (1) 알람 활성 여부를 공유 메모리에 써 두는 것, (2) 예전에 있던 “리포트 전송 성공 시 LED 1회 깜빡임”과 “Wake-up 시 LED HIGH” 코드를 제거한 것뿐입니다.</p>
+    <table>
+        <thead>
+            <tr><th>순서</th><th>작업</th><th>파일/위치</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>점멸 주기·점등 시간 <span class="code">#define</span> 추가 (기본 1분, 0.1초)</td><td>LP Core용: <span class="file">lp_core/lp_core_algorithm_config.h</span> 또는 <span class="file">iringer_led.h</span></td></tr>
+            <tr><td>2</td><td>비알람 구간: 일정 간격 LED 점멸 로직 구현 (주기 타이머에서 ON → <span class="code">LED_ON_DURATION_MS</span> 후 OFF, <span class="code">LED_BLINK_INTERVAL_MS</span> 주기)</td><td><strong>LP Core</strong> <span class="file">lp_core/lp_core_main_lp.c</span></td></tr>
+            <tr><td>3</td><td>알람 구간: 공유 메모리 알람 플래그가 설정된 동안 LED ON, 해제 시 비알람 점멸로 복귀</td><td><strong>LP Core</strong> <span class="file">lp_core/lp_core_main_lp.c</span> (공유 메모리 <span class="file">lp_core_shared_memory.h</span> 참조). HP Core에서 알람 활성 시 플래그 설정.</td></tr>
+            <tr><td>4</td><td>데이터 송신 성공 시 LED 1회 깜빡임 코드 제거</td><td>HP Core <span class="file">iringer_ir_end_device_2.1.c</span> (리포트 전송 완료 처리 부근)</td></tr>
+            <tr><td>5</td><td>Wake-up 시 리포트 전송 목적일 때만 LED HIGH로 켜는 코드 제거</td><td>HP Core <span class="file">iringer_ir_end_device_2.1.c</span> (wakeup 원인 처리 부근)</td></tr>
+            <tr><td>6</td><td>LED 밝기 조절: 1000Hz 루프 활용, PWM 미사용. <span class="code">LED_BRIGHTNESS_PERCENT</span> #define 및 위상 카운터 기반 ON/OFF 비율 적용 (알람·점등 ON 구간에만 적용)</td><td><strong>LP Core</strong> <span class="file">lp_core_main_lp.c</span>, <span class="file">lp_core_algorithm_config.h</span></td></tr>
+        </tbody>
+    </table>
+
+    <h2>5. 동작 요약</h2>
+    <ul>
+        <li><strong>구현 담당:</strong> LED 점등·점멸·밝기 로직은 <strong>LP Core</strong>에서 수행. HP Core는 (1) 알람 활성 여부를 공유 메모리에 기록하여 LP가 읽게 하는 것, (2) 예전에 있던 “데이터 송신 시 LED 깜빡임”·“Wake-up 시 LED 켜기” 코드를 제거한 것만 담당.</li>
+        <li><strong>알람 울릴 때:</strong> LED 계속 ON (LP Core가 공유 메모리 알람 플래그 보고 유지). 밝기는 <span class="code">LED_BRIGHTNESS_PERCENT</span>에 따라 1000Hz 루프 위상으로 조절.</li>
+        <li><strong>알람이 아닐 때:</strong> <span class="code">LED_BLINK_INTERVAL_MS</span>(기본 1분)마다 <span class="code">LED_ON_DURATION_MS</span>(기본 0.1초) 동안 점등 후 OFF. 점등 구간에서도 밝기는 <span class="code">LED_BRIGHTNESS_PERCENT</span>로 조절.</li>
+        <li><strong>밝기:</strong> 하드웨어 PWM 미사용. 1000Hz(1ms) 루프에서 위상 카운터(0~99)로 ON 비율 제어 → <span class="code">LED_BRIGHTNESS_PERCENT</span>(0~100) #define으로 설정.</li>
+        <li><strong>데이터 송신:</strong> LED 점등 없음 (기존 송신 시 깜빡임·Wake-up 시 HIGH 제거).</li>
+    </ul>
+</body>
+</html>
