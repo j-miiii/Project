@@ -418,9 +418,10 @@ export class AppService {
       delete filteredUpdateDto.updated_at;
 
       // -------------0622 데이터 확인을 위한 추가 부분-------------
-      const isChangeButtonClicked = updateDto.infusion_change_button === true;
-      delete filteredUpdateDto.infusion_change_button;
-      delete filteredUpdateDto.infusion_current_volume;
+      const isChangeButtonClicked = updateDto.infusion_change_button === true; // 수액 교체 버튼이 true 인지?
+
+      delete filteredUpdateDto.infusion_change_button;        //   파라미터용으로 DB 테이블 컬럼에 없어 
+      delete filteredUpdateDto.infusion_current_volume;      //    에러방지로 지워주기
       //---------------------------------------------------------
 
       // 필터링 후에도 업데이트할 데이터가 있는지 확인
@@ -718,7 +719,7 @@ export class AppService {
       // patient_bed_assignments 업데이트 시 device 위치 업데이트 + MQTT 알림 발송
       if (tableName === 'patient_bed_assignments' && updatedRecord) {
 
-// =============== [여기서부터 코드 추가!] ===============
+        // =============== [여기서부터 코드 추가!] ===============  오더속도 전달
         // 기기가 방금 연결되었고(device_id 존재), 수액 용량 정보가 있다면 기기로 쏴줍니다.
         if (updatedRecord.device_id && updatedRecord.infusion_total_volume) {
           try {
@@ -728,8 +729,9 @@ export class AppService {
             if (targetDevice && targetDevice.serial_number) {
               this.mqttService.sendDeviceSetting(targetDevice.serial_number, {
                 totalVolume: updatedRecord.infusion_total_volume,
-                flowRate: updatedRecord.infusion_cchr || 0,
-          // 👇 [수정] 무조건 0이 아니라, 버튼이 눌렸을 때(true)만 0을 보냅니다!       0622 수정 내용
+                flowRate: updatedRecord.infusion_cchr || 0, // 오더속도 추가
+
+                // 👇 [수정] 무조건 0이 아니라, 버튼이 눌렸을 때(true)만 0을 보냅니다!       0622 수정 내용
                 infusion_current_volume: isChangeButtonClicked ? 0 : undefined,
                 infusion_change_button: isChangeButtonClicked ? true : undefined
                 //-------------------------------------------------------------
