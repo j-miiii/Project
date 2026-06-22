@@ -417,6 +417,12 @@ export class AppService {
       delete filteredUpdateDto.created_at;
       delete filteredUpdateDto.updated_at;
 
+      // -------------0622 데이터 확인을 위한 추가 부분-------------
+      const isChangeButtonClicked = updateDto.infusion_change_button === true;
+      delete filteredUpdateDto.infusion_change_button;
+      delete filteredUpdateDto.infusion_current_volume;
+      //---------------------------------------------------------
+
       // 필터링 후에도 업데이트할 데이터가 있는지 확인
       if (Object.keys(filteredUpdateDto).length === 0) {
         throw new HttpException(
@@ -723,11 +729,12 @@ export class AppService {
               this.mqttService.sendDeviceSetting(targetDevice.serial_number, {
                 totalVolume: updatedRecord.infusion_total_volume,
                 flowRate: updatedRecord.infusion_cchr || 0,
-                infusion_current_volume: 0,
-                // 수액 교체 버튼 파라미터 
-                infusion_change_button: true
+          // 👇 [수정] 무조건 0이 아니라, 버튼이 눌렸을 때(true)만 0을 보냅니다!       0622 수정 내용
+                infusion_current_volume: isChangeButtonClicked ? 0 : undefined,
+                infusion_change_button: isChangeButtonClicked ? true : undefined
+                //-------------------------------------------------------------
               });
-              this.logger.log(`[TEST]2 기기(${targetDevice.serial_number})로 보낸 데이터:  ${targetDevice.infusion_change_button} 누적총량 :${targetDevice.infusion_current_volume}`);
+              this.logger.log(`[TEST]2 기기(${targetDevice.serial_number})로 보낸 교체 파라미터 작동여부: ${isChangeButtonClicked}`);
               this.logger.log(`[ASSIGNMENT UPDATE] 기기(${targetDevice.serial_number})로 전송 완료! (총 용량: ${updatedRecord.infusion_total_volume}ml, 처방 속도: ${updatedRecord.infusion_cchr || 0}cc/hr)`);
             }
           } catch (e) {
@@ -2709,7 +2716,7 @@ export class AppService {
           infusion_change_button: true
 
         });
-        this.logger.log(`[TEST]1 기기(${targetDevice.serial_number})로 보낸 데이터:  ${targetDevice.infusion_change_button} 누적총량 :${targetDevice.infusion_current_volume}`);
+        this.logger.log(`[TEST]1 기기(${targetDevice.serial_number})에 신규 수액 배정 -> 누적총량 0 리셋 명령 전송됨!`);
         this.logger.log(`[UPSERT ASSIGNMENT] 기기(${targetDevice.serial_number})로 용량 및 속도 전송 완료!`);
       }
     }).catch(err => {
