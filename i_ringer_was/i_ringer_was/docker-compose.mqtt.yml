@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mqtt-broker
+    ports:
+      - "1883:1883"   # MQTT 기본 포트
+      - "9001:9001"   # WebSocket 포트
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - mosquitto-data:/mosquitto/data
+      - mosquitto-log:/mosquitto/log
+    restart: unless-stopped
+    networks:
+      - ringer-network
+
+volumes:
+  mosquitto-data:
+  mosquitto-log:
+
+networks:
+  ringer-network:
+    driver: bridge

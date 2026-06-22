@@ -1,0 +1,202 @@
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue',
+    'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* QR코드 인쇄 스타일 */
+@media print {
+  /* 페이지 여백 최소화 */
+  @page {
+    margin: 5mm;
+    size: A4 portrait;
+  }
+
+  /* 브라우저 기본 헤더/푸터 숨기기 */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 모달 외의 모든 요소 숨기기 */
+  body * {
+    visibility: hidden;
+  }
+
+  /* QR코드 모달만 보이게 */
+  .qr-print-area,
+  .qr-print-area * {
+    visibility: visible;
+  }
+
+  /* QR코드 모달을 페이지 상단에 배치 */
+  .qr-print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-height: none !important;
+    overflow: visible !important;
+    background: white !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 제목 숨기기 */
+  .qr-print-area > h6 {
+    display: none !important;
+  }
+
+  /* 버튼 숨기기 */
+  .no-print {
+    display: none !important;
+  }
+
+  /* 모달 배경 제거 */
+  .MuiModal-backdrop {
+    display: none !important;
+  }
+
+  /* 인쇄 시 3열 그리드로 배치 */
+  .qr-print-area > div {
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .qr-print-area > div > div {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6mm !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    justify-items: center !important;
+    align-items: start !important;
+  }
+
+  /* 6개마다 페이지 나누기 (3열 2행) */
+  .qr-item:nth-child(6n+1) {
+    page-break-before: always;
+  }
+
+  /* 첫 번째 아이템은 페이지 나누기 안함 */
+  .qr-item:first-child {
+    page-break-before: avoid;
+  }
+
+  /* 각 QR코드 아이템 - 더 작게 */
+  .qr-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    background: white !important;
+    border: 2px solid #2563eb !important;
+    border-radius: 10px !important;
+    padding: 4mm !important;
+    box-shadow: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 2mm !important;
+    width: 55mm !important;
+    height: 70mm !important;
+    position: relative !important;
+  }
+
+  /* 정보 영역 */
+  .qr-item > div:first-child {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 2mm 0 !important;
+    border-bottom: 1.5px solid #e5e7eb !important;
+  }
+
+  /* 텍스트 색상 */
+  .qr-item * {
+    color: #000 !important;
+    background: transparent !important;
+  }
+
+  /* 라벨 텍스트 (병동명 또는 "기기명") */
+  .qr-item > div:first-child p:first-of-type,
+  .qr-item > div:first-child > div:last-child p:first-child {
+    font-size: 10pt !important;
+    font-weight: 500 !important;
+    color: #6b7280 !important;
+    margin: 0 0 1mm 0 !important;
+    letter-spacing: -0.3px !important;
+  }
+
+  /* 메인 텍스트 (병상 번호 또는 기기명) */
+  .qr-item > div:first-child p:last-of-type,
+  .qr-item > div:first-child > div:last-child p:last-child {
+    font-size: 10pt !important;
+    font-weight: 800 !important;
+    color: #111827 !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  /* QR코드 영역 */
+  .qr-item > div:last-child {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 2mm !important;
+    background: white !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* QR코드 자체 크기 */
+  .qr-item svg {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    display: block !important;
+  }
+
+  /* 아이콘/배지 숨기기 */
+  .qr-item img[src*="ic_bed"],
+  .qr-item > div:first-child > div:first-child {
+    display: none !important;
+  }
+
+  /* 기기 정보 영역 중앙 정렬 */
+  .qr-item > div:first-child > div:last-child {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* 로고 영역 */
+  .qr-print-area::before {
+    content: "i-Ringer";
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 16pt !important;
+    font-weight: 700 !important;
+    color: #2563eb !important;
+    padding: 3mm 0 6mm 0 !important;
+    margin: 0 !important;
+    letter-spacing: 1px !important;
+  }
+}

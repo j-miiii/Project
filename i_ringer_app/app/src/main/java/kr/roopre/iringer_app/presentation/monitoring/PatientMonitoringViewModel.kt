@@ -168,7 +168,7 @@ class PatientMonitoringViewModel(
         private const val POLLING_INTERVAL_MS = 10_000L // 10초 주기 폴링
 
         // 마지막으로 선택된 방 ID를 기억할 정적 변수 추가
-        var lastSelectedRoomId : Int? = null
+        //var lastSelectedRoomId : Int? = null
     }
 
     init {
@@ -435,8 +435,8 @@ class PatientMonitoringViewModel(
                             val normal = total - alert
 
                             val currentFilter = _uiState.value.selectedFilter
-                            // 🌟 [수정 포인트 1] 여기서 뷰모델이 새로 생성되어 null이더라도, 정적 변수에 저장된 이전 방 ID를 가져옵니다.
-                            val currentRoomId = _uiState.value.selectedRoomId ?: lastSelectedRoomId
+                            // 🌟 [수정 포인트 1] 여기서 뷰모델이 새로 생성되어 null이더라도, 정적 변수에 저장된 이전 방 ID를 가져옵니다. 0622
+                            val currentRoomId = _uiState.value.selectedRoomId
 
 
                             //val currentRoomId = _uiState.value.selectedRoomId ?: lastSelectedRoomId
@@ -481,9 +481,6 @@ class PatientMonitoringViewModel(
                             normalCount = normalCount,
                             alertCount = alertCount
                         )
-
-                        // 🌟 [수정 포인트 2] 데이터가 성공적으로 로드된 후에도 현재 선택된 방을 기억해 둡니다.
-                        lastSelectedRoomId = selectedRoom
 
                         Log.d(TAG, "모니터링 데이터 로드 성공: ${roomUiModels.size}개 병실 (리프레시: ${!isInitialLoad})")
                     }
@@ -531,7 +528,6 @@ class PatientMonitoringViewModel(
         if (_uiState.value.selectedRoomId == roomId) return
         _uiState.value = _uiState.value.copy(selectedRoomId = roomId)
 
-        lastSelectedRoomId = roomId
     }
 
     fun changeSpeed(

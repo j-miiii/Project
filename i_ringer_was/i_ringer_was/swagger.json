@@ -1,0 +1,1023 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/{table_name}": {
+      "get": {
+        "description": "지정된 테이블의 데이터 목록을 조회합니다.",
+        "operationId": "UnifiedController_findAll",
+        "parameters": [
+          {
+            "name": "table_name",
+            "required": true,
+            "in": "path",
+            "description": "조회할 테이블 이름",
+            "schema": {
+              "example": "users",
+              "type": "string"
+            }
+          },
+          {
+            "name": "authorization",
+            "required": true,
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "end_date",
+            "required": false,
+            "in": "query",
+            "description": "종료일 (YYYY-MM-DD 형식)",
+            "schema": {
+              "example": ""
+            }
+          },
+          {
+            "name": "start_date",
+            "required": false,
+            "in": "query",
+            "description": "시작일 (YYYY-MM-DD 형식)",
+            "schema": {
+              "example": ""
+            }
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "description": "페이지 번호 (기본값: 1)",
+            "schema": {
+              "example": 1
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "페이지당 항목 수 (기본값: 10)",
+            "schema": {
+              "example": 10
+            }
+          },
+          {
+            "name": "where",
+            "required": false,
+            "in": "query",
+            "description": "필터링 조건을 문자열 형태로 입력 (예: status:active,type:premium)",
+            "schema": {
+              "example": ""
+            }
+          },
+          {
+            "name": "order",
+            "required": false,
+            "in": "query",
+            "description": "정렬 조건을 문자열 형태로 입력 (예: id:desc,created_at:asc)",
+            "schema": {
+              "example": "id:desc"
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "description": "검색 키워드",
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공적으로 조회됨"
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "데이터 목록 조회",
+        "tags": [
+          "통합"
+        ]
+      }
+    },
+    "/api/{table_name}/{id}": {
+      "get": {
+        "description": "지정된 테이블의 특정 데이터를 조회합니다.",
+        "operationId": "UnifiedController_findOne",
+        "parameters": [
+          {
+            "name": "table_name",
+            "required": true,
+            "in": "path",
+            "description": "조회할 테이블 이름",
+            "schema": {
+              "example": "users",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "조회할 레코드 ID",
+            "schema": {
+              "example": 1,
+              "type": "string"
+            }
+          },
+          {
+            "name": "user_id",
+            "required": false,
+            "in": "query",
+            "description": "사용자 ID (관련 데이터 확인용)",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "authorization",
+            "required": true,
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공적으로 조회됨"
+          },
+          "404": {
+            "description": "데이터를 찾을 수 없음"
+          }
+        },
+        "summary": "데이터 상세 조회",
+        "tags": [
+          "통합"
+        ]
+      },
+      "put": {
+        "description": "지정된 테이블의 특정 데이터를 수정합니다.",
+        "operationId": "UnifiedController_update",
+        "parameters": [
+          {
+            "name": "table_name",
+            "required": true,
+            "in": "path",
+            "description": "수정할 테이블 이름",
+            "schema": {
+              "example": "users",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "수정할 레코드 ID",
+            "schema": {
+              "example": 1,
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "수정할 데이터",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "성공적으로 수정됨"
+          },
+          "404": {
+            "description": "데이터를 찾을 수 없음"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "데이터 수정",
+        "tags": [
+          "통합"
+        ]
+      },
+      "delete": {
+        "description": "지정된 테이블의 특정 데이터를 삭제합니다.",
+        "operationId": "UnifiedController_remove",
+        "parameters": [
+          {
+            "name": "table_name",
+            "required": true,
+            "in": "path",
+            "description": "삭제할 테이블 이름",
+            "schema": {
+              "example": "users",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "삭제할 레코드 ID",
+            "schema": {
+              "example": 1,
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "성공적으로 삭제됨"
+          },
+          "404": {
+            "description": "데이터를 찾을 수 없음"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "데이터 삭제",
+        "tags": [
+          "통합"
+        ]
+      }
+    },
+    "/api/users": {
+      "post": {
+        "description": "새로운 사용자를 생성합니다.",
+        "operationId": "ModelsController_createUser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "사용자 데이터",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "role": "간호사",
+                  "auth_id": "nurse001",
+                  "password": "password123",
+                  "nickname": "김간호사",
+                  "hospital_id": "H001",
+                  "ward_id": 1
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "사용자 생성",
+        "tags": [
+          "개별모델 삽입"
+        ]
+      }
+    },
+    "/api/patients": {
+      "post": {
+        "description": "새로운 환자를 생성합니다.",
+        "operationId": "ModelsController_createPatient",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "환자 데이터",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "nickname": "홍길동",
+                  "chart_number": "P001"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "환자 생성",
+        "tags": [
+          "개별모델 삽입"
+        ]
+      }
+    },
+    "/api/hospitals": {
+      "post": {
+        "description": "새로운 병원을 생성합니다.",
+        "operationId": "ModelsController_createHospital",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "병원 데이터",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "서울대학교병원"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "병원 생성",
+        "tags": [
+          "개별모델 삽입"
+        ]
+      }
+    },
+    "/api/wards": {
+      "post": {
+        "description": "새로운 병동을 생성합니다.",
+        "operationId": "ModelsController_createWard",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "병동 데이터",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "hospital_id": 1,
+                  "name": "내과병동"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "병동 생성",
+        "tags": [
+          "개별모델 삽입"
+        ]
+      }
+    },
+    "/api/rooms": {
+      "post": {
+        "description": "새로운 병실을 생성합니다.",
+        "operationId": "ModelsController_createRoom",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "병실 데이터",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "ward_id": 1,
+                  "name": "101호",
+                  "bed_count": 4
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "병실 생성",
+        "tags": [
+          "개별모델 삽입"
+        ]
+      }
+    },
+    "/api/beds": {
+      "post": {
+        "description": "새로운 침대를 생성합니다.",
+        "operationId": "ModelsController_createBed",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "침대 데이터",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "room_id": 1,
+                  "bed_number": "A1",
+                  "status": "available"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "침대 생성",
+        "tags": [
+          "개별모델 삽입"
+        ]
+      }
+    },
+    "/api/devices": {
+      "post": {
+        "description": "새로운 링겔 모니터링 장치를 생성합니다.",
+        "operationId": "ModelsController_createDevice",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "장치 데이터",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "device_name": "I-Ringer-001",
+                  "serial_number": "IR001",
+                  "network_status": "online",
+                  "battery_percent": 85,
+                  "firmware_version": "1.0.0",
+                  "bed_id": "1"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "장치 생성",
+        "tags": [
+          "개별모델 삽입"
+        ]
+      }
+    },
+    "/api/patient_bed_assignments": {
+      "post": {
+        "description": "환자를 침대에 할당합니다.",
+        "operationId": "ModelsController_createPatientBedAssignment",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "환자 침대 할당 데이터",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "patient_id": 1,
+                  "bed_id": 1,
+                  "device_id": 1,
+                  "infusion_type": "생리식염수",
+                  "infusion_total_volumn": 500,
+                  "assigned_at": "2025-09-04T14:00:00Z"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "환자 침대 할당 생성",
+        "tags": [
+          "개별모델 삽입"
+        ]
+      }
+    },
+    "/api/infusion_logs": {
+      "post": {
+        "description": "새로운 수액 주입 로그를 생성합니다.",
+        "operationId": "ModelsController_createInfusionLog",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "수액 주입 로그 데이터",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "device_id": 1,
+                  "patient_bed_assignment_id": 1,
+                  "log_time": "2025-09-04T14:00:00Z",
+                  "flow_rate": 60.5,
+                  "infused_volume": 250,
+                  "alarm_type": "normal"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "수액 주입 로그 생성",
+        "tags": [
+          "개별모델 삽입"
+        ]
+      }
+    },
+    "/api/notifications": {
+      "post": {
+        "description": "새로운 알림을 생성합니다.",
+        "operationId": "ModelsController_createNotification",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "알림 데이터",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "user_id": 1,
+                  "patient_bed_assignment_id": 1,
+                  "device_id": 1,
+                  "title": "수액 주입 완료",
+                  "message": "환자 홍길동의 수액 주입이 완료되었습니다.",
+                  "type": "complete",
+                  "is_read": 0
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "알림 생성",
+        "tags": [
+          "개별모델 삽입"
+        ]
+      }
+    },
+    "/api/user_settings": {
+      "post": {
+        "description": "새로운 사용자 설정을 생성합니다.",
+        "operationId": "ModelsController_createUserSetting",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "사용자 설정 데이터",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "user_id": 1,
+                  "fast_enabled": 1,
+                  "fast_threshold": 50,
+                  "slow_enabled": 1,
+                  "slow_threshold": -50,
+                  "default_gatt": 60,
+                  "complete_enabled": 1,
+                  "complete_threshold": 95,
+                  "stop_enabled": 1,
+                  "alert_color": "#FF0000",
+                  "alert_display_time": 5
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "사용자 설정 생성",
+        "tags": [
+          "개별모델 삽입"
+        ]
+      }
+    },
+    "/api/access_tokens": {
+      "post": {
+        "description": "새로운 액세스 토큰을 생성합니다.",
+        "operationId": "ModelsController_createAccessToken",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "description": "액세스 토큰 데이터",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "user_id": 1,
+                  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+                  "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+                  "expires_at": "2025-09-04T15:00:00Z"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "summary": "액세스 토큰 생성",
+        "tags": [
+          "개별모델 삽입"
+        ]
+      }
+    },
+    "/api/user/signin": {
+      "post": {
+        "operationId": "AuthController_signinUser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "로그인 성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "access_token": {
+                      "type": "string",
+                      "description": "JWT Access Token (2시간 유효)"
+                    },
+                    "refresh_token": {
+                      "type": "string",
+                      "description": "JWT Refresh Token (30일 유효)"
+                    },
+                    "user": {
+                      "type": "object",
+                      "description": "사용자 정보",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "email": {
+                          "type": "string"
+                        },
+                        "role": {
+                          "type": "string"
+                        },
+                        "nickname": {
+                          "type": "string"
+                        },
+                        "phone": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "등록되지 않은 사용자입니다 또는 비밀번호가 일치하지 않습니다"
+          }
+        },
+        "summary": "사용자 로그인",
+        "tags": [
+          "인증"
+        ]
+      }
+    },
+    "/api/user/refresh": {
+      "post": {
+        "operationId": "AuthController_refresh",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "refresh_token": {
+                    "type": "string",
+                    "description": "리프레시 토큰"
+                  }
+                },
+                "required": [
+                  "refresh_token"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "토큰 갱신 성공",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "access_token": {
+                      "type": "string",
+                      "description": "새로운 JWT Access Token (2시간 유효)"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "유효하지 않은 리프레시 토큰"
+          }
+        },
+        "summary": "토큰 갱신",
+        "tags": [
+          "인증"
+        ]
+      }
+    },
+    "/mqtt/status": {
+      "get": {
+        "operationId": "MqttController_getConnectionStatus",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "연결 상태 반환"
+          }
+        },
+        "summary": "MQTT 브로커 연결 상태 확인",
+        "tags": [
+          "MQTT"
+        ]
+      }
+    },
+    "/mqtt/publish": {
+      "post": {
+        "operationId": "MqttController_publishMessage",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublishMessageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "메시지 발행 성공"
+          }
+        },
+        "summary": "특정 토픽에 메시지 발행",
+        "tags": [
+          "MQTT"
+        ]
+      }
+    },
+    "/mqtt/device/{deviceId}/command": {
+      "post": {
+        "operationId": "MqttController_sendCommandToDevice",
+        "parameters": [
+          {
+            "name": "deviceId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeviceCommandDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "명령 전송 성공"
+          }
+        },
+        "summary": "특정 기기에 명령 전송",
+        "tags": [
+          "MQTT"
+        ]
+      }
+    },
+    "/mqtt/alert": {
+      "post": {
+        "operationId": "MqttController_sendAlert",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AlertDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "알림 발송 성공"
+          }
+        },
+        "summary": "알림 메시지 발송",
+        "tags": [
+          "MQTT"
+        ]
+      }
+    },
+    "/mqtt/web/update": {
+      "post": {
+        "operationId": "MqttController_sendWebUpdate",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "업데이트 전송 성공"
+          }
+        },
+        "summary": "웹 클라이언트에 업데이트 전송",
+        "tags": [
+          "MQTT"
+        ]
+      }
+    },
+    "/hierarchy/hospitals": {
+      "get": {
+        "description": "모든 병원의 병동, 병실, 침대 정보를 계층 구조로 조회합니다.",
+        "operationId": "MonitoringController_getAllHospitalsHierarchy",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "성공적으로 조회됨"
+          }
+        },
+        "summary": "모든 병원 계층 구조 조회",
+        "tags": [
+          "Monitoring"
+        ]
+      }
+    },
+    "/monitoring": {
+      "get": {
+        "description": "병원, 병동, 병실별로 환자 및 링거 상태를 모니터링합니다.",
+        "operationId": "MonitoringController_getMonitoringData",
+        "parameters": [
+          {
+            "name": "hospital_id",
+            "required": false,
+            "in": "query",
+            "description": "병원 ID (단일값)",
+            "schema": {
+              "example": 1,
+              "type": "number"
+            }
+          },
+          {
+            "name": "ward_id",
+            "required": false,
+            "in": "query",
+            "description": "병동 ID (단일값)",
+            "schema": {
+              "example": 1,
+              "type": "number"
+            }
+          },
+          {
+            "name": "room_id",
+            "required": false,
+            "in": "query",
+            "description": "병실 ID (콤마로 구분된 다중값)",
+            "schema": {
+              "example": "1,2,3",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "모니터링 데이터 조회 성공"
+          }
+        },
+        "summary": "모니터링 데이터 조회",
+        "tags": [
+          "Monitoring"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "I-Ringer API",
+    "description": "Hospital IV drip monitoring system API",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "통합",
+      "description": "통합 CRUD API - 모든 테이블에 대한 조회, 수정, 삭제"
+    },
+    {
+      "name": "개별모델 삽입",
+      "description": "개별 모델별 데이터 생성 API"
+    }
+  ],
+  "servers": [
+    {
+      "url": "/",
+      "description": "기본 서버"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "UserLoginDto": {
+        "type": "object",
+        "properties": {
+          "auth_id": {
+            "type": "string",
+            "example": "nurse001",
+            "description": "사용자 아이디(auth_id)"
+          },
+          "password": {
+            "type": "string",
+            "example": "password123",
+            "description": "비밀번호"
+          }
+        },
+        "required": [
+          "auth_id",
+          "password"
+        ]
+      },
+      "PublishMessageDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "DeviceCommandDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "AlertDto": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  }
+}

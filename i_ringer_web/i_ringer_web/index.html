@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/app_logo.png" />
+    <link rel="stylesheet" as="style" crossorigin
+  href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>i-Ringer</title>
+    <style>
+      /* 다크모드 */
+      #initial-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #2C2C3C;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        z-index: 99999;
+        transition: opacity 0.3s ease;
+      }
+
+      /* 라이트모드 */
+      #initial-loader.initial-loader--light {
+        background-color: #F2F4FA;
+      }
+
+      #initial-loader.initial-loader--fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #initial-loader .initial-loader__spinner {
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+        min-height: 60px;
+        max-width: 60px;
+        max-height: 60px;
+        border-radius: 50%;
+        border-width: 4px;
+        border-style: solid;
+        border-color: #3A3A4A;
+        border-top-color: #009EE6;
+        animation: initial-loader-spin 1s linear infinite;
+        flex-shrink: 0;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* 라이트모드 스피너 */
+      #initial-loader.initial-loader--light .initial-loader__spinner {
+        border-color: #EDEDF5;
+        border-top-color: #009EE6;
+      }
+
+      @keyframes initial-loader-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      #initial-loader .initial-loader__text {
+        font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #DBDBE9;
+      }
+
+      /* 라이트모드 텍스트 */
+      #initial-loader.initial-loader--light .initial-loader__text {
+        color: #2C2C3C;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="initial-loader">
+      <div class="initial-loader__spinner"></div>
+      <div class="initial-loader__text">데이터를 불러오는 중...</div>
+    </div>
+    <script>
+      // localStorage에서 테마 설정 읽기 및 경로 확인
+      (function() {
+        try {
+          const loader = document.getElementById('initial-loader');
+          const currentPath = window.location.pathname;
+
+          // 로그인 페이지와 루트 경로에서 로더 숨김
+          if (currentPath === '/login' || currentPath === '/') {
+            loader.style.display = 'none';
+          } else {
+            // 나머지 모든 페이지에서는 로더 표시
+            const isDarkMode = localStorage.getItem('isDarkMode');
+            // isDarkMode가 "false"이거나 없으면 라이트모드
+            if (isDarkMode === 'false' || isDarkMode === null) {
+              loader.classList.add('initial-loader--light');
+            }
+          }
+        } catch (e) {
+          console.error('Failed to load theme:', e);
+        }
+      })();
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
+</html>
