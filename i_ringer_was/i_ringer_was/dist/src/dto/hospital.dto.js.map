@@ -1,0 +1,1 @@
+{"version":3,"file":"hospital.dto.js","sourceRoot":"","sources":["../../../src/dto/hospital.dto.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,qDAA2C;AAC3C,6CAA2D;AAE3D,MAAa,iBAAiB;CAI7B;AAJD,8CAIC;AADC;IAFC,IAAA,qBAAW,EAAC,EAAE,OAAO,EAAE,SAAS,EAAE,WAAW,EAAE,OAAO,EAAE,CAAC;IACzD,IAAA,0BAAQ,GAAE;;+CACE;AAGf,MAAa,iBAAkB,SAAQ,IAAA,qBAAW,EAAC,iBAAiB,CAAC;CAAG;AAAxE,8CAAwE"}

@@ -90,7 +90,8 @@ import { FcmModule } from './fcm/fcm.module';
           InfusionEventLog,
           WardSetting,
         ],
-        synchronize: false,
+        //synchronize: false,
+        synchronize: true,
         logging: false,
         timezone: '+09:00',
         extra: {

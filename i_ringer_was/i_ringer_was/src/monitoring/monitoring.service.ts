@@ -211,6 +211,80 @@ export class MonitoringService {
    * @returns 완료 처리 결과
    */
   async clearInfusion(assignmentId: number) {
+    // const assignmentRepository = this.dataSource.getRepository(PatientBedAssignment);
+    // const assignment = await assignmentRepository.findOne({
+    //   where: { id: assignmentId }
+    // });
+
+    // if (!assignment) {
+    //   return {
+    //     success: false,
+    //     statusCode: 404,
+    //     message: `Assignment with id ${assignmentId} not found`
+    //   };
+    // }
+
+    // // 수액 관련 필드만 NULL로 초기화 (환자-침상 연결 유지)
+    // await assignmentRepository.update(assignmentId, {
+    //   infusion_id: null,
+    //   infusion_type: null,
+    //   infusion_code: null,
+    //   infusion_total_volume: null,
+    //   infusion_cchr: null,
+    //   infusion_current_volume: null,
+    //   started_at: null,
+    //   stopped_at: null,
+    //   status: 'pending',
+    //   alert_type: null,
+    //   alert_category: null,
+    //   first_zero_cchr_at: null,
+    //   last_measured_weight: null,
+    //   last_measured_time: null,
+    // });
+
+    // // device 연결도 해제 (수액이 없으면 기기도 분리) + 위치 정보 초기화 (hospital, ward는 유지)
+    // if (assignment.device_id) {
+    //   const deviceRepository = this.dataSource.getRepository(Device);
+    //   await deviceRepository.update(assignment.device_id, {
+    //     bed_id: null,
+    //     room_id: null,
+    //     last_udpate_at: new Date()
+    //   });
+    //   await assignmentRepository.update(assignmentId, {
+    //     device_id: null,
+    //   });
+    // }
+
+    // // MQTT 알림 발송
+    // if (assignment.bed_id) {
+    //   try {
+    //     const bedRepository = this.dataSource.getRepository(Bed);
+    //     const bed = await bedRepository.findOne({
+    //       where: { id: assignment.bed_id },
+    //       relations: ['room', 'room.ward']
+    //     });
+    //     if (bed?.room?.ward?.hospital_id) {
+    //       await this.sendAssignmentRefreshNotification(bed.room.ward.hospital_id, {
+    //         assignment_id: assignmentId,
+    //         bed_id: assignment.bed_id,
+    //         action: 'clear_infusion'
+    //       });
+    //     }
+    //   } catch (mqttError) {
+    //     console.error(`[CLEAR INFUSION] MQTT notification failed: ${mqttError.message}`);
+    //   }
+    // }
+
+    // return {
+    //   success: true,
+    //   statusCode: 200,
+    //   message: `Infusion cleared for assignment ${assignmentId}`,
+    //   data: {
+    //     assignment_id: assignmentId,
+    //   }
+    // };
+
+    // 투여기록 방법 수정 0617
     const assignmentRepository = this.dataSource.getRepository(PatientBedAssignment);
     const assignment = await assignmentRepository.findOne({
       where: { id: assignmentId }
@@ -224,38 +298,48 @@ export class MonitoringService {
       };
     }
 
-    // 수액 관련 필드만 NULL로 초기화 (환자-침상 연결 유지)
+    const now = new Date();
+
+    // ---------------------------------------------------------
+    // [STEP 1] 기존 배정 내역을 '완료' 처리하여 기록 보존
+    // ---------------------------------------------------------
+    // 수액 정보를 null로 지우는 대신, released_at을 찍어 과거 이력으로 남깁니다.
     await assignmentRepository.update(assignmentId, {
-      infusion_id: null,
-      infusion_type: null,
-      infusion_code: null,
-      infusion_total_volume: null,
-      infusion_cchr: null,
-      infusion_current_volume: null,
-      started_at: null,
-      stopped_at: null,
-      status: 'pending',
-      alert_type: null,
-      alert_category: null,
-      first_zero_cchr_at: null,
-      last_measured_weight: null,
-      last_measured_time: null,
+      released_at: now,
+      status: 'completed' // 명시적으로 완료 상태로 변경
     });
 
-    // device 연결도 해제 (수액이 없으면 기기도 분리) + 위치 정보 초기화 (hospital, ward는 유지)
+    // ---------------------------------------------------------
+    // [STEP 2] 기기(Device) 위치 초기화 (기존 로직 유지)
+    // ---------------------------------------------------------
     if (assignment.device_id) {
       const deviceRepository = this.dataSource.getRepository(Device);
+      // 기기가 다른 곳에서 쓰일 수 있도록 위치(bed, room)만 비워줍니다.
       await deviceRepository.update(assignment.device_id, {
         bed_id: null,
         room_id: null,
-        last_udpate_at: new Date()
+        last_udpate_at: now
       });
-      await assignmentRepository.update(assignmentId, {
-        device_id: null,
-      });
+      // 참고: 과거 이력 추적을 위해 assignment 테이블의 device_id는 null로 만들지 않고 그대로 둡니다!
     }
 
-    // MQTT 알림 발송
+    // ---------------------------------------------------------
+    // [STEP 3] 동일한 환자+침상으로 새로운 '빈 수액 배정' 생성
+    // ---------------------------------------------------------
+    const newAssignment = assignmentRepository.create({
+      patient_id: assignment.patient_id,       // 환자 그대로 유지
+      bed_id: assignment.bed_id,               // 침상 그대로 유지
+      drug_order_id: assignment.drug_order_id, // 기존 처방 정보 연결 유지
+      assigned_at: now,
+      status: 'pending',
+      // 주의: infusion_* 관련 필드나 device_id는 적지 않았으므로 자동으로 null/기본값으로 비워진 채 생성됩니다.
+    });
+
+    const savedNewAssignment = await assignmentRepository.save(newAssignment);
+
+    // ---------------------------------------------------------
+    // [STEP 4] MQTT 알림 발송 (프론트엔드 새로고침)
+    // ---------------------------------------------------------
     if (assignment.bed_id) {
       try {
         const bedRepository = this.dataSource.getRepository(Bed);
@@ -265,7 +349,8 @@ export class MonitoringService {
         });
         if (bed?.room?.ward?.hospital_id) {
           await this.sendAssignmentRefreshNotification(bed.room.ward.hospital_id, {
-            assignment_id: assignmentId,
+            // 프론트엔드가 새로 생성된 배정 건을 바라보도록 새 ID를 넘겨줍니다.
+            assignment_id: savedNewAssignment.id,
             bed_id: assignment.bed_id,
             action: 'clear_infusion'
           });
@@ -278,14 +363,104 @@ export class MonitoringService {
     return {
       success: true,
       statusCode: 200,
-      message: `Infusion cleared for assignment ${assignmentId}`,
+      message: `Infusion cleared and new record created for old assignment ${assignmentId}`,
       data: {
-        assignment_id: assignmentId,
+        assignment_id: savedNewAssignment.id, // 새로 생성된 ID 반환
       }
     };
   }
 
   async releaseAssignment(assignmentId: number) {
+    // // 1. assignment 조회
+    // const assignmentRepository = this.dataSource.getRepository(PatientBedAssignment);
+    // const assignment = await assignmentRepository.findOne({
+    //   where: { id: assignmentId }
+    // });
+
+    // if (!assignment) {
+    //   return {
+    //     success: false,
+    //     statusCode: 404,
+    //     message: `Assignment with id ${assignmentId} not found`
+    //   };
+    // }
+
+    // // released_at 이미 설정되어 있는지 확인
+    // if (assignment.released_at) {
+    //   return {
+    //     success: false,
+    //     statusCode: 409,
+    //     message: `Assignment with id ${assignmentId} is already released`
+    //   };
+    // }
+
+    // // 2. device 조회 및 bed_id null로 업데이트
+    // if (assignment.device_id) {
+    //   const deviceRepository = this.dataSource.getRepository(Device);
+    //   const device = await deviceRepository.findOne({
+    //     where: { id: assignment.device_id }
+    //   });
+
+    //   if (!device) {
+    //     return {
+    //       success: false,
+    //       statusCode: 404,
+    //       message: `Device with id ${assignment.device_id} not found`
+    //     };
+    //   }
+
+    //   // device의 위치 정보 초기화 (hospital_id, ward_id는 유지)
+    //   await deviceRepository.update(assignment.device_id, {
+    //     bed_id: null,
+    //     room_id: null,
+    //     last_udpate_at: new Date()
+    //   });
+    // }
+
+    // // 3. assignment의 released_at을 현재 시간으로 업데이트
+    // await assignmentRepository.update(assignmentId, {
+    //   released_at: new Date()
+    // });
+
+    // // 4. bed의 status를 'available'로 복구
+    // if (assignment.bed_id) {
+    //   const bedRepository = this.dataSource.getRepository(Bed);
+    //   await bedRepository.update(assignment.bed_id, {
+    //     status: 'available'
+    //   });
+    // }
+
+    // // MQTT 알림 발송
+    // if (assignment.bed_id) {
+    //   try {
+    //     const bedRepository = this.dataSource.getRepository(Bed);
+    //     const bed = await bedRepository.findOne({
+    //       where: { id: assignment.bed_id },
+    //       relations: ['room', 'room.ward']
+    //     });
+    //     if (bed?.room?.ward?.hospital_id) {
+    //       await this.sendAssignmentRefreshNotification(bed.room.ward.hospital_id, {
+    //         assignment_id: assignmentId,
+    //         bed_id: assignment.bed_id,
+    //         action: 'release'
+    //       });
+    //     }
+    //   } catch (mqttError) {
+    //     console.error(`[ASSIGNMENT RELEASE] MQTT notification failed: ${mqttError.message}`);
+    //   }
+    // }
+
+    // return {
+    //   success: true,
+    //   statusCode: 200,
+    //   message: `Assignment ${assignmentId} successfully released`,
+    //   data: {
+    //     assignment_id: assignmentId,
+    //     released_at: new Date()
+    //   }
+    // };
+
+    // 수액투여완료 처리(clear infusion) 후 기록을 남기는 대신 한줄 추가하는 부분 없애기 위해 변경
     // 1. assignment 조회
     const assignmentRepository = this.dataSource.getRepository(PatientBedAssignment);
     const assignment = await assignmentRepository.findOne({
@@ -332,10 +507,26 @@ export class MonitoringService {
       });
     }
 
-    // 3. assignment의 released_at을 현재 시간으로 업데이트
-    await assignmentRepository.update(assignmentId, {
-      released_at: new Date()
-    });
+    const now = new Date();
+
+    // ---------------------------------------------------------
+    // 3. 찌꺼기 데이터(껍데기) 판별 및 처리 (★핵심 수정 부분)
+    // ---------------------------------------------------------
+    // 수액 종류나 총 용량 값이 없으면 '수액 교체'로 인해 생긴 빈 껍데기로 간주합니다.
+    if (!assignment.infusion_type && !assignment.infusion_total_volume) {
+      
+      // 진짜 투여 기록이 아니므로 DB에서 흔적 없이 삭제해 버립니다.
+      await assignmentRepository.delete(assignmentId);
+
+    } else {
+      
+      // 수액을 맞은 기록이 있다면 영구 보존을 위해 시간을 찍고 상태를 변경합니다.
+      await assignmentRepository.update(assignmentId, {
+        released_at: now,
+        status: 'completed' // 명시적으로 상태도 변경
+      });
+      
+    }
 
     // 4. bed의 status를 'available'로 복구
     if (assignment.bed_id) {
@@ -368,10 +559,10 @@ export class MonitoringService {
     return {
       success: true,
       statusCode: 200,
-      message: `Assignment ${assignmentId} successfully released`,
+      message: `Assignment ${assignmentId} successfully released or deleted if empty`,
       data: {
         assignment_id: assignmentId,
-        released_at: new Date()
+        released_at: now
       }
     };
   }

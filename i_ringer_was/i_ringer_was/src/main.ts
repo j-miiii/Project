@@ -11,12 +11,19 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     logger: ['error', 'warn', 'log', 'debug', 'verbose']
   });
-  
+
   app.enableCors({
-    origin: ['http://localhost:3005', 'http://localhost:3006', 'http://localhost:3007', 'https://iringer.kr', 'http://iringer.kr'],
+    origin: ['http://localhost:3005', 
+      'http://localhost:3006', 
+      'http://localhost:3007', 
+      'https://iringer.kr', 
+      'http://iringer.kr',
+      'http://220.93.155.150:3006'],
+    //origin: '*',
+    //'http://221.144.5.65:3006'
     credentials: true,
   });
-  
+
   app.useGlobalPipes(new ValidationPipe({
     transform: true,
     whitelist: true,
@@ -30,12 +37,12 @@ async function bootstrap() {
   });
 
   const port = process.env.PORT || 3000;
-  
+
   try {
-    await app.listen(port);
-    
+    await app.listen(port, '0.0.0.0');
+
     const host = `http://localhost:${port}`;
-    
+
     console.log(`🏥 I-Ringer API is running on port ${port}`);
     console.log(`📚 Swagger UI: ${host}/api-docs`);
     console.log(`📄 Swagger JSON: ${host}/api-docs/swagger-json`);

@@ -1,0 +1,33 @@
+import { AccessToken } from './access-token.entity';
+import { Notification } from './notification.entity';
+import { UserSetting } from './user-setting.entity';
+import { Hospital } from './hospital.entity';
+import { Ward } from './ward.entity';
+import { NurseRoomAssignment } from './nurse-room-assignment.entity';
+import { UserTermAgreement } from './user-term-agreement.entity';
+export declare class User {
+    id: number;
+    role: string;
+    auth_id: string;
+    password: string;
+    nickname: string;
+    hospital_id: number;
+    ward_id: number;
+    has_emr: boolean;
+    emr_user_key: string;
+    emr_group_code: string;
+    emr_group_desc: string;
+    dept_code: string;
+    employee_number: string;
+    profile_image: string;
+    fcm_token: string;
+    created_at: Date;
+    updated_at: Date;
+    hospital: Hospital;
+    ward: Ward;
+    accessTokens: AccessToken[];
+    notifications: Notification[];
+    userSettings: UserSetting[];
+    nurseRoomAssignments: NurseRoomAssignment[];
+    termAgreements: UserTermAgreement[];
+}

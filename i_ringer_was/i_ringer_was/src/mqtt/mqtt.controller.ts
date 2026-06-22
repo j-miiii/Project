@@ -1,6 +1,6 @@
 import { Controller, Post, Get, Body, Param, HttpCode, HttpStatus } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiBody, ApiProperty } from '@nestjs/swagger';
-import { IsString, IsNotEmpty, IsOptional, IsNumber } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsNumber, IsBoolean } from 'class-validator';
 import { MqttService } from './mqtt.service';
 
 class PublishMessageDto {
@@ -37,7 +37,17 @@ class DeviceSettingDto {
   @ApiProperty({ description: '처방 속도 (mL/h)', required: false, example: 100 })
   @IsNumber()
   @IsOptional()
-  flowRate?: number;       // 처방 속도
+  flowRate?: number;       // 처방속도
+
+  @ApiProperty({ description: '수액교체파라미터', required: false, example: 100 })
+  @IsBoolean()
+  @IsOptional()
+  infusion_change_buttion?: boolean;       // 수액교체파라미터
+
+  @ApiProperty({ description: '누적 수액총량', required: false, example: 10 })
+  @IsNumber()
+  @IsOptional()
+  infusion_current_volume?: number;       // 누적 수액총량
 
   @ApiProperty({ description: '추가 설정 값', required: false })
   @IsOptional()

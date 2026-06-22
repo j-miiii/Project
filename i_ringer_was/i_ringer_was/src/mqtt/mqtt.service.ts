@@ -27,8 +27,13 @@ interface IRingerEmergency {
 
 interface DeviceSettingData {
   totalVolume?: number;    // 총 수액량
-  flowRate?: number;       // 처방 속도
+  flowRate?: number;       // 처방 속도 : flowRate 이름으로 처방 속도 전달
   settings?: any;          // 추가 설정 값
+   // 수액 교체 시 누적 투입량 변경ㅇ
+  infusion_current_volume?: number;
+
+  // 수액 교체 여부 파라미터
+  infusion_change_button?: boolean; 
 }
 
 @Injectable()
@@ -36,7 +41,7 @@ export class MqttService implements OnModuleInit, OnModuleDestroy {
   private client: mqtt.MqttClient;
   private readonly logger = new Logger(MqttService.name);
   private readonly topics = {
-    iringerData: '/iringer_data',           // 디바이스 → 서버: 수액 무게, 배터리 데이터
+    iringerData: '/iringer_data',           // 디바이스 → 서버: 수액 무061게, 배터리 데이터
     iringerEmergency: '/iringer_emergency', // 디바이스 → 서버: 긴급 메시지
   };
   private mqttEnabled: boolean;
@@ -171,7 +176,7 @@ export class MqttService implements OnModuleInit, OnModuleDestroy {
    * /iringer_data 토픽에서 수신한 수액 데이터를 처리
    * 무게, 배터리 정보를 파싱하고 데이터베이스에 저장
    */
-  private async handleIRingerData(message: string) {
+  private async handleIRingerData(message: string) {    // 기기에서 받은 데이터를 처리할 때 사용.
     try {
       const data = JSON.parse(message) as IRingerData;
       this.logger.log(`iRinger data received from ${data.sn}: weight=${data.weight}, battery=${data.battery}`);
@@ -234,7 +239,7 @@ export class MqttService implements OnModuleInit, OnModuleDestroy {
    * 총 수액량, 처방 속도 등을 디바이스로 전달
    */
   public sendDeviceSetting(deviceSn: string, settings: DeviceSettingData) {
-    const topic = `/ir_device_setting/${deviceSn}`;
+    const topic = `/ir_device_setting/${deviceSn}`;   // 특정 기기만 메시지를 받을 수 있도록 토픽을 보냄
     this.publishMessage(topic, settings);
     this.logger.log(`Sent device settings to ${deviceSn}`);
   }

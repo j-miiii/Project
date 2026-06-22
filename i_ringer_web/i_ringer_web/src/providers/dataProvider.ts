@@ -1,7 +1,9 @@
 import { ApiResponse, User, LoginRequest, LoginResponse, RegisterRequest } from '../types/api';
 import { isTokenExpired, isTokenValid } from '../utils/tokenUtils';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://iringer.kr/api';
+// const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://iringer.kr/api';
+//const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://221.144.5.65:3005/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://220.93.155.150:3005/api';
 
 if (!API_BASE_URL || API_BASE_URL === 'undefined') {
   console.error('API_BASE_URL is not defined properly');
@@ -552,7 +554,8 @@ class DataProvider {
    * @param assignmentId patient_bed_assignments id
    */
   async clearInfusion(assignmentId: number): Promise<any> {
-    const url = `${API_BASE_URL}/monitoring/assignments/${assignmentId}/clear-infusion`;
+    //const url = `${API_BASE_URL}/monitoring/assignments/${assignmentId}/clear-infusion`;
+    const url = `${API_BASE_URL}/monitoring/assignments/${assignmentId}/release`;
     const token = this.getAuthToken();
 
     const headers: Record<string, string> = {

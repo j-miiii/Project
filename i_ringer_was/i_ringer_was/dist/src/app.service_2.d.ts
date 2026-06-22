@@ -1,0 +1,41 @@
+import { DataSource } from 'typeorm';
+import { MqttService } from './mqtt/mqtt.service';
+import { FcmService } from './fcm/fcm.service';
+export declare class AppService {
+    private dataSource;
+    private mqttService;
+    private fcmService;
+    private readonly logger;
+    private entityMap;
+    constructor(dataSource: DataSource, mqttService: MqttService, fcmService: FcmService);
+    private deriveAlertCategory;
+    private getRepository;
+    findAll(tableName: string, query: any, authorization?: string): Promise<any>;
+    findOne(tableName: string, id: number, userId?: number): Promise<any>;
+    update(tableName: string, id: number, updateDto: any): Promise<any>;
+    sendFcmTest(userId: number, title: string, body: string): Promise<any>;
+    markAllNotificationsAsRead(userId: number): Promise<any>;
+    remove(tableName: string, id: number): Promise<any>;
+    insertData(tableName: string, data: any): Promise<any>;
+    getAllHospitalsHierarchy(): Promise<any>;
+    private processInfusionRawLog;
+    private processIRDeviceData;
+    private processLoadCellDeviceData;
+    private createNotificationsByAlertType;
+    private checkSpeedAlerts;
+    private checkAndSendNotifications;
+    testNotification(assignmentId: number, targetPercentage: number): Promise<{
+        success: boolean;
+        message: string;
+        data: {
+            assignment_id: number;
+            target_percentage: number;
+            target_current_volume: number;
+            total_volume: any;
+            device_id: any;
+            bed_id: any;
+        };
+    }>;
+    upsertPatientBedAssignment(data: any): Promise<any>;
+    catch(error: any): void;
+}

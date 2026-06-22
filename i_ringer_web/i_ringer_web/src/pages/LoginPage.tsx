@@ -301,7 +301,7 @@ const LoginPage: React.FC = () => {
             }}
           />
           <Typography component="h1" variant="h4" sx={{ fontWeight: 'bold', color: isDarkMode ? colors.gray.gray100 : '#424242', fontSize: '24px', mb: 1 }}>
-            iRinger Login
+            iRinger Login2
           </Typography>
           <Typography variant="body2" sx={{ color: isDarkMode ? colors.gray.gray400 : '#757575', fontSize: '16px' }}>
             Hospital Monitoring System

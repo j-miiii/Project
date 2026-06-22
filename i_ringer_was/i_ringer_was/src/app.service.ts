@@ -711,6 +711,31 @@ export class AppService {
 
       // patient_bed_assignments 업데이트 시 device 위치 업데이트 + MQTT 알림 발송
       if (tableName === 'patient_bed_assignments' && updatedRecord) {
+
+// =============== [여기서부터 코드 추가!] ===============
+        // 기기가 방금 연결되었고(device_id 존재), 수액 용량 정보가 있다면 기기로 쏴줍니다.
+        if (updatedRecord.device_id && updatedRecord.infusion_total_volume) {
+          try {
+            const deviceRepository = this.getRepository('devices');
+            const targetDevice = await deviceRepository.findOne({ where: { id: updatedRecord.device_id } });
+            
+            if (targetDevice && targetDevice.serial_number) {
+              this.mqttService.sendDeviceSetting(targetDevice.serial_number, {
+                totalVolume: updatedRecord.infusion_total_volume,
+                flowRate: updatedRecord.infusion_cchr || 0,
+                infusion_current_volume: 0,
+                // 수액 교체 버튼 파라미터 
+                infusion_change_button: true
+              });
+              this.logger.log(`[TEST]2 기기(${targetDevice.serial_number})로 보낸 데이터:  ${targetDevice.infusion_change_button} 누적총량 :${targetDevice.infusion_current_volume}`);
+              this.logger.log(`[ASSIGNMENT UPDATE] 기기(${targetDevice.serial_number})로 전송 완료! (총 용량: ${updatedRecord.infusion_total_volume}ml, 처방 속도: ${updatedRecord.infusion_cchr || 0}cc/hr)`);
+            }
+          } catch (e) {
+            this.logger.error(`[ASSIGNMENT UPDATE] 기기 설정 전송 실패: ${e.message}`);
+          }
+        }
+
+        
         // device_id 변경 시 device 위치 동기화
         if (updatedRecord.device_id && updatedRecord.bed_id) {
           // device_id가 설정된 경우: 위치 정보 업데이트
@@ -1492,10 +1517,11 @@ export class AppService {
             });
 
             if (assignment) {
-              // 3. infusion_total_volume을 r_volume_max로 추가
+              // 3. infusion_total_volume을 r_volume_max로 추가 0612
               return {
                 ...result,
-                r_volume_max: assignment.infusion_total_volume
+                r_volume_max: assignment.infusion_total_volume,
+                ordered_gtt : assignment.infusion_cchr
               };
             }
           }
@@ -2651,6 +2677,7 @@ export class AppService {
           });
         }
 
+
         return updatedAssignment;
 
       } else {
@@ -2665,7 +2692,32 @@ export class AppService {
 
         const result = await this.insertData('patient_bed_assignments', createData);
 
-        // usage_count 증가
+        // -----------------------------------------usage_count 증가 cchr 추가  ------------------------ 0612
+        if (data.device_id && data.infusion_total_volume && data.infusion_cchr) {
+    const deviceRepository = this.getRepository('devices');
+    // device_id로 기기의 시리얼 번호를 찾습니다.
+    deviceRepository.findOne({ where: { id: data.device_id } }).then(targetDevice => {
+      if (targetDevice && targetDevice.serial_number) {
+        // 기기로 용량과 속도를 전송합니다.
+        // 추가로 누적투여량 0으로 변경하고 수액 교체 파라미터도 같이 전송
+        this.mqttService.sendDeviceSetting(targetDevice.serial_number, {
+          totalVolume: data.infusion_total_volume,
+          flowRate: data.infusion_cchr,
+
+          infusion_current_volume: 0,
+          // 수액 교체 버튼 파라미터 
+          infusion_change_button: true
+
+        });
+        this.logger.log(`[TEST]1 기기(${targetDevice.serial_number})로 보낸 데이터:  ${targetDevice.infusion_change_button} 누적총량 :${targetDevice.infusion_current_volume}`);
+        this.logger.log(`[UPSERT ASSIGNMENT] 기기(${targetDevice.serial_number})로 용량 및 속도 전송 완료!`);
+      }
+    }).catch(err => {
+      this.logger.error(`[UPSERT ASSIGNMENT] 기기 정보 조회 실패: ${err.message}`);
+    });
+  }
+        // ------------------------------------------------------------------------------------
+
         if (data.infusion_type) {
           try {
             const infusionRepository = this.getRepository('infusions');
