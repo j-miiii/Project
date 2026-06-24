@@ -338,6 +338,7 @@ let AppService = AppService_1 = class AppService {
             delete filteredUpdateDto.id;
             delete filteredUpdateDto.created_at;
             delete filteredUpdateDto.updated_at;
+            const isChangeButtonClicked = updateDto.infusion_current_volume === true;
             if (Object.keys(filteredUpdateDto).length === 0) {
                 throw new common_1.HttpException('No valid fields to update', common_1.HttpStatus.BAD_REQUEST);
             }
@@ -525,6 +526,7 @@ let AppService = AppService_1 = class AppService {
             }
             const updatedRecord = await repository.findOne({ where: { id } });
             if (tableName === 'patient_bed_assignments' && updatedRecord) {
+                const isResetRequested = updateDto.infusion_current_volume == 0;
                 if (updatedRecord.device_id && updatedRecord.infusion_total_volume) {
                     try {
                         const deviceRepository = this.getRepository('devices');
@@ -533,11 +535,10 @@ let AppService = AppService_1 = class AppService {
                             this.mqttService.sendDeviceSetting(targetDevice.serial_number, {
                                 totalVolume: updatedRecord.infusion_total_volume,
                                 flowRate: updatedRecord.infusion_cchr || 0,
-                                infusion_current_volume: 0,
-                                infusion_change_button: true
+                                infusion_current_volume: isResetRequested ? 0 : undefined
                             });
-                            this.logger.log(`[TEST]2 기기(${targetDevice.serial_number})로 보낸 데이터:  ${targetDevice.infusion_change_button} 누적총량 :${targetDevice.infusion_current_volume}`);
-                            this.logger.log(`[ASSIGNMENT UPDATE] 기기(${targetDevice.serial_number})로 전송 완료! (총 용량: ${updatedRecord.infusion_total_volume}ml, 처방 속도: ${updatedRecord.infusion_cchr || 0}cc/hr)`);
+                            this.logger.log(`[TEST]2 기기(${targetDevice.serial_number}) 수액교체여부 확인 : ${isResetRequested}`);
+                            this.logger.log(`[ASSIGNMENT UPDATE] 기기(${targetDevice.serial_number})로 전송 완료! (총 용량: ${updatedRecord.infusion_total_volume}ml, 처방 속도: ${updatedRecord.infusion_cchr || 0}cc/hr) 누적투여용량 : ${updatedRecord.infusion_current_volume}`);
                         }
                     }
                     catch (e) {
@@ -1119,10 +1120,12 @@ let AppService = AppService_1 = class AppService {
                             }
                         });
                         if (assignment) {
+                            const isResetNeeded = assignment.infusion_current_volume === 0;
                             return {
                                 ...result,
                                 r_volume_max: assignment.infusion_total_volume,
-                                ordered_gtt: assignment.infusion_cchr
+                                ordered_gtt: assignment.infusion_cchr,
+                                infusion_current_volume: isResetNeeded ? 0 : undefined
                             };
                         }
                     }
@@ -1878,9 +1881,8 @@ let AppService = AppService_1 = class AppService {
                                 totalVolume: data.infusion_total_volume,
                                 flowRate: data.infusion_cchr,
                                 infusion_current_volume: 0,
-                                infusion_change_button: true
                             });
-                            this.logger.log(`[TEST]1 기기(${targetDevice.serial_number})로 보낸 데이터:  ${targetDevice.infusion_change_button} 누적총량 :${targetDevice.infusion_current_volume}`);
+                            this.logger.log(`[TEST]1 기기(${targetDevice.serial_number})에 신규 수액 배정 -> 누적총량 0 리셋 명령 전송됨!`);
                             this.logger.log(`[UPSERT ASSIGNMENT] 기기(${targetDevice.serial_number})로 용량 및 속도 전송 완료!`);
                         }
                     }).catch(err => {

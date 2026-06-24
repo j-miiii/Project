@@ -418,10 +418,9 @@ export class AppService {
       delete filteredUpdateDto.updated_at;
 
       // -------------0622 데이터 확인을 위한 추가 부분-------------
-      const isChangeButtonClicked = updateDto.infusion_change_button === true; // 수액 교체 버튼이 true 인지?
+      const isChangeButtonClicked = updateDto.infusion_current_volume === true; // 수액 교체 버튼이 true 인지?
 
-      delete filteredUpdateDto.infusion_change_button;        //   파라미터용으로 DB 테이블 컬럼에 없어 
-      delete filteredUpdateDto.infusion_current_volume;      //    에러방지로 지워주기
+  
       //---------------------------------------------------------
 
       // 필터링 후에도 업데이트할 데이터가 있는지 확인
@@ -719,6 +718,8 @@ export class AppService {
       // patient_bed_assignments 업데이트 시 device 위치 업데이트 + MQTT 알림 발송
       if (tableName === 'patient_bed_assignments' && updatedRecord) {
 
+          const isResetRequested = updateDto.infusion_current_volume == 0;
+
         // =============== [여기서부터 코드 추가!] ===============  오더속도 전달
         // 기기가 방금 연결되었고(device_id 존재), 수액 용량 정보가 있다면 기기로 쏴줍니다.
         if (updatedRecord.device_id && updatedRecord.infusion_total_volume) {
@@ -731,13 +732,12 @@ export class AppService {
                 totalVolume: updatedRecord.infusion_total_volume,
                 flowRate: updatedRecord.infusion_cchr || 0, // 오더속도 추가
 
-                // 👇 [수정] 무조건 0이 아니라, 버튼이 눌렸을 때(true)만 0을 보냅니다!       0622 수정 내용
-                infusion_current_volume: isChangeButtonClicked ? 0 : undefined,
-                infusion_change_button: isChangeButtonClicked ? true : undefined
+                // 👇 [수정] 무조건 0이 아니라, 버튼이 눌렸을 때 누적투여량 0을 보냅니다!       0622 수정 내용
+                infusion_current_volume: isResetRequested ? 0 : undefined
                 //-------------------------------------------------------------
               });
-              this.logger.log(`[TEST]2 기기(${targetDevice.serial_number})로 보낸 교체 파라미터 작동여부: ${isChangeButtonClicked}`);
-              this.logger.log(`[ASSIGNMENT UPDATE] 기기(${targetDevice.serial_number})로 전송 완료! (총 용량: ${updatedRecord.infusion_total_volume}ml, 처방 속도: ${updatedRecord.infusion_cchr || 0}cc/hr)`);
+              this.logger.log(`[TEST]2 기기(${targetDevice.serial_number}) 수액교체여부 확인 : ${isResetRequested}`);
+              this.logger.log(`[ASSIGNMENT UPDATE] 기기(${targetDevice.serial_number})로 전송 완료! (총 용량: ${updatedRecord.infusion_total_volume}ml, 처방 속도: ${updatedRecord.infusion_cchr || 0}cc/hr) 누적투여용량 : ${updatedRecord.infusion_current_volume}`);
             }
           } catch (e) {
             this.logger.error(`[ASSIGNMENT UPDATE] 기기 설정 전송 실패: ${e.message}`);
@@ -1527,10 +1527,14 @@ export class AppService {
 
             if (assignment) {
               // 3. infusion_total_volume을 r_volume_max로 추가 0612
+              const isResetNeeded = assignment.infusion_current_volume === 0;
+              
               return {
                 ...result,
                 r_volume_max: assignment.infusion_total_volume,
-                ordered_gtt : assignment.infusion_cchr
+                ordered_gtt : assignment.infusion_cchr,
+
+                infusion_current_volume : isResetNeeded ? 0 : undefined
               };
             }
           }
@@ -2714,8 +2718,6 @@ export class AppService {
           flowRate: data.infusion_cchr,
 
           infusion_current_volume: 0,
-          // 수액 교체 버튼 파라미터 
-          infusion_change_button: true
 
         });
         this.logger.log(`[TEST]1 기기(${targetDevice.serial_number})에 신규 수액 배정 -> 누적총량 0 리셋 명령 전송됨!`);
